@@ -3,12 +3,12 @@
     partial class Form1
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -23,183 +23,249 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            lblTITULO = new Label();
-            lblID = new Label();
-            lblCLIENTE = new Label();
-            lblHABITACION = new Label();
-            lblNUMERO = new Label();
-            lblFECHA = new Label();
-            txtID = new TextBox();
-            txtCLIENTE = new TextBox();
-            txtHABITACION = new TextBox();
-            txtNUMERO = new TextBox();
-            txtFECHA = new TextBox();
-            btnBUSCAR = new Button();
-            btnCALCULAR = new Button();
-            txtPRECIO = new TextBox();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            lblHotel = new Label();
+            lblCliente = new Label();
+            lblHabitacion = new Label();
+            lblNumeroHabitacion = new Label();
+            lblDiasEstadia = new Label();
+            lblFecha = new Label();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            btnReservar = new Button();
+            btnTotal = new Button();
+            txtCliente = new TextBox();
+            txtNumeroHabitacion = new TextBox();
+            txtDiasEstadia = new TextBox();
+            txtTotal = new TextBox();
+            cbHabitacion = new ComboBox();
+            dtpFecha = new DateTimePicker();
+            dgv = new DataGridView();
+            btnEliminar = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
             SuspendLayout();
             // 
-            // lblTITULO
+            // lblHotel
             // 
-            lblTITULO.AutoSize = true;
-            lblTITULO.Location = new Point(317, 9);
-            lblTITULO.Name = "lblTITULO";
-            lblTITULO.Size = new Size(113, 25);
-            lblTITULO.TabIndex = 0;
-            lblTITULO.Text = "Hotel Dinero";
+            lblHotel.AutoSize = true;
+            lblHotel.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblHotel.Location = new Point(114, 34);
+            lblHotel.Name = "lblHotel";
+            lblHotel.Size = new Size(278, 32);
+            lblHotel.TabIndex = 0;
+            lblHotel.Text = "Reservas Hotel Limon";
             // 
-            // lblID
+            // lblCliente
             // 
-            lblID.AutoSize = true;
-            lblID.Location = new Point(185, 62);
-            lblID.Name = "lblID";
-            lblID.Size = new Size(30, 25);
-            lblID.TabIndex = 1;
-            lblID.Text = "ID";
+            lblCliente.AutoSize = true;
+            lblCliente.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCliente.Location = new Point(197, 90);
+            lblCliente.Name = "lblCliente";
+            lblCliente.Size = new Size(86, 26);
+            lblCliente.TabIndex = 2;
+            lblCliente.Text = "Cliente";
             // 
-            // lblCLIENTE
+            // lblHabitacion
             // 
-            lblCLIENTE.AutoSize = true;
-            lblCLIENTE.Location = new Point(185, 112);
-            lblCLIENTE.Name = "lblCLIENTE";
-            lblCLIENTE.Size = new Size(65, 25);
-            lblCLIENTE.TabIndex = 2;
-            lblCLIENTE.Text = "Cliente";
+            lblHabitacion.AutoSize = true;
+            lblHabitacion.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblHabitacion.Location = new Point(157, 146);
+            lblHabitacion.Name = "lblHabitacion";
+            lblHabitacion.Size = new Size(126, 26);
+            lblHabitacion.TabIndex = 3;
+            lblHabitacion.Text = "Habitacion";
             // 
-            // lblHABITACION
+            // lblNumeroHabitacion
             // 
-            lblHABITACION.AutoSize = true;
-            lblHABITACION.Location = new Point(185, 171);
-            lblHABITACION.Name = "lblHABITACION";
-            lblHABITACION.Size = new Size(97, 25);
-            lblHABITACION.TabIndex = 3;
-            lblHABITACION.Text = "Habitacion";
+            lblNumeroHabitacion.AutoSize = true;
+            lblNumeroHabitacion.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNumeroHabitacion.Location = new Point(38, 202);
+            lblNumeroHabitacion.Name = "lblNumeroHabitacion";
+            lblNumeroHabitacion.Size = new Size(245, 26);
+            lblNumeroHabitacion.TabIndex = 4;
+            lblNumeroHabitacion.Text = "Numero de Habitacion";
             // 
-            // lblNUMERO
+            // lblDiasEstadia
             // 
-            lblNUMERO.AutoSize = true;
-            lblNUMERO.Location = new Point(185, 223);
-            lblNUMERO.Name = "lblNUMERO";
-            lblNUMERO.Size = new Size(192, 25);
-            lblNUMERO.TabIndex = 4;
-            lblNUMERO.Text = "Numero de Habitacion";
+            lblDiasEstadia.AutoSize = true;
+            lblDiasEstadia.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDiasEstadia.Location = new Point(143, 253);
+            lblDiasEstadia.Name = "lblDiasEstadia";
+            lblDiasEstadia.Size = new Size(140, 26);
+            lblDiasEstadia.TabIndex = 5;
+            lblDiasEstadia.Text = "Dias Estadia";
+            lblDiasEstadia.Click += label6_Click;
             // 
-            // lblFECHA
+            // lblFecha
             // 
-            lblFECHA.AutoSize = true;
-            lblFECHA.Location = new Point(185, 280);
-            lblFECHA.Name = "lblFECHA";
-            lblFECHA.Size = new Size(57, 25);
-            lblFECHA.TabIndex = 5;
-            lblFECHA.Text = "Fecha";
+            lblFecha.AutoSize = true;
+            lblFecha.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblFecha.Location = new Point(209, 312);
+            lblFecha.Name = "lblFecha";
+            lblFecha.Size = new Size(74, 26);
+            lblFecha.TabIndex = 6;
+            lblFecha.Text = "Fecha";
             // 
-            // txtID
+            // btnReservar
             // 
-            txtID.Location = new Point(383, 62);
-            txtID.Name = "txtID";
-            txtID.Size = new Size(150, 31);
-            txtID.TabIndex = 6;
+            btnReservar.Font = new Font("Times New Roman", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnReservar.ForeColor = Color.DarkRed;
+            btnReservar.Location = new Point(197, 450);
+            btnReservar.Name = "btnReservar";
+            btnReservar.Size = new Size(191, 34);
+            btnReservar.TabIndex = 10;
+            btnReservar.Text = "Guardar Reserva";
+            btnReservar.UseVisualStyleBackColor = true;
+            btnReservar.Click += btnReservar_Click;
             // 
-            // txtCLIENTE
+            // btnTotal
             // 
-            txtCLIENTE.Location = new Point(383, 112);
-            txtCLIENTE.Name = "txtCLIENTE";
-            txtCLIENTE.Size = new Size(150, 31);
-            txtCLIENTE.TabIndex = 7;
+            btnTotal.Font = new Font("Times New Roman", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnTotal.ForeColor = Color.DarkRed;
+            btnTotal.Location = new Point(100, 371);
+            btnTotal.Name = "btnTotal";
+            btnTotal.Size = new Size(183, 34);
+            btnTotal.TabIndex = 11;
+            btnTotal.Text = "Calcular Total";
+            btnTotal.UseVisualStyleBackColor = true;
+            btnTotal.Click += btnTotal_Click;
             // 
-            // txtHABITACION
+            // txtCliente
             // 
-            txtHABITACION.Location = new Point(383, 171);
-            txtHABITACION.Name = "txtHABITACION";
-            txtHABITACION.Size = new Size(150, 31);
-            txtHABITACION.TabIndex = 8;
+            txtCliente.Location = new Point(309, 88);
+            txtCliente.Name = "txtCliente";
+            txtCliente.Size = new Size(150, 31);
+            txtCliente.TabIndex = 13;
+            txtCliente.TextChanged += txtCliente_TextChanged;
             // 
-            // txtNUMERO
+            // txtNumeroHabitacion
             // 
-            txtNUMERO.Location = new Point(383, 223);
-            txtNUMERO.Name = "txtNUMERO";
-            txtNUMERO.Size = new Size(150, 31);
-            txtNUMERO.TabIndex = 9;
+            txtNumeroHabitacion.Location = new Point(309, 197);
+            txtNumeroHabitacion.Name = "txtNumeroHabitacion";
+            txtNumeroHabitacion.Size = new Size(150, 31);
+            txtNumeroHabitacion.TabIndex = 15;
             // 
-            // txtFECHA
+            // txtDiasEstadia
             // 
-            txtFECHA.Location = new Point(383, 280);
-            txtFECHA.Name = "txtFECHA";
-            txtFECHA.Size = new Size(150, 31);
-            txtFECHA.TabIndex = 10;
+            txtDiasEstadia.Location = new Point(309, 248);
+            txtDiasEstadia.Name = "txtDiasEstadia";
+            txtDiasEstadia.Size = new Size(150, 31);
+            txtDiasEstadia.TabIndex = 16;
             // 
-            // btnBUSCAR
+            // txtTotal
             // 
-            btnBUSCAR.Location = new Point(293, 332);
-            btnBUSCAR.Name = "btnBUSCAR";
-            btnBUSCAR.Size = new Size(112, 34);
-            btnBUSCAR.TabIndex = 11;
-            btnBUSCAR.Text = "BUSCAR";
-            btnBUSCAR.UseVisualStyleBackColor = true;
-            btnBUSCAR.Click += btnBUSCAR_Click;
+            txtTotal.Location = new Point(309, 371);
+            txtTotal.Name = "txtTotal";
+            txtTotal.Size = new Size(150, 31);
+            txtTotal.TabIndex = 18;
             // 
-            // btnCALCULAR
+            // cbHabitacion
             // 
-            btnCALCULAR.Location = new Point(56, 388);
-            btnCALCULAR.Name = "btnCALCULAR";
-            btnCALCULAR.Size = new Size(294, 31);
-            btnCALCULAR.TabIndex = 12;
-            btnCALCULAR.Text = "CALCULAR TOTAL A PAGAR";
-            btnCALCULAR.UseVisualStyleBackColor = true;
-            btnCALCULAR.Click += btnCALCULAR_Click;
+            cbHabitacion.FormattingEnabled = true;
+            cbHabitacion.Location = new Point(309, 144);
+            cbHabitacion.Name = "cbHabitacion";
+            cbHabitacion.Size = new Size(182, 33);
+            cbHabitacion.TabIndex = 19;
+            cbHabitacion.SelectedIndexChanged += cbHabitacion_SelectedIndexChanged_1;
             // 
-            // txtPRECIO
+            // dtpFecha
             // 
-            txtPRECIO.Location = new Point(383, 388);
-            txtPRECIO.Name = "txtPRECIO";
-            txtPRECIO.Size = new Size(150, 31);
-            txtPRECIO.TabIndex = 13;
+            dtpFecha.Format = DateTimePickerFormat.Short;
+            dtpFecha.Location = new Point(309, 302);
+            dtpFecha.Name = "dtpFecha";
+            dtpFecha.Size = new Size(150, 31);
+            dtpFecha.TabIndex = 21;
+            dtpFecha.Value = new DateTime(2025, 5, 31, 11, 22, 7, 0);
+            // 
+            // dgv
+            // 
+            dgv.AllowUserToAddRows = false;
+            dgv.AllowUserToDeleteRows = false;
+            dgv.AllowUserToResizeColumns = false;
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.Navy;
+            dataGridViewCellStyle1.Font = new Font("Calisto MT", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv.EnableHeadersVisualStyles = false;
+            dgv.Location = new Point(581, 57);
+            dgv.Name = "dgv";
+            dgv.ReadOnly = true;
+            dgv.RowHeadersWidth = 62;
+            dgv.Size = new Size(803, 413);
+            dgv.TabIndex = 22;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.Font = new Font("Times New Roman", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEliminar.ForeColor = Color.DarkRed;
+            btnEliminar.Location = new Point(581, 490);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(198, 34);
+            btnEliminar.TabIndex = 23;
+            btnEliminar.Text = "Eliminar Reserva";
+            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(txtPRECIO);
-            Controls.Add(btnCALCULAR);
-            Controls.Add(btnBUSCAR);
-            Controls.Add(txtFECHA);
-            Controls.Add(txtNUMERO);
-            Controls.Add(txtHABITACION);
-            Controls.Add(txtCLIENTE);
-            Controls.Add(txtID);
-            Controls.Add(lblFECHA);
-            Controls.Add(lblNUMERO);
-            Controls.Add(lblHABITACION);
-            Controls.Add(lblCLIENTE);
-            Controls.Add(lblID);
-            Controls.Add(lblTITULO);
+            BackColor = Color.Lavender;
+            BackgroundImage = Properties.Resources.WhatsApp_Image_2025_05_31_at_17_04_16_73714994;
+            ClientSize = new Size(1396, 587);
+            Controls.Add(btnEliminar);
+            Controls.Add(dgv);
+            Controls.Add(dtpFecha);
+            Controls.Add(cbHabitacion);
+            Controls.Add(txtTotal);
+            Controls.Add(txtDiasEstadia);
+            Controls.Add(txtNumeroHabitacion);
+            Controls.Add(txtCliente);
+            Controls.Add(btnTotal);
+            Controls.Add(btnReservar);
+            Controls.Add(lblFecha);
+            Controls.Add(lblDiasEstadia);
+            Controls.Add(lblNumeroHabitacion);
+            Controls.Add(lblHabitacion);
+            Controls.Add(lblCliente);
+            Controls.Add(lblHotel);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)dgv).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label lblTITULO;
-        private Label lblID;
-        private Label lblCLIENTE;
-        private Label lblHABITACION;
-        private Label lblNUMERO;
-        private Label lblFECHA;
-        private TextBox txtID;
-        private TextBox txtCLIENTE;
-        private TextBox txtHABITACION;
-        private TextBox txtNUMERO;
-        private TextBox txtFECHA;
-        private Button btnBUSCAR;
-        private Button btnCALCULAR;
-        private TextBox txtPRECIO;
+        private Label lblHotel;
+        private Label lblCliente;
+        private Label lblHabitacion;
+        private Label lblNumeroHabitacion;
+        private Label lblDiasEstadia;
+        private Label lblFecha;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Button btnReservar;
+        private Button btnTotal;
+        private TextBox txtCliente;
+        private TextBox txtNumeroHabitacion;
+        private TextBox txtDiasEstadia;
+        private TextBox txtTotal;
+        private ComboBox cbHabitacion;
+        private DateTimePicker dtpFecha;
+        private DataGridView dgv;
+        private Button btnEliminar;
     }
 }
