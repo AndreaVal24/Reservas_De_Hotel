@@ -165,6 +165,7 @@
             // 
             // cbHabitacion
             // 
+            cbHabitacion.DropDownStyle = ComboBoxStyle.DropDownList;
             cbHabitacion.FormattingEnabled = true;
             cbHabitacion.Location = new Point(309, 144);
             cbHabitacion.Name = "cbHabitacion";
@@ -202,7 +203,7 @@
             dgv.Name = "dgv";
             dgv.ReadOnly = true;
             dgv.RowHeadersWidth = 62;
-            dgv.Size = new Size(803, 413);
+            dgv.Size = new Size(1028, 413);
             dgv.TabIndex = 22;
             // 
             // btnEliminar
@@ -223,7 +224,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lavender;
             BackgroundImage = Properties.Resources.WhatsApp_Image_2025_05_31_at_17_04_16_73714994;
-            ClientSize = new Size(1396, 587);
+            ClientSize = new Size(1621, 587);
             Controls.Add(btnEliminar);
             Controls.Add(dgv);
             Controls.Add(dtpFecha);
