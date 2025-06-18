@@ -14,9 +14,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CapaPresentacion
 {
-    public partial class Form1 : Form
+    public partial class FormEmpleados : Form
     {
-        public Form1()
+        public FormEmpleados()
         {
             InitializeComponent();
             ObtenerReservas();  //para que se muestren las nuevas reservas en el dgv
@@ -126,19 +126,35 @@ namespace CapaPresentacion
 
             ReservaNegocio negocio = new ReservaNegocio();
 
-            int resultadoSql = negocio.InsertarReserva(reserva);
-            if (resultadoSql > 0)
+            //caso de editar 
+
+            if (idReservaEditando != -1) // Si estamos editando una reserva existente
             {
-                MessageBox.Show("Se guardo la reserva correctamente");
-                ObtenerReservas();
-                limpiarCampos();
-            }
-            else
-            {
-                MessageBox.Show("No se guardo la reserva ");
+                reserva.ID = idReservaEditando; // Asignamos el ID de la reserva que se está editando
+                negocio.EditarReserva(reserva); // Llamamos al método para editar la reserva
+                MessageBox.Show("Reserva actualizada correctamente.");
+                idReservaEditando = -1; // Reseteamos el ID de edición
+
+                btnReservar.Text = "Guardar reserva"; // Cambiamos el texto del botón de nuevo a "Guardar reserva"
+                btnReservar.BackColor = Color.White;
+                btnReservar.ForeColor = Color.DarkRed;
+
             }
 
+            else // caso RESERVA
+            {
+                int resultadoSql = negocio.InsertarReserva(reserva);
+                if (resultadoSql > 0)
+                    MessageBox.Show("Se guardó la reserva correctamente.");
+                else
+                    MessageBox.Show("No se guardó la reserva.");
+            }
+
+
+            limpiarCampos();  //limpiamos los campos 
+            ObtenerReservas(); // Actualiza el DataGridView para mostrar la nueva reserva
         }
+
         //DGV
         private void ObtenerReservas()
         {
@@ -156,18 +172,8 @@ namespace CapaPresentacion
         }
 
 
-        private void cbHabitacion_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
-        private void cbHabitacion_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
 
-        }
-        private void txtCliente_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -202,9 +208,56 @@ namespace CapaPresentacion
             }
         }
 
-        private void btnEliminar_Click_1(object sender, EventArgs e)
-        {
 
+
+        private void txtCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true; // Evita que se ingresen caracteres no permitidos
+            }
+        }
+
+        private void btnVolverReservas_Click(object sender, EventArgs e)  //boton para volver al menu principal
+        {
+            Form2 menu = new Form2(); // Form2 es el formulario de menu principal
+            menu.Show();
+            this.Hide();
+        }
+
+
+        private int idReservaEditando = -1; // Variable para almacenar el ID de la reserva que se está editando
+
+        // Botón para editar una reserva
+        private void btnEditarRe_Click(object sender, EventArgs e)
+        {
+            if (dgv.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Por favor, seleccione una reserva para editar.");
+                return;
+            }
+            DataGridViewRow fila = dgv.SelectedRows[0]; //esto obtiene la fila seleccionada en el DataGridView
+
+            idReservaEditando = Convert.ToInt32(fila.Cells["ID"].Value); //guardar el ID de la reserva seleccionada
+
+            //pasar los datos al textbox y combobox
+            txtCliente.Text = fila.Cells["Cliente"].Value.ToString();
+            cbHabitacion.SelectedItem = fila.Cells["Habitacion"].Value.ToString();
+            txtNumeroHabitacion.Text = fila.Cells["Numero_Habitacion"].Value.ToString();
+            txtDiasEstadia.Text = fila.Cells["DiasEstadia"].Value.ToString();
+            dtpFecha.Value = Convert.ToDateTime(fila.Cells["Fecha"].Value);
+
+            btnReservar.Text = "Guardar cambios"; // Cambia el texto del botón
+            btnReservar.BackColor = Color.DarkBlue;       
+            btnReservar.ForeColor = Color.White;        
+              
+
+           
+        }
+
+        private void txtDiasEstadia_TextChanged(object sender, EventArgs e)
+        {
+            txtTotal.Text = ""; // Limpia el campo de total al cambiar los días de estadía
         }
     }
 }

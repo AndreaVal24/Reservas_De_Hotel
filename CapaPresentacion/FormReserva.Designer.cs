@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class Form1
+    partial class FormEmpleados
     {
         /// <summary>
         /// Required designer variable.
@@ -46,6 +46,8 @@
             dtpFecha = new DateTimePicker();
             dgv = new DataGridView();
             btnEliminar = new Button();
+            btnVolverReservas = new Button();
+            btnEditarRe = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
             SuspendLayout();
             // 
@@ -140,7 +142,7 @@
             txtCliente.Name = "txtCliente";
             txtCliente.Size = new Size(150, 31);
             txtCliente.TabIndex = 13;
-            txtCliente.TextChanged += txtCliente_TextChanged;
+            txtCliente.KeyPress += txtCliente_KeyPress;
             // 
             // txtNumeroHabitacion
             // 
@@ -155,6 +157,7 @@
             txtDiasEstadia.Name = "txtDiasEstadia";
             txtDiasEstadia.Size = new Size(150, 31);
             txtDiasEstadia.TabIndex = 16;
+            txtDiasEstadia.TextChanged += txtDiasEstadia_TextChanged;
             // 
             // txtTotal
             // 
@@ -171,7 +174,6 @@
             cbHabitacion.Name = "cbHabitacion";
             cbHabitacion.Size = new Size(182, 33);
             cbHabitacion.TabIndex = 19;
-            cbHabitacion.SelectedIndexChanged += cbHabitacion_SelectedIndexChanged_1;
             // 
             // dtpFecha
             // 
@@ -199,18 +201,18 @@
             dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv.EnableHeadersVisualStyles = false;
-            dgv.Location = new Point(581, 57);
+            dgv.Location = new Point(525, 34);
             dgv.Name = "dgv";
             dgv.ReadOnly = true;
             dgv.RowHeadersWidth = 62;
-            dgv.Size = new Size(1028, 413);
+            dgv.Size = new Size(807, 413);
             dgv.TabIndex = 22;
             // 
             // btnEliminar
             // 
             btnEliminar.Font = new Font("Times New Roman", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEliminar.ForeColor = Color.DarkRed;
-            btnEliminar.Location = new Point(581, 490);
+            btnEliminar.Location = new Point(894, 466);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(198, 34);
             btnEliminar.TabIndex = 23;
@@ -218,13 +220,36 @@
             btnEliminar.UseVisualStyleBackColor = true;
             btnEliminar.Click += btnEliminar_Click;
             // 
-            // Form1
+            // btnVolverReservas
+            // 
+            btnVolverReservas.BackgroundImageLayout = ImageLayout.None;
+            btnVolverReservas.Location = new Point(563, 539);
+            btnVolverReservas.Name = "btnVolverReservas";
+            btnVolverReservas.Size = new Size(195, 34);
+            btnVolverReservas.TabIndex = 24;
+            btnVolverReservas.Text = "Volver al Menu";
+            btnVolverReservas.UseVisualStyleBackColor = true;
+            btnVolverReservas.Click += btnVolverReservas_Click;
+            // 
+            // btnEditarRe
+            // 
+            btnEditarRe.Location = new Point(1170, 466);
+            btnEditarRe.Name = "btnEditarRe";
+            btnEditarRe.Size = new Size(112, 34);
+            btnEditarRe.TabIndex = 25;
+            btnEditarRe.Text = "Editar";
+            btnEditarRe.UseVisualStyleBackColor = true;
+            btnEditarRe.Click += btnEditarRe_Click;
+            // 
+            // FormEmpleados
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lavender;
             BackgroundImage = Properties.Resources.WhatsApp_Image_2025_05_31_at_17_04_16_73714994;
-            ClientSize = new Size(1621, 587);
+            ClientSize = new Size(1344, 585);
+            Controls.Add(btnEditarRe);
+            Controls.Add(btnVolverReservas);
             Controls.Add(btnEliminar);
             Controls.Add(dgv);
             Controls.Add(dtpFecha);
@@ -241,7 +266,7 @@
             Controls.Add(lblHabitacion);
             Controls.Add(lblCliente);
             Controls.Add(lblHotel);
-            Name = "Form1";
+            Name = "FormEmpleados";
             Text = "Form1";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dgv).EndInit();
@@ -268,5 +293,7 @@
         private DateTimePicker dtpFecha;
         private DataGridView dgv;
         private Button btnEliminar;
+        private Button btnVolverReservas;
+        private Button btnEditarRe;
     }
 }
