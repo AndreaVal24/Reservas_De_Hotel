@@ -127,7 +127,7 @@
             // btnEliminarEmpleado
             // 
             btnEliminarEmpleado.Font = new Font("Times New Roman", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEliminarEmpleado.Location = new Point(842, 381);
+            btnEliminarEmpleado.Location = new Point(912, 381);
             btnEliminarEmpleado.Name = "btnEliminarEmpleado";
             btnEliminarEmpleado.Size = new Size(205, 34);
             btnEliminarEmpleado.TabIndex = 7;
@@ -161,7 +161,7 @@
             dgvEmpleados.DefaultCellStyle = dataGridViewCellStyle2;
             dgvEmpleados.EnableHeadersVisualStyles = false;
             dgvEmpleados.GridColor = Color.Black;
-            dgvEmpleados.Location = new Point(445, 32);
+            dgvEmpleados.Location = new Point(482, 32);
             dgvEmpleados.Name = "dgvEmpleados";
             dgvEmpleados.ReadOnly = true;
             dgvEmpleados.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -176,7 +176,7 @@
             dgvEmpleados.RowHeadersWidth = 62;
             dataGridViewCellStyle4.BackColor = Color.Ivory;
             dgvEmpleados.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            dgvEmpleados.Size = new Size(776, 343);
+            dgvEmpleados.Size = new Size(894, 343);
             dgvEmpleados.TabIndex = 22;
             dgvEmpleados.CellContentClick += dgvEmpleados_CellContentClick;
             // 
@@ -184,7 +184,7 @@
             // 
             txtNombreEm.Location = new Point(230, 96);
             txtNombreEm.Name = "txtNombreEm";
-            txtNombreEm.Size = new Size(180, 31);
+            txtNombreEm.Size = new Size(211, 31);
             txtNombreEm.TabIndex = 9;
             txtNombreEm.KeyPress += txtNombreEm_KeyPress;
             // 
@@ -192,7 +192,7 @@
             // 
             txtCedula.Location = new Point(230, 149);
             txtCedula.Name = "txtCedula";
-            txtCedula.Size = new Size(180, 31);
+            txtCedula.Size = new Size(211, 31);
             txtCedula.TabIndex = 10;
             txtCedula.KeyPress += txtCedula_KeyPress;
             // 
@@ -201,7 +201,7 @@
             txtSueldo.Location = new Point(230, 261);
             txtSueldo.Name = "txtSueldo";
             txtSueldo.ReadOnly = true;
-            txtSueldo.Size = new Size(180, 31);
+            txtSueldo.Size = new Size(211, 31);
             txtSueldo.TabIndex = 11;
             // 
             // btnCalcularSueldo
@@ -220,7 +220,7 @@
             cbCargo.FormattingEnabled = true;
             cbCargo.Location = new Point(228, 205);
             cbCargo.Name = "cbCargo";
-            cbCargo.Size = new Size(182, 33);
+            cbCargo.Size = new Size(213, 33);
             cbCargo.TabIndex = 14;
             cbCargo.SelectedIndexChanged += cbCargo_SelectedIndexChanged;
             // 
@@ -238,7 +238,7 @@
             // btnEditarEm
             // 
             btnEditarEm.Font = new Font("Times New Roman", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEditarEm.Location = new Point(1104, 381);
+            btnEditarEm.Location = new Point(1193, 381);
             btnEditarEm.Name = "btnEditarEm";
             btnEditarEm.Size = new Size(112, 34);
             btnEditarEm.TabIndex = 16;
@@ -251,7 +251,7 @@
             dtpFechasIngresoEm.Format = DateTimePickerFormat.Short;
             dtpFechasIngresoEm.Location = new Point(236, 326);
             dtpFechasIngresoEm.Name = "dtpFechasIngresoEm";
-            dtpFechasIngresoEm.Size = new Size(174, 31);
+            dtpFechasIngresoEm.Size = new Size(205, 31);
             dtpFechasIngresoEm.TabIndex = 17;
             // 
             // Form1
@@ -260,7 +260,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.piscina;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1287, 690);
+            ClientSize = new Size(1410, 690);
             Controls.Add(dtpFechasIngresoEm);
             Controls.Add(btnEditarEm);
             Controls.Add(btnVolverEmpleado);

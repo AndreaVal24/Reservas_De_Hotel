@@ -28,7 +28,7 @@ namespace CapaNegocio
                     cmd.Parameters.AddWithValue("@Cargo", empleado.Cargo);
                     cmd.Parameters.AddWithValue("@Sueldo", empleado.Sueldo);
                     cmd.Parameters.AddWithValue("@Fecha_Ingreso", empleado.Fecha_Ingreso);
-                    return cmd.ExecuteNonQuery();
+                    return cmd.ExecuteNonQuery(); // Devuelve el número de filas afectadas
                 }
             }
         }
@@ -50,7 +50,7 @@ namespace CapaNegocio
 
 
         //metodo para calcular el sueldo de un empleado segun su cargo
-        public Empleado CalcularSueldo(int idEmpleado)   
+        public Empleado CalcularSueldo(int idEmpleado)
         {
             using (SqlConnection conn = conexion.ObtenerConexion())
             {
@@ -71,17 +71,26 @@ namespace CapaNegocio
 
                             Empleado empleado;
 
+                            // Instanciamos según el cargo
                             if (cargo == "Gerente")
                                 empleado = new Gerente(nombre, cedula, fechaIngreso);
                             else if (cargo == "Chef")
                                 empleado = new Chef(nombre, cedula, fechaIngreso);
-                            else
+                            else if (cargo == "Recepcionista")
                                 empleado = new Recepcionista(nombre, cedula, fechaIngreso);
+                            else if (cargo == "Personal de Limpieza")
+                                empleado = new Limpieza(nombre, cedula, fechaIngreso);
+                            else if (cargo == "Personal de Mantenimiento")
+                                empleado = new Mantenimiento(nombre, cedula, fechaIngreso);
+                            else if (cargo == "Personal de Seguridad")
+                                empleado = new Seguridad(nombre, cedula, fechaIngreso);
+                            else
+                                return null; // Si el cargo no coincide con ninguno conocido
 
                             empleado.ID = id;
                             empleado.Cargo = cargo;
 
-                            // calcula el sueldo dependiendo del tipo de empleado
+                            // Asignamos el sueldo
                             if (empleado is Recepcionista r)
                                 empleado.Sueldo = r.sueldoR();
                             else
@@ -92,8 +101,11 @@ namespace CapaNegocio
                     }
                 }
             }
+
             return null; // Si no se encuentra el empleado
         }
+
+
 
         //metodo para editar empleado
         public void EditarEmpleado(Empleado empleado)

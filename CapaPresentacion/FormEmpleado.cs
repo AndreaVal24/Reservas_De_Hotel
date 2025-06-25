@@ -29,6 +29,9 @@ namespace CapaPresentacion
             cbCargo.Items.Add("Gerente");
             cbCargo.Items.Add("Recepcionista");
             cbCargo.Items.Add("Chef");
+            cbCargo.Items.Add("Personal de Limpieza");
+            cbCargo.Items.Add("Personal de Mantenimiento");
+            cbCargo.Items.Add("Personal de Seguridad");
 
             cbCargo.SelectedIndex = 0; // Selecciona el primer elemento por defecto
         }
@@ -49,7 +52,6 @@ namespace CapaPresentacion
         //boton calcular sueldo
         private void btnCalcularSueldo_Click(object sender, EventArgs e)
         {
-
             //calcular sueldo
             string cargo = cbCargo.SelectedItem.ToString();
             decimal sueldoBase = 0;
@@ -69,11 +71,25 @@ namespace CapaPresentacion
                 Empleado recepcionista = new Recepcionista();
                 sueldoBase = recepcionista.sueldoR();
             }
+            else if (cargo == "Personal de Limpieza")
+            {
+                Empleado limpieza = new Limpieza();
+                sueldoBase = limpieza.sueldoGC();
+            }
+            else if (cargo == "Personal de Mantenimiento")
+            {
+                Empleado mantenimiento = new Mantenimiento();
+                sueldoBase = mantenimiento.sueldoGC();
+            }
+            else if (cargo == "Personal de Seguridad")
+            {
+                Empleado seguridad = new Seguridad();
+                sueldoBase = seguridad.sueldoGC();
+            }
+
             txtSueldo.Text = sueldoBase.ToString("F2");  // Esto convierte el sueldo a string para mostrarlo en el TextBox 
                                                          //y el F2 lo formatea a dos decimales
-
         }
-
 
 
 
@@ -110,14 +126,20 @@ namespace CapaPresentacion
                 empleado = new Gerente(nombre, cedula, fechaIngreso);
             else if (cargo == "Chef")
                 empleado = new Chef(nombre, cedula, fechaIngreso);
-            else
+            else if (cargo == "Recepcionista")
                 empleado = new Recepcionista(nombre, cedula, fechaIngreso);
+            else if (cargo == "Personal de Limpieza")
+                empleado = new Limpieza(nombre, cedula, fechaIngreso);
+            else if (cargo == "Personal de Mantenimiento")
+                empleado = new Mantenimiento(nombre, cedula, fechaIngreso);
+            else // Seguridad
+                empleado = new Seguridad(nombre, cedula, fechaIngreso);
 
-            if(cargo == "Recepcionista")
-{
+            if (cargo == "Recepcionista")
+            {
                 empleado.Sueldo = empleado.sueldoR();
             }
-else
+            else
             {
                 empleado.Sueldo = empleado.sueldoGC();
             }
