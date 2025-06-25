@@ -184,7 +184,7 @@
             // 
             txtNombreEm.Location = new Point(230, 96);
             txtNombreEm.Name = "txtNombreEm";
-            txtNombreEm.Size = new Size(211, 31);
+            txtNombreEm.Size = new Size(229, 31);
             txtNombreEm.TabIndex = 9;
             txtNombreEm.KeyPress += txtNombreEm_KeyPress;
             // 
@@ -192,7 +192,7 @@
             // 
             txtCedula.Location = new Point(230, 149);
             txtCedula.Name = "txtCedula";
-            txtCedula.Size = new Size(211, 31);
+            txtCedula.Size = new Size(229, 31);
             txtCedula.TabIndex = 10;
             txtCedula.KeyPress += txtCedula_KeyPress;
             // 
@@ -201,7 +201,7 @@
             txtSueldo.Location = new Point(230, 261);
             txtSueldo.Name = "txtSueldo";
             txtSueldo.ReadOnly = true;
-            txtSueldo.Size = new Size(211, 31);
+            txtSueldo.Size = new Size(229, 31);
             txtSueldo.TabIndex = 11;
             // 
             // btnCalcularSueldo
@@ -220,7 +220,7 @@
             cbCargo.FormattingEnabled = true;
             cbCargo.Location = new Point(228, 205);
             cbCargo.Name = "cbCargo";
-            cbCargo.Size = new Size(213, 33);
+            cbCargo.Size = new Size(231, 33);
             cbCargo.TabIndex = 14;
             cbCargo.SelectedIndexChanged += cbCargo_SelectedIndexChanged;
             // 
@@ -251,7 +251,7 @@
             dtpFechasIngresoEm.Format = DateTimePickerFormat.Short;
             dtpFechasIngresoEm.Location = new Point(236, 326);
             dtpFechasIngresoEm.Name = "dtpFechasIngresoEm";
-            dtpFechasIngresoEm.Size = new Size(205, 31);
+            dtpFechasIngresoEm.Size = new Size(223, 31);
             dtpFechasIngresoEm.TabIndex = 17;
             // 
             // Form1
