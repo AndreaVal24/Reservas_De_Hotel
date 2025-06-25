@@ -35,6 +35,10 @@ namespace CapaPresentacion
             cbHabitacion.Items.Add("Simple");
             cbHabitacion.Items.Add("Con Desayuno");
             cbHabitacion.SelectedIndex = 0; // Selecciona el primer elemento por defecto
+
+            dtpFecha.MinDate = DateTime.Today.AddDays(1); // Establece la fecha mínima del DateTimePicker a mañana
+                                                          // asi no se puede reservar para hoy ni antes
+
         }
         private void limpiarCampos() //metodo para limpiar los campos del formulario
         {
