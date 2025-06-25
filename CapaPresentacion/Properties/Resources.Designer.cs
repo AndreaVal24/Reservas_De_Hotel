@@ -63,6 +63,36 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Black_and_Yellow_Flat_Illustrative_Sunset_Tour_Logo {
+            get {
+                object obj = ResourceManager.GetObject("Black and Yellow Flat Illustrative Sunset Tour Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Black_and_Yellow_Flat_Illustrative_Sunset_Tour_Logo__2_ {
+            get {
+                object obj = ResourceManager.GetObject("Black and Yellow Flat Illustrative Sunset Tour Logo (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap piscina {
+            get {
+                object obj = ResourceManager.GetObject("piscina", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap WhatsApp_Image_2025_05_31_at_17_01_25_bdde6dee {
             get {
                 object obj = ResourceManager.GetObject("WhatsApp Image 2025-05-31 at 17.01.25_bdde6dee", resourceCulture);

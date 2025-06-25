@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaNegocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,9 +25,10 @@ namespace CapaPresentacion
         private void btnOpcionReserva_Click(object sender, EventArgs e)
         {
             //este boton llama al formulario reserva y oculta al menu
-            FormEmpleados formReserva = new FormEmpleados();  
+            FormEmpleados formReserva = new FormEmpleados();
             formReserva.Show();
             this.Hide(); //oculta el formulario de menu
+            formReserva.FormClosed += (s, args) => this.Show(); //este evento permite que al cerrar el formulario de reservas, se vuelva a mostrar el menu
         }
 
         private void btnOpcionEmpleados_Click(object sender, EventArgs e)
@@ -34,6 +36,7 @@ namespace CapaPresentacion
             Form1 formEmpleados = new Form1();
             formEmpleados.Show();
             this.Hide();
+            formEmpleados.FormClosed += (s, args) => this.Show(); //este evento permite que al cerrar el formulario de empleados, se vuelva a mostrar el menu
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -45,6 +48,16 @@ namespace CapaPresentacion
             {
                 Application.Exit(); //cierra la aplicacion
             }
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

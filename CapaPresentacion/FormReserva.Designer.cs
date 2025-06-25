@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             lblHotel = new Label();
             lblCliente = new Label();
             lblHabitacion = new Label();
@@ -54,16 +57,18 @@
             // lblHotel
             // 
             lblHotel.AutoSize = true;
-            lblHotel.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblHotel.BackColor = Color.Transparent;
+            lblHotel.Font = new Font("Lucida Calligraphy", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblHotel.Location = new Point(114, 34);
             lblHotel.Name = "lblHotel";
-            lblHotel.Size = new Size(278, 32);
+            lblHotel.Size = new Size(387, 36);
             lblHotel.TabIndex = 0;
-            lblHotel.Text = "Reservas Hotel Limon";
+            lblHotel.Text = "Reservas Lemon Resort";
             // 
             // lblCliente
             // 
             lblCliente.AutoSize = true;
+            lblCliente.BackColor = Color.Transparent;
             lblCliente.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblCliente.Location = new Point(197, 90);
             lblCliente.Name = "lblCliente";
@@ -74,37 +79,41 @@
             // lblHabitacion
             // 
             lblHabitacion.AutoSize = true;
+            lblHabitacion.BackColor = Color.Transparent;
             lblHabitacion.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblHabitacion.Location = new Point(157, 146);
             lblHabitacion.Name = "lblHabitacion";
             lblHabitacion.Size = new Size(126, 26);
             lblHabitacion.TabIndex = 3;
-            lblHabitacion.Text = "Habitacion";
+            lblHabitacion.Text = "Habitación";
             // 
             // lblNumeroHabitacion
             // 
             lblNumeroHabitacion.AutoSize = true;
+            lblNumeroHabitacion.BackColor = Color.Transparent;
             lblNumeroHabitacion.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblNumeroHabitacion.Location = new Point(38, 202);
             lblNumeroHabitacion.Name = "lblNumeroHabitacion";
             lblNumeroHabitacion.Size = new Size(245, 26);
             lblNumeroHabitacion.TabIndex = 4;
-            lblNumeroHabitacion.Text = "Numero de Habitacion";
+            lblNumeroHabitacion.Text = "Número de Habitación";
             // 
             // lblDiasEstadia
             // 
             lblDiasEstadia.AutoSize = true;
+            lblDiasEstadia.BackColor = Color.Transparent;
             lblDiasEstadia.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDiasEstadia.Location = new Point(143, 253);
             lblDiasEstadia.Name = "lblDiasEstadia";
             lblDiasEstadia.Size = new Size(140, 26);
             lblDiasEstadia.TabIndex = 5;
-            lblDiasEstadia.Text = "Dias Estadia";
+            lblDiasEstadia.Text = "Días Estadía";
             lblDiasEstadia.Click += label6_Click;
             // 
             // lblFecha
             // 
             lblFecha.AutoSize = true;
+            lblFecha.BackColor = Color.Transparent;
             lblFecha.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblFecha.Location = new Point(209, 312);
             lblFecha.Name = "lblFecha";
@@ -115,7 +124,7 @@
             // btnReservar
             // 
             btnReservar.Font = new Font("Times New Roman", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnReservar.ForeColor = Color.DarkRed;
+            btnReservar.ForeColor = Color.DarkGoldenrod;
             btnReservar.Location = new Point(197, 450);
             btnReservar.Name = "btnReservar";
             btnReservar.Size = new Size(191, 34);
@@ -127,7 +136,7 @@
             // btnTotal
             // 
             btnTotal.Font = new Font("Times New Roman", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnTotal.ForeColor = Color.DarkRed;
+            btnTotal.ForeColor = Color.DarkGoldenrod;
             btnTotal.Location = new Point(100, 371);
             btnTotal.Name = "btnTotal";
             btnTotal.Size = new Size(183, 34);
@@ -150,6 +159,7 @@
             txtNumeroHabitacion.Name = "txtNumeroHabitacion";
             txtNumeroHabitacion.Size = new Size(150, 31);
             txtNumeroHabitacion.TabIndex = 15;
+            txtNumeroHabitacion.KeyPress += txtNumeroHabitacion_KeyPress;
             // 
             // txtDiasEstadia
             // 
@@ -158,11 +168,13 @@
             txtDiasEstadia.Size = new Size(150, 31);
             txtDiasEstadia.TabIndex = 16;
             txtDiasEstadia.TextChanged += txtDiasEstadia_TextChanged;
+            txtDiasEstadia.KeyPress += txtDiasEstadia_KeyPress;
             // 
             // txtTotal
             // 
             txtTotal.Location = new Point(309, 371);
             txtTotal.Name = "txtTotal";
+            txtTotal.ReadOnly = true;
             txtTotal.Size = new Size(150, 31);
             txtTotal.TabIndex = 18;
             // 
@@ -190,9 +202,10 @@
             dgv.AllowUserToDeleteRows = false;
             dgv.AllowUserToResizeColumns = false;
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgv.BackgroundColor = Color.Snow;
+            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.Navy;
+            dataGridViewCellStyle1.BackColor = Color.DarkGoldenrod;
             dataGridViewCellStyle1.Font = new Font("Calisto MT", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.White;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
@@ -200,18 +213,38 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgv.DefaultCellStyle = dataGridViewCellStyle2;
             dgv.EnableHeadersVisualStyles = false;
+            dgv.GridColor = Color.Black;
             dgv.Location = new Point(525, 34);
             dgv.Name = "dgv";
             dgv.ReadOnly = true;
+            dgv.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.LightYellow;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = Color.LightYellow;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgv.RowHeadersWidth = 62;
+            dataGridViewCellStyle4.BackColor = Color.Ivory;
+            dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dgv.Size = new Size(807, 413);
             dgv.TabIndex = 22;
             // 
             // btnEliminar
             // 
-            btnEliminar.Font = new Font("Times New Roman", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEliminar.ForeColor = Color.DarkRed;
+            btnEliminar.Font = new Font("Times New Roman", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEliminar.ForeColor = Color.DarkGoldenrod;
             btnEliminar.Location = new Point(894, 466);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(198, 34);
@@ -223,6 +256,7 @@
             // btnVolverReservas
             // 
             btnVolverReservas.BackgroundImageLayout = ImageLayout.None;
+            btnVolverReservas.Font = new Font("Times New Roman", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnVolverReservas.Location = new Point(563, 539);
             btnVolverReservas.Name = "btnVolverReservas";
             btnVolverReservas.Size = new Size(195, 34);
@@ -233,6 +267,8 @@
             // 
             // btnEditarRe
             // 
+            btnEditarRe.Font = new Font("Times New Roman", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEditarRe.ForeColor = Color.DarkGoldenrod;
             btnEditarRe.Location = new Point(1170, 466);
             btnEditarRe.Name = "btnEditarRe";
             btnEditarRe.Size = new Size(112, 34);
@@ -247,6 +283,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lavender;
             BackgroundImage = Properties.Resources.WhatsApp_Image_2025_05_31_at_17_04_16_73714994;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1344, 585);
             Controls.Add(btnEditarRe);
             Controls.Add(btnVolverReservas);

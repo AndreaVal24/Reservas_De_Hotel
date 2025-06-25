@@ -53,6 +53,7 @@ namespace CapaPresentacion
             string tipo = cbHabitacion.SelectedItem.ToString();
             decimal preciopornoche = 0;
 
+            // Verifica el tipo de habitación y asigna el precio correspondiente
             if (tipo == "Simple")
             {
                 Simple simple = new Simple();
@@ -71,7 +72,7 @@ namespace CapaPresentacion
                 return;
             }
             decimal total = preciopornoche * dias;
-            txtTotal.Text = total.ToString();
+            txtTotal.Text = total.ToString("F2"); // Formatea el total a dos decimales
 
         }
 
@@ -113,7 +114,7 @@ namespace CapaPresentacion
             reserva.DiasEstadia = diasEstadia;
             reserva.Fecha = dtpFecha.Value;
 
-
+            // Validar que el campo de total no esté vacío y sea un número válido
             if (decimal.TryParse(txtTotal.Text, out decimal total))
             {
                 reserva.Precio = total;
@@ -137,7 +138,7 @@ namespace CapaPresentacion
 
                 btnReservar.Text = "Guardar reserva"; // Cambiamos el texto del botón de nuevo a "Guardar reserva"
                 btnReservar.BackColor = Color.White;
-                btnReservar.ForeColor = Color.DarkRed;
+                btnReservar.ForeColor = Color.DarkGoldenrod;
 
             }
 
@@ -174,11 +175,13 @@ namespace CapaPresentacion
 
 
 
-
+        //BOTON ELIMINAR RESERVA
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            // Verifica si hay una fila seleccionada en el DGV
             if (dgv.SelectedRows.Count > 0)
             {
+                // Confirma la eliminación
                 DialogResult confirmacion = MessageBox.Show(
                     "¿Estás seguro de que deseas eliminar esta reserva?",
                     "Confirmar Eliminación",
@@ -187,6 +190,8 @@ namespace CapaPresentacion
 
                 if (confirmacion == DialogResult.Yes)
                 {
+                    // Si el usuario confirma, procede a eliminar la reserva
+                    //Si el usuario selecciona no, no se hace nada
                     try
                     {
                         int idReserva = Convert.ToInt32(dgv.SelectedRows[0].Cells["ID"].Value);
@@ -236,6 +241,19 @@ namespace CapaPresentacion
                 MessageBox.Show("Por favor, seleccione una reserva para editar.");
                 return;
             }
+
+            DialogResult confirm = MessageBox.Show(
+                "¿Estás seguro de que deseas editar los datos del empleado seleccionado?",
+                "Confirmar Edición",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (confirm == DialogResult.No)
+            {
+                return; // Si el usuario cancela, no hace nada, el return hace que se salga del metodo
+                //si el usuario presiona No, no se ejecuta el resto del código, si presiona Si, se continua con el resto del código
+            }
+
             DataGridViewRow fila = dgv.SelectedRows[0]; //esto obtiene la fila seleccionada en el DataGridView
 
             idReservaEditando = Convert.ToInt32(fila.Cells["ID"].Value); //guardar el ID de la reserva seleccionada
@@ -248,16 +266,32 @@ namespace CapaPresentacion
             dtpFecha.Value = Convert.ToDateTime(fila.Cells["Fecha"].Value);
 
             btnReservar.Text = "Guardar cambios"; // Cambia el texto del botón
-            btnReservar.BackColor = Color.DarkBlue;       
-            btnReservar.ForeColor = Color.White;        
-              
+            btnReservar.BackColor = Color.DarkOliveGreen;
+            btnReservar.ForeColor = Color.White;
 
-           
+
+
         }
 
         private void txtDiasEstadia_TextChanged(object sender, EventArgs e)
         {
             txtTotal.Text = ""; // Limpia el campo de total al cambiar los días de estadía
+        }
+
+        private void txtNumeroHabitacion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // permite solo números
+            }
+        }
+
+        private void txtDiasEstadia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; //permite solo numeros 
+            }
         }
     }
 }
