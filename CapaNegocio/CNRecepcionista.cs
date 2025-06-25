@@ -20,7 +20,7 @@ namespace CapaNegocio
 
         public override decimal sueldoR()  //metodo virtual
         {
-            return base.sueldoR();
+            return 40000;  //asignamos un sueldo fijo para el recepcionista
         }
 
         //debo llamar tambien el metodo abstracto, porque se exije que se usen en todas las clases hijas, es obligatorio
