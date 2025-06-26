@@ -319,5 +319,60 @@ namespace CapaPresentacion
                 return;
             }
         }
+
+
+
+        //boton para buscar empleado por cedula
+        private void btnBuscarporcedula_Click(object sender, EventArgs e)
+        {
+            //cedula es el campo de texto donde se ingresa la cédula del empleado a buscar
+            string cedula = txtBuscarporcedula.Text.Trim();
+
+            // validar que la cédula no esté vacía
+            if (string.IsNullOrEmpty(cedula))
+            {
+                MessageBox.Show("Ingrese una cédula para buscar.");
+                return;
+            }
+            
+            EmpleadoNegocio negocio = new EmpleadoNegocio(); // Instancia de la clase EmpleadoNegocio para acceder a
+                                                             // los metodos de negocio
+            DataTable resultado = negocio.BuscarEmpleadoPorCedula(cedula); // Llama al método BuscarEmpleadoPorCedula
+                                                                           // para obtener los datos del empleado
+                                                                           //es una variable tipo DataTable que
+                                                                           //almacena el resultado de la búsqueda
+         
+            // Verifica si se encontraron resultados
+            if (resultado.Rows.Count > 0)
+            {
+                dgvEmpleados.DataSource = resultado;
+            }
+            else
+            {
+                MessageBox.Show("No existe un empleado con esa cédula en el sistema.");
+                dgvEmpleados.DataSource = null;
+            }
+
+            txtBuscarporcedula.Clear();
+        }
+
+
+
+        private void btnMostrar_Click(object sender, EventArgs e)
+        {
+            //utillizamos el metodo ObtenerEmpleados para mostrar todos los empleados
+            ObtenerEmpleados();
+        }
+
+
+
+        private void txtBuscarporcedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //permitir solo numeros 
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Ignora la tecla si no es número
+            }
+        }
     }
 }

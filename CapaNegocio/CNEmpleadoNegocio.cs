@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -117,8 +118,8 @@ namespace CapaNegocio
                     "Fecha_Ingreso = @Fecha_Ingreso WHERE ID = @ID";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
-                { 
-                cmd.Parameters.AddWithValue("@ID", empleado.ID);
+                {
+                    cmd.Parameters.AddWithValue("@ID", empleado.ID);
                     cmd.Parameters.AddWithValue("@Nombre", empleado.Nombre);
                     cmd.Parameters.AddWithValue("@Cedula", empleado.Cedula);
                     cmd.Parameters.AddWithValue("@Cargo", empleado.Cargo);
@@ -129,5 +130,43 @@ namespace CapaNegocio
             }
         }
 
+
+        // Buscar por cédula
+        //el datatable es una tabla que se usa para mostrar los datos en el datagridview
+        public DataTable BuscarEmpleadoPorCedula(string cedula)
+        {
+            using (SqlConnection conn = conexion.ObtenerConexion())
+            {
+                conn.Open();
+                string query = "SELECT * FROM Empleados WHERE Cedula = @Cedula";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Cedula", cedula);
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable tabla = new DataTable();
+                    da.Fill(tabla);
+                    return tabla;
+                }
+            }
+        }
+
+        //boton para mostrar de nuevo todos los empleados
+        public DataTable MostrarEmpleados()
+        {
+            using (SqlConnection conn = conexion.ObtenerConexion())
+            {
+                conn.Open();
+                string query = "SELECT * FROM Empleados";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable tabla = new DataTable();
+                    da.Fill(tabla);
+                    return tabla;
+                }
+            }
+
+        }
     }
 }

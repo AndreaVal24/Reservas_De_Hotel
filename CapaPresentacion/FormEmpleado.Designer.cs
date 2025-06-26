@@ -49,6 +49,9 @@
             btnVolverEmpleado = new Button();
             btnEditarEm = new Button();
             dtpFechasIngresoEm = new DateTimePicker();
+            btnBuscarporcedula = new Button();
+            txtBuscarporcedula = new TextBox();
+            btnMostrar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvEmpleados).BeginInit();
             SuspendLayout();
             // 
@@ -254,6 +257,38 @@
             dtpFechasIngresoEm.Size = new Size(223, 31);
             dtpFechasIngresoEm.TabIndex = 17;
             // 
+            // btnBuscarporcedula
+            // 
+            btnBuscarporcedula.Font = new Font("Times New Roman", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuscarporcedula.ForeColor = Color.Olive;
+            btnBuscarporcedula.Location = new Point(1111, 538);
+            btnBuscarporcedula.Name = "btnBuscarporcedula";
+            btnBuscarporcedula.Size = new Size(220, 34);
+            btnBuscarporcedula.TabIndex = 23;
+            btnBuscarporcedula.Text = "Buscar Por Cédula";
+            btnBuscarporcedula.UseVisualStyleBackColor = true;
+            btnBuscarporcedula.Click += btnBuscarporcedula_Click;
+            // 
+            // txtBuscarporcedula
+            // 
+            txtBuscarporcedula.Location = new Point(1139, 501);
+            txtBuscarporcedula.Name = "txtBuscarporcedula";
+            txtBuscarporcedula.Size = new Size(166, 31);
+            txtBuscarporcedula.TabIndex = 24;
+            txtBuscarporcedula.KeyPress += txtBuscarporcedula_KeyPress;
+            // 
+            // btnMostrar
+            // 
+            btnMostrar.Font = new Font("Times New Roman", 10F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            btnMostrar.ForeColor = Color.DarkSlateGray;
+            btnMostrar.Location = new Point(482, 381);
+            btnMostrar.Name = "btnMostrar";
+            btnMostrar.Size = new Size(163, 34);
+            btnMostrar.TabIndex = 25;
+            btnMostrar.Text = "Mostrar Todo";
+            btnMostrar.UseVisualStyleBackColor = true;
+            btnMostrar.Click += btnMostrar_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -261,6 +296,9 @@
             BackgroundImage = Properties.Resources.piscina;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1410, 690);
+            Controls.Add(btnMostrar);
+            Controls.Add(txtBuscarporcedula);
+            Controls.Add(btnBuscarporcedula);
             Controls.Add(dtpFechasIngresoEm);
             Controls.Add(btnEditarEm);
             Controls.Add(btnVolverEmpleado);
@@ -305,5 +343,8 @@
         private Button btnVolverEmpleado;
         private Button btnEditarEm;
         private DateTimePicker dtpFechasIngresoEm;
+        private Button btnBuscarporcedula;
+        private TextBox txtBuscarporcedula;
+        private Button btnMostrar;
     }
 }

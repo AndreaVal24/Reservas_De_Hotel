@@ -1,8 +1,10 @@
 ﻿using CapaDatos;
 using CapaNegocio;
 using Microsoft.Data.SqlClient;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -112,6 +114,51 @@ namespace CapaNegocio
                 }
             }
         }
+
+        //Utilice DataTable para la búsqueda y mostrar reservas
+        //DataTable se usa para manejar los resultados de las consultas SQL de manera más flexible y eficiente
+        //DataTable es una estructura de datos que permite almacenar y manipular datos tabulares en memoria, similar a una hoja de cálculo
+
+      
+
+        // Buscar en un rango de fechas
+        public DataTable BuscarReservaPorFecha(DateTime fechaDesde, DateTime fechaHasta)
+        {
+            using (SqlConnection conn = conexion.ObtenerConexion())
+            {
+                conn.Open();
+                string query = "SELECT * FROM Reserva WHERE Fecha BETWEEN @FechaDesde AND @FechaHasta"; // se usa BETWEEN para buscar reservas
+                                                                                                        // en un rango de fechas
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@FechaDesde", fechaDesde);
+                    cmd.Parameters.AddWithValue("@FechaHasta", fechaHasta);
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable tabla = new DataTable();
+                    da.Fill(tabla);
+                    return tabla;
+                }
+            }
+        }
+
+        // Mostrar todas las reservas
+        public DataTable ObtenerTodasLasReservas()
+        {
+            using (SqlConnection conn = conexion.ObtenerConexion())
+            {
+                conn.Open();
+                string query = "SELECT * FROM Reserva";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable tabla = new DataTable();
+                    da.Fill(tabla);
+                    return tabla;
+                }
+            }
+        }
+
     }
 }
 

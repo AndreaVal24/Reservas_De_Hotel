@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle19 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle20 = new DataGridViewCellStyle();
             lblHotel = new Label();
             lblCliente = new Label();
             lblHabitacion = new Label();
@@ -51,6 +51,10 @@
             btnEliminar = new Button();
             btnVolverReservas = new Button();
             btnEditarRe = new Button();
+            btnBuscarporfecha = new Button();
+            dtpHASTA = new DateTimePicker();
+            btnMostrartodo = new Button();
+            dtpDESDE = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
             SuspendLayout();
             // 
@@ -204,48 +208,48 @@
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv.BackgroundColor = Color.Snow;
             dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.DarkGoldenrod;
-            dataGridViewCellStyle1.Font = new Font("Calisto MT", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = Color.DarkGoldenrod;
+            dataGridViewCellStyle17.Font = new Font("Calisto MT", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle17.ForeColor = Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = DataGridViewTriState.True;
+            dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgv.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle18.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = SystemColors.Window;
+            dataGridViewCellStyle18.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle18.ForeColor = Color.Black;
+            dataGridViewCellStyle18.SelectionBackColor = Color.White;
+            dataGridViewCellStyle18.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle18.WrapMode = DataGridViewTriState.False;
+            dgv.DefaultCellStyle = dataGridViewCellStyle18;
             dgv.EnableHeadersVisualStyles = false;
             dgv.GridColor = Color.Black;
             dgv.Location = new Point(525, 34);
             dgv.Name = "dgv";
             dgv.ReadOnly = true;
             dgv.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.LightYellow;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = Color.LightYellow;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle19.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = Color.LightYellow;
+            dataGridViewCellStyle19.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle19.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = Color.LightYellow;
+            dataGridViewCellStyle19.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = DataGridViewTriState.True;
+            dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
             dgv.RowHeadersWidth = 62;
-            dataGridViewCellStyle4.BackColor = Color.Ivory;
-            dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            dgv.Size = new Size(807, 413);
+            dataGridViewCellStyle20.BackColor = Color.Ivory;
+            dgv.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            dgv.Size = new Size(876, 340);
             dgv.TabIndex = 22;
             // 
             // btnEliminar
             // 
             btnEliminar.Font = new Font("Times New Roman", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEliminar.ForeColor = Color.DarkGoldenrod;
-            btnEliminar.Location = new Point(894, 466);
+            btnEliminar.Location = new Point(986, 380);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(198, 34);
             btnEliminar.TabIndex = 23;
@@ -257,7 +261,7 @@
             // 
             btnVolverReservas.BackgroundImageLayout = ImageLayout.None;
             btnVolverReservas.Font = new Font("Times New Roman", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnVolverReservas.Location = new Point(563, 539);
+            btnVolverReservas.Location = new Point(197, 559);
             btnVolverReservas.Name = "btnVolverReservas";
             btnVolverReservas.Size = new Size(195, 34);
             btnVolverReservas.TabIndex = 24;
@@ -269,13 +273,53 @@
             // 
             btnEditarRe.Font = new Font("Times New Roman", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEditarRe.ForeColor = Color.DarkGoldenrod;
-            btnEditarRe.Location = new Point(1170, 466);
+            btnEditarRe.Location = new Point(1224, 380);
             btnEditarRe.Name = "btnEditarRe";
             btnEditarRe.Size = new Size(112, 34);
             btnEditarRe.TabIndex = 25;
             btnEditarRe.Text = "Editar";
             btnEditarRe.UseVisualStyleBackColor = true;
             btnEditarRe.Click += btnEditarRe_Click;
+            // 
+            // btnBuscarporfecha
+            // 
+            btnBuscarporfecha.Font = new Font("Times New Roman", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuscarporfecha.ForeColor = Color.DarkGoldenrod;
+            btnBuscarporfecha.Location = new Point(797, 530);
+            btnBuscarporfecha.Name = "btnBuscarporfecha";
+            btnBuscarporfecha.Size = new Size(286, 34);
+            btnBuscarporfecha.TabIndex = 28;
+            btnBuscarporfecha.Text = "Buscar Reserva por Fecha";
+            btnBuscarporfecha.UseVisualStyleBackColor = true;
+            btnBuscarporfecha.Click += btnBuscarporfecha_Click;
+            // 
+            // dtpHASTA
+            // 
+            dtpHASTA.Format = DateTimePickerFormat.Short;
+            dtpHASTA.Location = new Point(950, 485);
+            dtpHASTA.Name = "dtpHASTA";
+            dtpHASTA.Size = new Size(133, 31);
+            dtpHASTA.TabIndex = 30;
+            // 
+            // btnMostrartodo
+            // 
+            btnMostrartodo.Font = new Font("Times New Roman", 10F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            btnMostrartodo.ForeColor = Color.DarkSlateGray;
+            btnMostrartodo.Location = new Point(525, 380);
+            btnMostrartodo.Name = "btnMostrartodo";
+            btnMostrartodo.Size = new Size(168, 34);
+            btnMostrartodo.TabIndex = 31;
+            btnMostrartodo.Text = "Mostrar Todo";
+            btnMostrartodo.UseVisualStyleBackColor = true;
+            btnMostrartodo.Click += btnMostrartodo_Click;
+            // 
+            // dtpDESDE
+            // 
+            dtpDESDE.Format = DateTimePickerFormat.Short;
+            dtpDESDE.Location = new Point(797, 486);
+            dtpDESDE.Name = "dtpDESDE";
+            dtpDESDE.Size = new Size(133, 31);
+            dtpDESDE.TabIndex = 29;
             // 
             // FormEmpleados
             // 
@@ -284,7 +328,11 @@
             BackColor = Color.Lavender;
             BackgroundImage = Properties.Resources.WhatsApp_Image_2025_05_31_at_17_04_16_73714994;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1344, 585);
+            ClientSize = new Size(1426, 624);
+            Controls.Add(btnMostrartodo);
+            Controls.Add(dtpHASTA);
+            Controls.Add(dtpDESDE);
+            Controls.Add(btnBuscarporfecha);
             Controls.Add(btnEditarRe);
             Controls.Add(btnVolverReservas);
             Controls.Add(btnEliminar);
@@ -332,5 +380,9 @@
         private Button btnEliminar;
         private Button btnVolverReservas;
         private Button btnEditarRe;
+        private Button btnBuscarporfecha;
+        private DateTimePicker dtpHASTA;
+        private Button btnMostrartodo;
+        private DateTimePicker dtpDESDE;
     }
 }

@@ -105,6 +105,7 @@ namespace CapaPresentacion
                 return;
             }
 
+
             //insertar datos
             Reserva reserva = new Reserva();
             if (cbHabitacion.SelectedItem.ToString() == "Simple")
@@ -296,6 +297,34 @@ namespace CapaPresentacion
             {
                 e.Handled = true; //permite solo numeros 
             }
+        }
+
+      
+        //agregue un boton para buscar por fecha
+
+        private void btnBuscarporfecha_Click(object sender, EventArgs e)
+        {
+           //leera la fecha desde y hasta
+
+           DateTime fechaDesde = dtpDESDE.Value.Date;
+           DateTime fechaHasta = dtpHASTA.Value.Date;
+            if (fechaDesde > fechaHasta)
+            {
+                MessageBox.Show("La fecha desde no puede ser mayor que la fecha hasta.");
+                return;
+            }
+            ReservaNegocio negocio = new ReservaNegocio();
+            dgv.DataSource = negocio.BuscarReservaPorFecha(fechaDesde, fechaHasta);
+            //limpiar los campos de búsqueda
+            dtpDESDE.Value = DateTime.Today;
+            dtpHASTA.Value = DateTime.Today;
+        }
+
+        //agregue un boton para mostrar todas las reservas 
+        private void btnMostrartodo_Click(object sender, EventArgs e)
+        {
+            ReservaNegocio negocio = new ReservaNegocio();
+            dgv.DataSource = negocio.ObtenerTodasLasReservas();
         }
     }
 }
