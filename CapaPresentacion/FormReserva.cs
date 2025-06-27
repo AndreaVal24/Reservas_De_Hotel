@@ -39,6 +39,9 @@ namespace CapaPresentacion
             dtpFecha.MinDate = DateTime.Today.AddDays(1); // Establece la fecha mínima del DateTimePicker a mañana
                                                           // asi no se puede reservar para hoy ni antes
 
+            txtCliente.MaxLength = 30; // Limita el número de caracteres del campo Cliente a 50
+            txtNumeroHabitacion.MaxLength = 3; // Limita el número de caracteres del campo NumeroHabitacion a 4
+            txtDiasEstadia.MaxLength = 3; // Limita el número de caracteres del campo DiasEstadia a 3
         }
         private void limpiarCampos() //metodo para limpiar los campos del formulario
         {

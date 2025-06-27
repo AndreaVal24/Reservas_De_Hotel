@@ -34,6 +34,11 @@ namespace CapaPresentacion
             cbCargo.Items.Add("Personal de Seguridad");
 
             cbCargo.SelectedIndex = 0; // Selecciona el primer elemento por defecto
+
+
+            txtNombreEm.MaxLength = 30; // Limita el nombre a 50 caracteres
+            txtCedula.MaxLength = 11; // Limita la cédula a 11 caracteres
+            txtBuscarporcedula.MaxLength = 11; // Limita la búsqueda de cédula a 11 caracteres
         }
 
 

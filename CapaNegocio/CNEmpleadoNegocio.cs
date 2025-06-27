@@ -132,7 +132,7 @@ namespace CapaNegocio
 
 
         // Buscar por cédula
-        //el datatable es una tabla que se usa para mostrar los datos en el datagridview
+        //el datatable es un tipo de dato que permite almacenar datos en forma de tabla, similar a una hoja de cálculo
         public DataTable BuscarEmpleadoPorCedula(string cedula)
         {
             using (SqlConnection conn = conexion.ObtenerConexion())
