@@ -36,12 +36,12 @@ namespace CapaPresentacion
             cbHabitacion.Items.Add("Con Desayuno");
             cbHabitacion.SelectedIndex = 0; // Selecciona el primer elemento por defecto
 
-            dtpFecha.MinDate = DateTime.Today.AddDays(1); // Establece la fecha mínima del DateTimePicker a mañana
-                                                          // asi no se puede reservar para hoy ni antes
 
             txtCliente.MaxLength = 30; // Limita el número de caracteres del campo Cliente a 50
             txtNumeroHabitacion.MaxLength = 3; // Limita el número de caracteres del campo NumeroHabitacion a 4
             txtDiasEstadia.MaxLength = 3; // Limita el número de caracteres del campo DiasEstadia a 3
+
+            cbHabitacion.DropDownStyle = ComboBoxStyle.DropDownList; // Evita que el usuario pueda escribir en el ComboBox
         }
         private void limpiarCampos() //metodo para limpiar los campos del formulario
         {
@@ -106,6 +106,17 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("Los días de estadía deben ser un número válido.");
                 return;
+            }
+
+            // VALIDACIÓN DE FECHA: debe ser al menos con 24h de anticipación
+            if (idReservaEditando == -1)  // Solo se aplica si NO estamos editando
+            {
+                DateTime fechaSeleccionada = dtpFecha.Value.Date;
+                if (fechaSeleccionada <= DateTime.Today)
+                {
+                    MessageBox.Show("La fecha de la reserva debe hacerse con al menos 24 horas de anticipación.");
+                    return;
+                }
             }
 
 
@@ -266,11 +277,18 @@ namespace CapaPresentacion
 
             idReservaEditando = Convert.ToInt32(fila.Cells["ID"].Value); //guardar el ID de la reserva seleccionada
 
+
+            // Quitar restricciones antes de asignar la fecha pasada
+            dtpFecha.MinDate = DateTimePicker.MinimumDateTime;
+
             //pasar los datos al textbox y combobox
             txtCliente.Text = fila.Cells["Cliente"].Value.ToString();
             cbHabitacion.SelectedItem = fila.Cells["Habitacion"].Value.ToString();
             txtNumeroHabitacion.Text = fila.Cells["Numero_Habitacion"].Value.ToString();
             txtDiasEstadia.Text = fila.Cells["DiasEstadia"].Value.ToString();
+            dtpFecha.Value = Convert.ToDateTime(fila.Cells["Fecha"].Value);
+
+            dtpFecha.MinDate = DateTimePicker.MinimumDateTime;
             dtpFecha.Value = Convert.ToDateTime(fila.Cells["Fecha"].Value);
 
             btnReservar.Text = "Guardar cambios"; // Cambia el texto del botón
@@ -302,15 +320,15 @@ namespace CapaPresentacion
             }
         }
 
-      
+
         //agregue un boton para buscar por fecha
 
         private void btnBuscarporfecha_Click(object sender, EventArgs e)
         {
-           //leera la fecha desde y hasta
+            //leera la fecha desde y hasta
 
-           DateTime fechaDesde = dtpDESDE.Value.Date;
-           DateTime fechaHasta = dtpHASTA.Value.Date;
+            DateTime fechaDesde = dtpDESDE.Value.Date;
+            DateTime fechaHasta = dtpHASTA.Value.Date;
             if (fechaDesde > fechaHasta)
             {
                 MessageBox.Show("La fecha desde no puede ser mayor que la fecha hasta.");
@@ -328,6 +346,12 @@ namespace CapaPresentacion
         {
             ReservaNegocio negocio = new ReservaNegocio();
             dgv.DataSource = negocio.ObtenerTodasLasReservas();
+        }
+
+        private void cbHabitacion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtTotal.Clear();
+
         }
     }
 }
