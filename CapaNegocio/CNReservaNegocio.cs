@@ -159,6 +159,35 @@ namespace CapaNegocio
             }
         }
 
+        //metodo para no dejar reservar una habitacion que ya esta reservada en la misma fecha al reservar y al editar
+
+        public bool ExisteConflictoReserva(int numeroHabitacion, DateTime nuevaFecha, int diasEstadia, int idReserva) 
+        {
+            using (SqlConnection conn = conexion.ObtenerConexion())
+            {
+                conn.Open();
+
+                //Count es una función de agregación que devuelve el número de filas que cumplen con la condición especificada
+                string query = @"SELECT COUNT(*) FROM Reserva WHERE Numero_Habitacion = @Numero_Habitacion AND ID != @ID AND 
+(@NuevaFecha < DATEADD(DAY, DiasEstadia, Fecha) AND DATEADD(DAY, @DiasEstadia, @NuevaFecha) > Fecha )";
+                //!= es el operador de desigualdad que se utiliza para comparar dos valores y devuelve verdadero si son diferentes
+                //DATEADD es una función que se utiliza para agregar un intervalo de tiempo a una fecha específica
+                //NuevaFecha es la fecha de inicio de la nueva reserva, DAY es el intervalo de tiempo que se va a agregar,
+                //y Fecha es la fecha de la reserva existente
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Numero_Habitacion", numeroHabitacion);
+                    cmd.Parameters.AddWithValue("@NuevaFecha", nuevaFecha);
+                    cmd.Parameters.AddWithValue("@DiasEstadia", diasEstadia);
+                    cmd.Parameters.AddWithValue("@ID", idReserva);
+
+                    int count = (int)cmd.ExecuteScalar();
+                    return count > 0;
+                }
+            }
+        }
+
     }
 }
 

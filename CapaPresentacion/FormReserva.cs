@@ -146,6 +146,17 @@ namespace CapaPresentacion
 
             ReservaNegocio negocio = new ReservaNegocio();
 
+            
+            int idConsulta = (idReservaEditando != -1) ? idReservaEditando : -1; // Esto permite que el método de negocio
+                                                                                 // pueda manejar tanto la creación como
+                                                                                 // la edición de reservas.
+
+            if (negocio.ExisteConflictoReserva(reserva.Numero_Habitacion, reserva.Fecha, reserva.DiasEstadia, idConsulta)) // Verifica si ya existe una reserva para esa habitación en las mismas fechas
+            {
+                MessageBox.Show("Esa habitación ya está reservada para esas fechas. Por favor, elija otra.");
+                return;
+            }
+
             //caso de editar 
 
             if (idReservaEditando != -1) // Si estamos editando una reserva existente

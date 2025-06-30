@@ -36,9 +36,9 @@ namespace CapaPresentacion
             cbCargo.SelectedIndex = 0; // Selecciona el primer elemento por defecto
 
 
-            txtNombreEm.MaxLength = 30; // Limita el nombre a 50 caracteres
-            txtCedula.MaxLength = 11; // Limita la cédula a 11 caracteres
-            txtBuscarporcedula.MaxLength = 11; // Limita la búsqueda de cédula a 11 caracteres
+            txtNombreEm.MaxLength = 30; // Limita el nombre 
+            txtCedula.MaxLength = 12; // Limita la cédula 
+            txtBuscarporcedula.MaxLength = 12; // Limita la búsqueda de cédula a 11 caracteres
 
             cbCargo.DropDownStyle = ComboBoxStyle.DropDownList; // Evita que el usuario escriba en el ComboBox
         }
