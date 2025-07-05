@@ -49,7 +49,6 @@
             dtpFecha = new DateTimePicker();
             dgv = new DataGridView();
             btnEliminar = new Button();
-            btnVolverReservas = new Button();
             btnEditarRe = new Button();
             btnBuscarporfecha = new Button();
             dtpHASTA = new DateTimePicker();
@@ -62,10 +61,10 @@
             // 
             lblHotel.AutoSize = true;
             lblHotel.BackColor = Color.Transparent;
-            lblHotel.Font = new Font("Lucida Calligraphy", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblHotel.Location = new Point(114, 34);
+            lblHotel.Font = new Font("Lucida Calligraphy", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblHotel.Location = new Point(54, 19);
             lblHotel.Name = "lblHotel";
-            lblHotel.Size = new Size(387, 36);
+            lblHotel.Size = new Size(437, 41);
             lblHotel.TabIndex = 0;
             lblHotel.Text = "Reservas Lemon Resort";
             // 
@@ -73,10 +72,10 @@
             // 
             lblCliente.AutoSize = true;
             lblCliente.BackColor = Color.Transparent;
-            lblCliente.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCliente.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             lblCliente.Location = new Point(197, 90);
             lblCliente.Name = "lblCliente";
-            lblCliente.Size = new Size(86, 26);
+            lblCliente.Size = new Size(85, 30);
             lblCliente.TabIndex = 2;
             lblCliente.Text = "Cliente";
             // 
@@ -84,10 +83,10 @@
             // 
             lblHabitacion.AutoSize = true;
             lblHabitacion.BackColor = Color.Transparent;
-            lblHabitacion.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblHabitacion.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             lblHabitacion.Location = new Point(157, 146);
             lblHabitacion.Name = "lblHabitacion";
-            lblHabitacion.Size = new Size(126, 26);
+            lblHabitacion.Size = new Size(126, 30);
             lblHabitacion.TabIndex = 3;
             lblHabitacion.Text = "Habitación";
             // 
@@ -95,10 +94,10 @@
             // 
             lblNumeroHabitacion.AutoSize = true;
             lblNumeroHabitacion.BackColor = Color.Transparent;
-            lblNumeroHabitacion.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNumeroHabitacion.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             lblNumeroHabitacion.Location = new Point(38, 202);
             lblNumeroHabitacion.Name = "lblNumeroHabitacion";
-            lblNumeroHabitacion.Size = new Size(245, 26);
+            lblNumeroHabitacion.Size = new Size(248, 30);
             lblNumeroHabitacion.TabIndex = 4;
             lblNumeroHabitacion.Text = "Número de Habitación";
             // 
@@ -106,10 +105,10 @@
             // 
             lblDiasEstadia.AutoSize = true;
             lblDiasEstadia.BackColor = Color.Transparent;
-            lblDiasEstadia.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDiasEstadia.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             lblDiasEstadia.Location = new Point(143, 253);
             lblDiasEstadia.Name = "lblDiasEstadia";
-            lblDiasEstadia.Size = new Size(140, 26);
+            lblDiasEstadia.Size = new Size(138, 30);
             lblDiasEstadia.TabIndex = 5;
             lblDiasEstadia.Text = "Días Estadía";
             lblDiasEstadia.Click += label6_Click;
@@ -118,42 +117,48 @@
             // 
             lblFecha.AutoSize = true;
             lblFecha.BackColor = Color.Transparent;
-            lblFecha.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblFecha.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             lblFecha.Location = new Point(209, 312);
             lblFecha.Name = "lblFecha";
-            lblFecha.Size = new Size(74, 26);
+            lblFecha.Size = new Size(72, 30);
             lblFecha.TabIndex = 6;
             lblFecha.Text = "Fecha";
             // 
             // btnReservar
             // 
-            btnReservar.Font = new Font("Times New Roman", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnReservar.ForeColor = Color.DarkGoldenrod;
-            btnReservar.Location = new Point(197, 450);
+            btnReservar.BackColor = Color.DarkGoldenrod;
+            btnReservar.FlatAppearance.BorderSize = 0;
+            btnReservar.FlatStyle = FlatStyle.Flat;
+            btnReservar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnReservar.ForeColor = Color.White;
+            btnReservar.Location = new Point(100, 445);
             btnReservar.Name = "btnReservar";
-            btnReservar.Size = new Size(191, 34);
+            btnReservar.Size = new Size(181, 40);
             btnReservar.TabIndex = 10;
             btnReservar.Text = "Guardar Reserva";
-            btnReservar.UseVisualStyleBackColor = true;
+            btnReservar.UseVisualStyleBackColor = false;
             btnReservar.Click += btnReservar_Click;
             // 
             // btnTotal
             // 
-            btnTotal.Font = new Font("Times New Roman", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnTotal.ForeColor = Color.DarkGoldenrod;
+            btnTotal.BackColor = Color.DarkGoldenrod;
+            btnTotal.FlatAppearance.BorderSize = 0;
+            btnTotal.FlatStyle = FlatStyle.Flat;
+            btnTotal.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnTotal.ForeColor = Color.White;
             btnTotal.Location = new Point(100, 371);
             btnTotal.Name = "btnTotal";
-            btnTotal.Size = new Size(183, 34);
+            btnTotal.Size = new Size(183, 40);
             btnTotal.TabIndex = 11;
             btnTotal.Text = "Calcular Total";
-            btnTotal.UseVisualStyleBackColor = true;
+            btnTotal.UseVisualStyleBackColor = false;
             btnTotal.Click += btnTotal_Click;
             // 
             // txtCliente
             // 
             txtCliente.Location = new Point(309, 88);
             txtCliente.Name = "txtCliente";
-            txtCliente.Size = new Size(150, 31);
+            txtCliente.Size = new Size(182, 31);
             txtCliente.TabIndex = 13;
             txtCliente.KeyPress += txtCliente_KeyPress;
             // 
@@ -161,7 +166,7 @@
             // 
             txtNumeroHabitacion.Location = new Point(309, 197);
             txtNumeroHabitacion.Name = "txtNumeroHabitacion";
-            txtNumeroHabitacion.Size = new Size(150, 31);
+            txtNumeroHabitacion.Size = new Size(182, 31);
             txtNumeroHabitacion.TabIndex = 15;
             txtNumeroHabitacion.KeyPress += txtNumeroHabitacion_KeyPress;
             // 
@@ -169,7 +174,7 @@
             // 
             txtDiasEstadia.Location = new Point(309, 248);
             txtDiasEstadia.Name = "txtDiasEstadia";
-            txtDiasEstadia.Size = new Size(150, 31);
+            txtDiasEstadia.Size = new Size(182, 31);
             txtDiasEstadia.TabIndex = 16;
             txtDiasEstadia.TextChanged += txtDiasEstadia_TextChanged;
             txtDiasEstadia.KeyPress += txtDiasEstadia_KeyPress;
@@ -179,7 +184,7 @@
             txtTotal.Location = new Point(309, 371);
             txtTotal.Name = "txtTotal";
             txtTotal.ReadOnly = true;
-            txtTotal.Size = new Size(150, 31);
+            txtTotal.Size = new Size(182, 31);
             txtTotal.TabIndex = 18;
             // 
             // cbHabitacion
@@ -197,7 +202,7 @@
             dtpFecha.Format = DateTimePickerFormat.Short;
             dtpFecha.Location = new Point(309, 302);
             dtpFecha.Name = "dtpFecha";
-            dtpFecha.Size = new Size(150, 31);
+            dtpFecha.Size = new Size(182, 31);
             dtpFecha.TabIndex = 21;
             dtpFecha.Value = new DateTime(2025, 5, 31, 11, 22, 7, 0);
             // 
@@ -211,7 +216,7 @@
             dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.DarkGoldenrod;
-            dataGridViewCellStyle1.Font = new Font("Calisto MT", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             dataGridViewCellStyle1.ForeColor = Color.White;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
@@ -243,83 +248,83 @@
             dgv.RowHeadersWidth = 62;
             dataGridViewCellStyle4.BackColor = Color.Ivory;
             dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            dgv.Size = new Size(876, 340);
+            dgv.Size = new Size(1034, 371);
             dgv.TabIndex = 22;
             // 
             // btnEliminar
             // 
-            btnEliminar.Font = new Font("Times New Roman", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEliminar.ForeColor = Color.DarkGoldenrod;
-            btnEliminar.Location = new Point(986, 380);
+            btnEliminar.BackColor = Color.DarkGoldenrod;
+            btnEliminar.FlatAppearance.BorderSize = 0;
+            btnEliminar.FlatStyle = FlatStyle.Flat;
+            btnEliminar.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            btnEliminar.ForeColor = Color.White;
+            btnEliminar.Location = new Point(705, 417);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(198, 34);
+            btnEliminar.Size = new Size(149, 39);
             btnEliminar.TabIndex = 23;
             btnEliminar.Text = "Eliminar Reserva";
-            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.UseVisualStyleBackColor = false;
             btnEliminar.Click += btnEliminar_Click;
-            // 
-            // btnVolverReservas
-            // 
-            btnVolverReservas.BackgroundImageLayout = ImageLayout.None;
-            btnVolverReservas.Font = new Font("Times New Roman", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnVolverReservas.Location = new Point(197, 559);
-            btnVolverReservas.Name = "btnVolverReservas";
-            btnVolverReservas.Size = new Size(195, 34);
-            btnVolverReservas.TabIndex = 24;
-            btnVolverReservas.Text = "Volver al Menu";
-            btnVolverReservas.UseVisualStyleBackColor = true;
-            btnVolverReservas.Click += btnVolverReservas_Click;
             // 
             // btnEditarRe
             // 
-            btnEditarRe.Font = new Font("Times New Roman", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEditarRe.ForeColor = Color.DarkGoldenrod;
-            btnEditarRe.Location = new Point(1224, 380);
+            btnEditarRe.BackColor = Color.DarkGoldenrod;
+            btnEditarRe.FlatAppearance.BorderSize = 0;
+            btnEditarRe.FlatStyle = FlatStyle.Flat;
+            btnEditarRe.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            btnEditarRe.ForeColor = Color.White;
+            btnEditarRe.Location = new Point(879, 417);
             btnEditarRe.Name = "btnEditarRe";
-            btnEditarRe.Size = new Size(112, 34);
+            btnEditarRe.Size = new Size(149, 41);
             btnEditarRe.TabIndex = 25;
             btnEditarRe.Text = "Editar";
-            btnEditarRe.UseVisualStyleBackColor = true;
+            btnEditarRe.UseVisualStyleBackColor = false;
             btnEditarRe.Click += btnEditarRe_Click;
             // 
             // btnBuscarporfecha
             // 
-            btnBuscarporfecha.Font = new Font("Times New Roman", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnBuscarporfecha.ForeColor = Color.DarkGoldenrod;
-            btnBuscarporfecha.Location = new Point(797, 530);
+            btnBuscarporfecha.BackColor = Color.DarkGoldenrod;
+            btnBuscarporfecha.FlatAppearance.BorderSize = 0;
+            btnBuscarporfecha.FlatStyle = FlatStyle.Flat;
+            btnBuscarporfecha.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnBuscarporfecha.ForeColor = Color.White;
+            btnBuscarporfecha.Location = new Point(1310, 500);
             btnBuscarporfecha.Name = "btnBuscarporfecha";
-            btnBuscarporfecha.Size = new Size(286, 34);
+            btnBuscarporfecha.Size = new Size(337, 40);
             btnBuscarporfecha.TabIndex = 28;
             btnBuscarporfecha.Text = "Buscar Reserva por Fecha";
-            btnBuscarporfecha.UseVisualStyleBackColor = true;
+            btnBuscarporfecha.UseVisualStyleBackColor = false;
             btnBuscarporfecha.Click += btnBuscarporfecha_Click;
             // 
             // dtpHASTA
             // 
             dtpHASTA.Format = DateTimePickerFormat.Short;
-            dtpHASTA.Location = new Point(950, 485);
+            dtpHASTA.Location = new Point(1479, 454);
             dtpHASTA.Name = "dtpHASTA";
-            dtpHASTA.Size = new Size(133, 31);
+            dtpHASTA.Size = new Size(168, 31);
             dtpHASTA.TabIndex = 30;
             // 
             // btnMostrartodo
             // 
-            btnMostrartodo.Font = new Font("Times New Roman", 10F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            btnMostrartodo.ForeColor = Color.DarkSlateGray;
-            btnMostrartodo.Location = new Point(525, 380);
+            btnMostrartodo.BackColor = Color.DarkGoldenrod;
+            btnMostrartodo.FlatAppearance.BorderSize = 0;
+            btnMostrartodo.FlatStyle = FlatStyle.Flat;
+            btnMostrartodo.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            btnMostrartodo.ForeColor = Color.White;
+            btnMostrartodo.Location = new Point(525, 417);
             btnMostrartodo.Name = "btnMostrartodo";
-            btnMostrartodo.Size = new Size(168, 34);
+            btnMostrartodo.Size = new Size(152, 39);
             btnMostrartodo.TabIndex = 31;
             btnMostrartodo.Text = "Mostrar Todo";
-            btnMostrartodo.UseVisualStyleBackColor = true;
+            btnMostrartodo.UseVisualStyleBackColor = false;
             btnMostrartodo.Click += btnMostrartodo_Click;
             // 
             // dtpDESDE
             // 
             dtpDESDE.Format = DateTimePickerFormat.Short;
-            dtpDESDE.Location = new Point(797, 486);
+            dtpDESDE.Location = new Point(1310, 454);
             dtpDESDE.Name = "dtpDESDE";
-            dtpDESDE.Size = new Size(133, 31);
+            dtpDESDE.Size = new Size(163, 31);
             dtpDESDE.TabIndex = 29;
             // 
             // FormEmpleados
@@ -327,15 +332,14 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Lavender;
-            BackgroundImage = Properties.Resources.WhatsApp_Image_2025_05_31_at_17_04_16_73714994;
+            BackgroundImage = Properties.Resources.piscina;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1426, 624);
+            ClientSize = new Size(1694, 624);
             Controls.Add(btnMostrartodo);
             Controls.Add(dtpHASTA);
             Controls.Add(dtpDESDE);
             Controls.Add(btnBuscarporfecha);
             Controls.Add(btnEditarRe);
-            Controls.Add(btnVolverReservas);
             Controls.Add(btnEliminar);
             Controls.Add(dgv);
             Controls.Add(dtpFecha);
@@ -353,7 +357,7 @@
             Controls.Add(lblCliente);
             Controls.Add(lblHotel);
             Name = "FormEmpleados";
-            Text = "Form1";
+            WindowState = FormWindowState.Maximized;
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dgv).EndInit();
             ResumeLayout(false);
@@ -379,7 +383,6 @@
         private DateTimePicker dtpFecha;
         private DataGridView dgv;
         private Button btnEliminar;
-        private Button btnVolverReservas;
         private Button btnEditarRe;
         private Button btnBuscarporfecha;
         private DateTimePicker dtpHASTA;

@@ -46,7 +46,6 @@
             txtSueldo = new TextBox();
             btnCalcularSueldo = new Button();
             cbCargo = new ComboBox();
-            btnVolverEmpleado = new Button();
             btnEditarEm = new Button();
             dtpFechasIngresoEm = new DateTimePicker();
             btnBuscarporcedula = new Button();
@@ -59,83 +58,96 @@
             // 
             lblEmpleados.AutoSize = true;
             lblEmpleados.BackColor = Color.Transparent;
-            lblEmpleados.Font = new Font("Lucida Calligraphy", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblEmpleados.Font = new Font("Lucida Calligraphy", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblEmpleados.Location = new Point(12, 32);
             lblEmpleados.Name = "lblEmpleados";
-            lblEmpleados.Size = new Size(413, 36);
+            lblEmpleados.Size = new Size(467, 41);
             lblEmpleados.TabIndex = 0;
             lblEmpleados.Text = "Empleados Lemon Resort";
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNombre.BackColor = Color.Transparent;
+            lblNombre.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             lblNombre.Location = new Point(59, 96);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(89, 28);
+            lblNombre.Size = new Size(98, 30);
             lblNombre.TabIndex = 1;
             lblNombre.Text = "Nombre";
             // 
             // lblCedula
             // 
             lblCedula.AutoSize = true;
-            lblCedula.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCedula.BackColor = Color.Transparent;
+            lblCedula.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             lblCedula.Location = new Point(59, 152);
             lblCedula.Name = "lblCedula";
-            lblCedula.Size = new Size(76, 28);
+            lblCedula.Size = new Size(84, 30);
             lblCedula.TabIndex = 2;
             lblCedula.Text = "Cédula";
             // 
             // lblCargo
             // 
             lblCargo.AutoSize = true;
-            lblCargo.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCargo.BackColor = Color.Transparent;
+            lblCargo.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             lblCargo.Location = new Point(59, 210);
             lblCargo.Name = "lblCargo";
-            lblCargo.Size = new Size(67, 28);
+            lblCargo.Size = new Size(75, 30);
             lblCargo.TabIndex = 3;
             lblCargo.Text = "Cargo";
             // 
             // lblSueldo
             // 
             lblSueldo.AutoSize = true;
-            lblSueldo.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSueldo.BackColor = Color.Transparent;
+            lblSueldo.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             lblSueldo.Location = new Point(59, 264);
             lblSueldo.Name = "lblSueldo";
-            lblSueldo.Size = new Size(76, 28);
+            lblSueldo.Size = new Size(83, 30);
             lblSueldo.TabIndex = 4;
             lblSueldo.Text = "Sueldo";
             // 
             // lblFechaIngreso
             // 
             lblFechaIngreso.AutoSize = true;
-            lblFechaIngreso.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblFechaIngreso.BackColor = Color.Transparent;
+            lblFechaIngreso.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             lblFechaIngreso.Location = new Point(59, 326);
             lblFechaIngreso.Name = "lblFechaIngreso";
-            lblFechaIngreso.Size = new Size(171, 28);
+            lblFechaIngreso.Size = new Size(188, 30);
             lblFechaIngreso.TabIndex = 5;
             lblFechaIngreso.Text = "Fecha de Ingreso";
             // 
             // btnAgregarEmpleado
             // 
-            btnAgregarEmpleado.Font = new Font("Times New Roman", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAgregarEmpleado.Location = new Point(96, 469);
+            btnAgregarEmpleado.BackColor = Color.DarkGoldenrod;
+            btnAgregarEmpleado.FlatAppearance.BorderSize = 0;
+            btnAgregarEmpleado.FlatStyle = FlatStyle.Flat;
+            btnAgregarEmpleado.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnAgregarEmpleado.ForeColor = Color.White;
+            btnAgregarEmpleado.Location = new Point(96, 478);
             btnAgregarEmpleado.Name = "btnAgregarEmpleado";
-            btnAgregarEmpleado.Size = new Size(281, 34);
+            btnAgregarEmpleado.Size = new Size(281, 38);
             btnAgregarEmpleado.TabIndex = 6;
             btnAgregarEmpleado.Text = "Agregar Empleado";
-            btnAgregarEmpleado.UseVisualStyleBackColor = true;
+            btnAgregarEmpleado.UseVisualStyleBackColor = false;
             btnAgregarEmpleado.Click += btnAgregarEmpleado_Click;
             // 
             // btnEliminarEmpleado
             // 
-            btnEliminarEmpleado.Font = new Font("Times New Roman", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEliminarEmpleado.Location = new Point(912, 381);
+            btnEliminarEmpleado.BackColor = Color.DarkGoldenrod;
+            btnEliminarEmpleado.FlatAppearance.BorderSize = 0;
+            btnEliminarEmpleado.FlatStyle = FlatStyle.Flat;
+            btnEliminarEmpleado.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic);
+            btnEliminarEmpleado.ForeColor = Color.White;
+            btnEliminarEmpleado.Location = new Point(743, 381);
             btnEliminarEmpleado.Name = "btnEliminarEmpleado";
             btnEliminarEmpleado.Size = new Size(205, 34);
             btnEliminarEmpleado.TabIndex = 7;
             btnEliminarEmpleado.Text = "Eliminar Empleado";
-            btnEliminarEmpleado.UseVisualStyleBackColor = true;
+            btnEliminarEmpleado.UseVisualStyleBackColor = false;
             btnEliminarEmpleado.Click += btnEliminarEmpleado_Click;
             // 
             // dgvEmpleados
@@ -164,7 +176,7 @@
             dgvEmpleados.DefaultCellStyle = dataGridViewCellStyle2;
             dgvEmpleados.EnableHeadersVisualStyles = false;
             dgvEmpleados.GridColor = Color.Black;
-            dgvEmpleados.Location = new Point(482, 32);
+            dgvEmpleados.Location = new Point(506, 32);
             dgvEmpleados.Name = "dgvEmpleados";
             dgvEmpleados.ReadOnly = true;
             dgvEmpleados.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -179,114 +191,118 @@
             dgvEmpleados.RowHeadersWidth = 62;
             dataGridViewCellStyle4.BackColor = Color.Ivory;
             dgvEmpleados.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            dgvEmpleados.Size = new Size(894, 343);
+            dgvEmpleados.Size = new Size(963, 343);
             dgvEmpleados.TabIndex = 22;
             dgvEmpleados.CellContentClick += dgvEmpleados_CellContentClick;
             // 
             // txtNombreEm
             // 
-            txtNombreEm.Location = new Point(230, 96);
+            txtNombreEm.Location = new Point(253, 98);
             txtNombreEm.Name = "txtNombreEm";
-            txtNombreEm.Size = new Size(229, 31);
+            txtNombreEm.Size = new Size(223, 31);
             txtNombreEm.TabIndex = 9;
             txtNombreEm.KeyPress += txtNombreEm_KeyPress;
             // 
             // txtCedula
             // 
-            txtCedula.Location = new Point(230, 149);
+            txtCedula.Location = new Point(253, 151);
             txtCedula.Name = "txtCedula";
-            txtCedula.Size = new Size(229, 31);
+            txtCedula.Size = new Size(223, 31);
             txtCedula.TabIndex = 10;
             txtCedula.KeyPress += txtCedula_KeyPress;
             // 
             // txtSueldo
             // 
-            txtSueldo.Location = new Point(230, 261);
+            txtSueldo.BackColor = Color.White;
+            txtSueldo.Location = new Point(253, 263);
             txtSueldo.Name = "txtSueldo";
             txtSueldo.ReadOnly = true;
-            txtSueldo.Size = new Size(229, 31);
+            txtSueldo.Size = new Size(223, 31);
             txtSueldo.TabIndex = 11;
             // 
             // btnCalcularSueldo
             // 
-            btnCalcularSueldo.Font = new Font("Times New Roman", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCalcularSueldo.Location = new Point(161, 403);
+            btnCalcularSueldo.BackColor = Color.DarkGoldenrod;
+            btnCalcularSueldo.FlatAppearance.BorderSize = 0;
+            btnCalcularSueldo.FlatStyle = FlatStyle.Flat;
+            btnCalcularSueldo.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnCalcularSueldo.ForeColor = Color.White;
+            btnCalcularSueldo.Location = new Point(96, 404);
             btnCalcularSueldo.Name = "btnCalcularSueldo";
-            btnCalcularSueldo.Size = new Size(174, 34);
+            btnCalcularSueldo.Size = new Size(281, 38);
             btnCalcularSueldo.TabIndex = 13;
             btnCalcularSueldo.Text = "Calcular Sueldo";
-            btnCalcularSueldo.UseVisualStyleBackColor = true;
+            btnCalcularSueldo.UseVisualStyleBackColor = false;
             btnCalcularSueldo.Click += btnCalcularSueldo_Click;
             // 
             // cbCargo
             // 
             cbCargo.FormattingEnabled = true;
-            cbCargo.Location = new Point(228, 205);
+            cbCargo.Location = new Point(251, 207);
             cbCargo.Name = "cbCargo";
-            cbCargo.Size = new Size(231, 33);
+            cbCargo.Size = new Size(225, 33);
             cbCargo.TabIndex = 14;
             cbCargo.SelectedIndexChanged += cbCargo_SelectedIndexChanged;
             // 
-            // btnVolverEmpleado
-            // 
-            btnVolverEmpleado.Font = new Font("Times New Roman", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnVolverEmpleado.Location = new Point(531, 586);
-            btnVolverEmpleado.Name = "btnVolverEmpleado";
-            btnVolverEmpleado.Size = new Size(194, 34);
-            btnVolverEmpleado.TabIndex = 15;
-            btnVolverEmpleado.Text = "Volver al Menu";
-            btnVolverEmpleado.UseVisualStyleBackColor = true;
-            btnVolverEmpleado.Click += btnVolverEmpleado_Click;
-            // 
             // btnEditarEm
             // 
-            btnEditarEm.Font = new Font("Times New Roman", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEditarEm.Location = new Point(1193, 381);
+            btnEditarEm.BackColor = Color.DarkGoldenrod;
+            btnEditarEm.FlatAppearance.BorderSize = 0;
+            btnEditarEm.FlatStyle = FlatStyle.Flat;
+            btnEditarEm.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic);
+            btnEditarEm.ForeColor = Color.White;
+            btnEditarEm.Location = new Point(980, 381);
             btnEditarEm.Name = "btnEditarEm";
-            btnEditarEm.Size = new Size(112, 34);
+            btnEditarEm.Size = new Size(205, 34);
             btnEditarEm.TabIndex = 16;
             btnEditarEm.Text = "Editar";
-            btnEditarEm.UseVisualStyleBackColor = true;
+            btnEditarEm.UseVisualStyleBackColor = false;
             btnEditarEm.Click += btnEditarEm_Click;
             // 
             // dtpFechasIngresoEm
             // 
             dtpFechasIngresoEm.Format = DateTimePickerFormat.Short;
-            dtpFechasIngresoEm.Location = new Point(236, 326);
+            dtpFechasIngresoEm.Location = new Point(253, 326);
             dtpFechasIngresoEm.Name = "dtpFechasIngresoEm";
             dtpFechasIngresoEm.Size = new Size(223, 31);
             dtpFechasIngresoEm.TabIndex = 17;
             // 
             // btnBuscarporcedula
             // 
-            btnBuscarporcedula.Font = new Font("Times New Roman", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnBuscarporcedula.ForeColor = Color.Olive;
-            btnBuscarporcedula.Location = new Point(1111, 538);
+            btnBuscarporcedula.BackColor = Color.DarkGoldenrod;
+            btnBuscarporcedula.FlatAppearance.BorderSize = 0;
+            btnBuscarporcedula.FlatStyle = FlatStyle.Flat;
+            btnBuscarporcedula.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuscarporcedula.ForeColor = Color.White;
+            btnBuscarporcedula.Location = new Point(1298, 491);
             btnBuscarporcedula.Name = "btnBuscarporcedula";
-            btnBuscarporcedula.Size = new Size(220, 34);
+            btnBuscarporcedula.Size = new Size(220, 41);
             btnBuscarporcedula.TabIndex = 23;
             btnBuscarporcedula.Text = "Buscar Por Cédula";
-            btnBuscarporcedula.UseVisualStyleBackColor = true;
+            btnBuscarporcedula.UseVisualStyleBackColor = false;
             btnBuscarporcedula.Click += btnBuscarporcedula_Click;
             // 
             // txtBuscarporcedula
             // 
-            txtBuscarporcedula.Location = new Point(1139, 501);
+            txtBuscarporcedula.Location = new Point(1298, 452);
             txtBuscarporcedula.Name = "txtBuscarporcedula";
-            txtBuscarporcedula.Size = new Size(166, 31);
+            txtBuscarporcedula.Size = new Size(220, 31);
             txtBuscarporcedula.TabIndex = 24;
             txtBuscarporcedula.KeyPress += txtBuscarporcedula_KeyPress;
             // 
             // btnMostrar
             // 
-            btnMostrar.Font = new Font("Times New Roman", 10F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            btnMostrar.ForeColor = Color.DarkSlateGray;
-            btnMostrar.Location = new Point(482, 381);
+            btnMostrar.BackColor = Color.DarkGoldenrod;
+            btnMostrar.FlatAppearance.BorderSize = 0;
+            btnMostrar.FlatStyle = FlatStyle.Flat;
+            btnMostrar.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic);
+            btnMostrar.ForeColor = Color.White;
+            btnMostrar.Location = new Point(506, 381);
             btnMostrar.Name = "btnMostrar";
-            btnMostrar.Size = new Size(163, 34);
+            btnMostrar.Size = new Size(205, 34);
             btnMostrar.TabIndex = 25;
             btnMostrar.Text = "Mostrar Todo";
-            btnMostrar.UseVisualStyleBackColor = true;
+            btnMostrar.UseVisualStyleBackColor = false;
             btnMostrar.Click += btnMostrar_Click;
             // 
             // Form1
@@ -295,13 +311,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.piscina;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1410, 690);
+            ClientSize = new Size(1647, 690);
             Controls.Add(btnMostrar);
             Controls.Add(txtBuscarporcedula);
             Controls.Add(btnBuscarporcedula);
             Controls.Add(dtpFechasIngresoEm);
             Controls.Add(btnEditarEm);
-            Controls.Add(btnVolverEmpleado);
             Controls.Add(cbCargo);
             Controls.Add(btnCalcularSueldo);
             Controls.Add(txtSueldo);
@@ -318,6 +333,7 @@
             Controls.Add(lblEmpleados);
             Name = "Form1";
             Text = "Form1";
+            WindowState = FormWindowState.Maximized;
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dgvEmpleados).EndInit();
             ResumeLayout(false);
@@ -340,7 +356,6 @@
         private TextBox txtSueldo;
         private Button btnCalcularSueldo;
         private ComboBox cbCargo;
-        private Button btnVolverEmpleado;
         private Button btnEditarEm;
         private DateTimePicker dtpFechasIngresoEm;
         private Button btnBuscarporcedula;

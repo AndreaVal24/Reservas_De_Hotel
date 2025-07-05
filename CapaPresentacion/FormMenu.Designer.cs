@@ -28,175 +28,236 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblMenu = new Label();
-            lblSeleccione = new Label();
-            btnOpcionReserva = new Button();
-            btnOpcionEmpleados = new Button();
-            button3 = new Button();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            pictureBox4 = new PictureBox();
-            pictureBox5 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            panelContenido = new Panel();
+            iconbtnSalir = new FontAwesome.Sharp.IconButton();
+            iconbtnEmpleado = new FontAwesome.Sharp.IconButton();
+            iconbtnReservas = new FontAwesome.Sharp.IconButton();
+            panellogoesquina = new Panel();
+            pbinicio = new PictureBox();
+            panelBarrasuperior = new Panel();
+            lblHome = new Label();
+            iconBarra = new FontAwesome.Sharp.IconPictureBox();
+            iconlogocentro = new FontAwesome.Sharp.IconPictureBox();
+            panelFORMULARIOS = new Panel();
+            panelContenido.SuspendLayout();
+            panellogoesquina.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbinicio).BeginInit();
+            panelBarrasuperior.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)iconBarra).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)iconlogocentro).BeginInit();
+            panelFORMULARIOS.SuspendLayout();
             SuspendLayout();
             // 
-            // lblMenu
+            // panelContenido
             // 
-            lblMenu.AutoSize = true;
-            lblMenu.BackColor = Color.DarkKhaki;
-            lblMenu.Font = new Font("Times New Roman", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblMenu.ForeColor = Color.White;
-            lblMenu.Location = new Point(615, 325);
-            lblMenu.Name = "lblMenu";
-            lblMenu.Size = new Size(84, 32);
-            lblMenu.TabIndex = 1;
-            lblMenu.Text = "Menu";
+            panelContenido.BackColor = Color.DarkGoldenrod;
+            panelContenido.Controls.Add(iconbtnSalir);
+            panelContenido.Controls.Add(iconbtnEmpleado);
+            panelContenido.Controls.Add(iconbtnReservas);
+            panelContenido.Controls.Add(panellogoesquina);
+            panelContenido.Dock = DockStyle.Left;
+            panelContenido.Location = new Point(0, 0);
+            panelContenido.Name = "panelContenido";
+            panelContenido.Size = new Size(220, 727);
+            panelContenido.TabIndex = 12;
             // 
-            // lblSeleccione
+            // iconbtnSalir
             // 
-            lblSeleccione.AutoSize = true;
-            lblSeleccione.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblSeleccione.Location = new Point(500, 376);
-            lblSeleccione.Name = "lblSeleccione";
-            lblSeleccione.Size = new Size(302, 28);
-            lblSeleccione.TabIndex = 2;
-            lblSeleccione.Text = "Seleccione la opción deseada";
+            iconbtnSalir.Dock = DockStyle.Top;
+            iconbtnSalir.FlatAppearance.BorderSize = 0;
+            iconbtnSalir.FlatStyle = FlatStyle.Flat;
+            iconbtnSalir.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            iconbtnSalir.ForeColor = Color.Gainsboro;
+            iconbtnSalir.IconChar = FontAwesome.Sharp.IconChar.DoorOpen;
+            iconbtnSalir.IconColor = Color.Gainsboro;
+            iconbtnSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconbtnSalir.IconSize = 32;
+            iconbtnSalir.ImageAlign = ContentAlignment.MiddleLeft;
+            iconbtnSalir.Location = new Point(0, 340);
+            iconbtnSalir.Name = "iconbtnSalir";
+            iconbtnSalir.Padding = new Padding(10, 0, 20, 0);
+            iconbtnSalir.Size = new Size(220, 100);
+            iconbtnSalir.TabIndex = 2;
+            iconbtnSalir.Text = "Salir del Sistema";
+            iconbtnSalir.TextAlign = ContentAlignment.MiddleLeft;
+            iconbtnSalir.TextImageRelation = TextImageRelation.ImageBeforeText;
+            iconbtnSalir.UseVisualStyleBackColor = true;
+            iconbtnSalir.Click += iconbtnSalir_Click;
             // 
-            // btnOpcionReserva
+            // iconbtnEmpleado
             // 
-            btnOpcionReserva.BackColor = Color.GhostWhite;
-            btnOpcionReserva.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnOpcionReserva.ForeColor = Color.Black;
-            btnOpcionReserva.Location = new Point(582, 463);
-            btnOpcionReserva.Name = "btnOpcionReserva";
-            btnOpcionReserva.Size = new Size(157, 34);
-            btnOpcionReserva.TabIndex = 3;
-            btnOpcionReserva.Text = "Reservas";
-            btnOpcionReserva.UseVisualStyleBackColor = false;
-            btnOpcionReserva.Click += btnOpcionReserva_Click;
+            iconbtnEmpleado.Dock = DockStyle.Top;
+            iconbtnEmpleado.FlatAppearance.BorderSize = 0;
+            iconbtnEmpleado.FlatStyle = FlatStyle.Flat;
+            iconbtnEmpleado.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            iconbtnEmpleado.ForeColor = Color.Gainsboro;
+            iconbtnEmpleado.IconChar = FontAwesome.Sharp.IconChar.Users;
+            iconbtnEmpleado.IconColor = Color.Gainsboro;
+            iconbtnEmpleado.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconbtnEmpleado.IconSize = 32;
+            iconbtnEmpleado.ImageAlign = ContentAlignment.MiddleLeft;
+            iconbtnEmpleado.Location = new Point(0, 240);
+            iconbtnEmpleado.Name = "iconbtnEmpleado";
+            iconbtnEmpleado.Padding = new Padding(10, 0, 20, 0);
+            iconbtnEmpleado.Size = new Size(220, 100);
+            iconbtnEmpleado.TabIndex = 1;
+            iconbtnEmpleado.Text = "EMPLEADOS";
+            iconbtnEmpleado.TextAlign = ContentAlignment.MiddleLeft;
+            iconbtnEmpleado.TextImageRelation = TextImageRelation.ImageBeforeText;
+            iconbtnEmpleado.UseVisualStyleBackColor = true;
+            iconbtnEmpleado.Click += iconbtnEmpleado_Click;
             // 
-            // btnOpcionEmpleados
+            // iconbtnReservas
             // 
-            btnOpcionEmpleados.BackColor = Color.GhostWhite;
-            btnOpcionEmpleados.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnOpcionEmpleados.Location = new Point(582, 534);
-            btnOpcionEmpleados.Name = "btnOpcionEmpleados";
-            btnOpcionEmpleados.Size = new Size(157, 32);
-            btnOpcionEmpleados.TabIndex = 4;
-            btnOpcionEmpleados.Text = "Empleados";
-            btnOpcionEmpleados.UseVisualStyleBackColor = false;
-            btnOpcionEmpleados.Click += btnOpcionEmpleados_Click;
+            iconbtnReservas.Dock = DockStyle.Top;
+            iconbtnReservas.FlatAppearance.BorderSize = 0;
+            iconbtnReservas.FlatStyle = FlatStyle.Flat;
+            iconbtnReservas.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            iconbtnReservas.ForeColor = Color.Gainsboro;
+            iconbtnReservas.IconChar = FontAwesome.Sharp.IconChar.ClipboardList;
+            iconbtnReservas.IconColor = Color.Gainsboro;
+            iconbtnReservas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconbtnReservas.IconSize = 32;
+            iconbtnReservas.ImageAlign = ContentAlignment.MiddleLeft;
+            iconbtnReservas.Location = new Point(0, 140);
+            iconbtnReservas.Name = "iconbtnReservas";
+            iconbtnReservas.Padding = new Padding(10, 0, 20, 0);
+            iconbtnReservas.Size = new Size(220, 100);
+            iconbtnReservas.TabIndex = 0;
+            iconbtnReservas.Text = "RESERVAS";
+            iconbtnReservas.TextAlign = ContentAlignment.MiddleLeft;
+            iconbtnReservas.TextImageRelation = TextImageRelation.ImageBeforeText;
+            iconbtnReservas.UseVisualStyleBackColor = true;
+            iconbtnReservas.Click += iconbtnReservas_Click;
             // 
-            // button3
+            // panellogoesquina
             // 
-            button3.BackColor = Color.GhostWhite;
-            button3.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.Location = new Point(547, 606);
-            button3.Name = "button3";
-            button3.Size = new Size(227, 34);
-            button3.TabIndex = 5;
-            button3.Text = "Salir del Sistema";
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click;
+            panellogoesquina.Controls.Add(pbinicio);
+            panellogoesquina.Dock = DockStyle.Top;
+            panellogoesquina.Location = new Point(0, 0);
+            panellogoesquina.Name = "panellogoesquina";
+            panellogoesquina.Size = new Size(220, 140);
+            panellogoesquina.TabIndex = 0;
             // 
-            // pictureBox1
+            // pbinicio
             // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.Image = Properties.Resources.Black_and_Yellow_Flat_Illustrative_Sunset_Tour_Logo;
-            pictureBox1.Location = new Point(452, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(381, 325);
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox1.TabIndex = 6;
-            pictureBox1.TabStop = false;
+            pbinicio.Image = Properties.Resources.Black_and_Yellow_Flat_Illustrative_Sunset_Tour_Logo__3_;
+            pbinicio.Location = new Point(-1, -1);
+            pbinicio.Name = "pbinicio";
+            pbinicio.Size = new Size(221, 141);
+            pbinicio.SizeMode = PictureBoxSizeMode.Zoom;
+            pbinicio.TabIndex = 0;
+            pbinicio.TabStop = false;
+            pbinicio.Click += pbinicio_Click;
             // 
-            // pictureBox2
+            // panelBarrasuperior
             // 
-            pictureBox2.BackColor = Color.Transparent;
-            pictureBox2.Image = Properties.Resources.Black_and_Yellow_Flat_Illustrative_Sunset_Tour_Logo__2_;
-            pictureBox2.Location = new Point(1, 3);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(462, 417);
-            pictureBox2.TabIndex = 7;
-            pictureBox2.TabStop = false;
+            panelBarrasuperior.BackColor = Color.DarkGoldenrod;
+            panelBarrasuperior.Controls.Add(lblHome);
+            panelBarrasuperior.Controls.Add(iconBarra);
+            panelBarrasuperior.Dock = DockStyle.Top;
+            panelBarrasuperior.Location = new Point(220, 0);
+            panelBarrasuperior.Name = "panelBarrasuperior";
+            panelBarrasuperior.Size = new Size(1249, 70);
+            panelBarrasuperior.TabIndex = 26;
+            panelBarrasuperior.Paint += panelBarrasuperior_Paint;
             // 
-            // pictureBox3
+            // lblHome
             // 
-            pictureBox3.BackColor = Color.Transparent;
-            pictureBox3.Image = Properties.Resources.Black_and_Yellow_Flat_Illustrative_Sunset_Tour_Logo__2_;
-            pictureBox3.Location = new Point(848, 3);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(449, 348);
-            pictureBox3.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox3.TabIndex = 9;
-            pictureBox3.TabStop = false;
+            lblHome.AutoSize = true;
+            lblHome.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblHome.ForeColor = Color.White;
+            lblHome.Location = new Point(73, 25);
+            lblHome.Name = "lblHome";
+            lblHome.Size = new Size(64, 28);
+            lblHome.TabIndex = 28;
+            lblHome.Text = "Inicio";
             // 
-            // pictureBox4
+            // iconBarra
             // 
-            pictureBox4.BackColor = Color.Transparent;
-            pictureBox4.Image = Properties.Resources.Black_and_Yellow_Flat_Illustrative_Sunset_Tour_Logo__2_;
-            pictureBox4.Location = new Point(848, 349);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(449, 347);
-            pictureBox4.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox4.TabIndex = 10;
-            pictureBox4.TabStop = false;
-            pictureBox4.Click += pictureBox4_Click;
+            iconBarra.BackColor = Color.DarkGoldenrod;
+            iconBarra.IconChar = FontAwesome.Sharp.IconChar.House;
+            iconBarra.IconColor = Color.White;
+            iconBarra.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconBarra.IconSize = 48;
+            iconBarra.Location = new Point(19, 12);
+            iconBarra.Name = "iconBarra";
+            iconBarra.Size = new Size(48, 55);
+            iconBarra.TabIndex = 27;
+            iconBarra.TabStop = false;
             // 
-            // pictureBox5
+            // iconlogocentro
             // 
-            pictureBox5.BackColor = Color.Transparent;
-            pictureBox5.Image = Properties.Resources.Black_and_Yellow_Flat_Illustrative_Sunset_Tour_Logo__2_;
-            pictureBox5.Location = new Point(1, 325);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(462, 371);
-            pictureBox5.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox5.TabIndex = 11;
-            pictureBox5.TabStop = false;
+            iconlogocentro.Anchor = AnchorStyles.None;
+            iconlogocentro.BackColor = Color.Transparent;
+            iconlogocentro.BackgroundImage = Properties.Resources.Black_and_Yellow_Flat_Illustrative_Sunset_Tour_Logo;
+            iconlogocentro.ErrorImage = null;
+            iconlogocentro.ForeColor = SystemColors.ControlText;
+            iconlogocentro.IconChar = FontAwesome.Sharp.IconChar.None;
+            iconlogocentro.IconColor = SystemColors.ControlText;
+            iconlogocentro.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconlogocentro.IconSize = 438;
+            iconlogocentro.InitialImage = null;
+            iconlogocentro.Location = new Point(373, 104);
+            iconlogocentro.Name = "iconlogocentro";
+            iconlogocentro.Size = new Size(491, 438);
+            iconlogocentro.SizeMode = PictureBoxSizeMode.Zoom;
+            iconlogocentro.TabIndex = 3;
+            iconlogocentro.TabStop = false;
+            // 
+            // panelFORMULARIOS
+            // 
+            panelFORMULARIOS.BackColor = Color.Transparent;
+            panelFORMULARIOS.Controls.Add(iconlogocentro);
+            panelFORMULARIOS.Dock = DockStyle.Fill;
+            panelFORMULARIOS.Location = new Point(220, 70);
+            panelFORMULARIOS.Name = "panelFORMULARIOS";
+            panelFORMULARIOS.Size = new Size(1249, 657);
+            panelFORMULARIOS.TabIndex = 28;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LightYellow;
-            ClientSize = new Size(1295, 695);
-            Controls.Add(pictureBox5);
-            Controls.Add(pictureBox4);
-            Controls.Add(pictureBox3);
-            Controls.Add(pictureBox2);
-            Controls.Add(button3);
-            Controls.Add(btnOpcionEmpleados);
-            Controls.Add(btnOpcionReserva);
-            Controls.Add(lblSeleccione);
-            Controls.Add(lblMenu);
-            Controls.Add(pictureBox1);
+            BackColor = Color.White;
+            ClientSize = new Size(1469, 727);
+            ControlBox = false;
+            Controls.Add(panelFORMULARIOS);
+            Controls.Add(panelBarrasuperior);
+            Controls.Add(panelContenido);
+            FormBorderStyle = FormBorderStyle.None;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Form2";
-            Text = "Form2";
+            StartPosition = FormStartPosition.CenterScreen;
+            WindowState = FormWindowState.Maximized;
             Load += Form2_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            panelContenido.ResumeLayout(false);
+            panellogoesquina.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pbinicio).EndInit();
+            panelBarrasuperior.ResumeLayout(false);
+            panelBarrasuperior.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)iconBarra).EndInit();
+            ((System.ComponentModel.ISupportInitialize)iconlogocentro).EndInit();
+            panelFORMULARIOS.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-        private Label lblMenu;
-        private Label lblSeleccione;
-        private Button btnOpcionReserva;
-        private Button btnOpcionEmpleados;
-        private Button button3;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
+        private Panel panelContenido;
         private PictureBox pictureBox3;
-        private PictureBox pictureBox4;
-        private PictureBox pictureBox5;
+        private PictureBox pictureBox2;
+        private Label lblSeleccione;
+        private Label lblMenu;
+        private FontAwesome.Sharp.IconButton iconbtnReservas;
+        private FontAwesome.Sharp.IconButton iconbtnSalir;
+        private FontAwesome.Sharp.IconButton iconbtnEmpleado;
+        private Panel panelBarrasuperior;
+        private Label lblHome;
+        private FontAwesome.Sharp.IconPictureBox iconBarra;
+        private FontAwesome.Sharp.IconPictureBox iconlogocentro;
+        private Panel panellogoesquina;
+        private PictureBox pbinicio;
+        private Panel panelFORMULARIOS;
     }
 }
