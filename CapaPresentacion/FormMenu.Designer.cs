@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panelContenido = new Panel();
+            iconbtnConfirmaciones = new FontAwesome.Sharp.IconButton();
             iconbtnSalir = new FontAwesome.Sharp.IconButton();
             iconbtnEmpleado = new FontAwesome.Sharp.IconButton();
             iconbtnReservas = new FontAwesome.Sharp.IconButton();
@@ -51,6 +52,7 @@
             // panelContenido
             // 
             panelContenido.BackColor = Color.DarkGoldenrod;
+            panelContenido.Controls.Add(iconbtnConfirmaciones);
             panelContenido.Controls.Add(iconbtnSalir);
             panelContenido.Controls.Add(iconbtnEmpleado);
             panelContenido.Controls.Add(iconbtnReservas);
@@ -58,12 +60,35 @@
             panelContenido.Dock = DockStyle.Left;
             panelContenido.Location = new Point(0, 0);
             panelContenido.Name = "panelContenido";
-            panelContenido.Size = new Size(220, 727);
+            panelContenido.Size = new Size(233, 727);
             panelContenido.TabIndex = 12;
+            // 
+            // iconbtnConfirmaciones
+            // 
+            iconbtnConfirmaciones.Dock = DockStyle.Top;
+            iconbtnConfirmaciones.FlatAppearance.BorderSize = 0;
+            iconbtnConfirmaciones.FlatStyle = FlatStyle.Flat;
+            iconbtnConfirmaciones.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            iconbtnConfirmaciones.ForeColor = Color.Gainsboro;
+            iconbtnConfirmaciones.IconChar = FontAwesome.Sharp.IconChar.MailReplyAll;
+            iconbtnConfirmaciones.IconColor = Color.Gainsboro;
+            iconbtnConfirmaciones.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconbtnConfirmaciones.IconSize = 32;
+            iconbtnConfirmaciones.ImageAlign = ContentAlignment.MiddleLeft;
+            iconbtnConfirmaciones.Location = new Point(0, 380);
+            iconbtnConfirmaciones.Name = "iconbtnConfirmaciones";
+            iconbtnConfirmaciones.Padding = new Padding(10, 0, 20, 0);
+            iconbtnConfirmaciones.Size = new Size(233, 120);
+            iconbtnConfirmaciones.TabIndex = 3;
+            iconbtnConfirmaciones.Text = "Confirmaciones";
+            iconbtnConfirmaciones.TextAlign = ContentAlignment.MiddleLeft;
+            iconbtnConfirmaciones.TextImageRelation = TextImageRelation.ImageBeforeText;
+            iconbtnConfirmaciones.UseVisualStyleBackColor = true;
+            iconbtnConfirmaciones.Click += iconbtnConfirmaciones_Click;
             // 
             // iconbtnSalir
             // 
-            iconbtnSalir.Dock = DockStyle.Top;
+            iconbtnSalir.Dock = DockStyle.Bottom;
             iconbtnSalir.FlatAppearance.BorderSize = 0;
             iconbtnSalir.FlatStyle = FlatStyle.Flat;
             iconbtnSalir.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -73,10 +98,10 @@
             iconbtnSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconbtnSalir.IconSize = 32;
             iconbtnSalir.ImageAlign = ContentAlignment.MiddleLeft;
-            iconbtnSalir.Location = new Point(0, 340);
+            iconbtnSalir.Location = new Point(0, 607);
             iconbtnSalir.Name = "iconbtnSalir";
             iconbtnSalir.Padding = new Padding(10, 0, 20, 0);
-            iconbtnSalir.Size = new Size(220, 100);
+            iconbtnSalir.Size = new Size(233, 120);
             iconbtnSalir.TabIndex = 2;
             iconbtnSalir.Text = "Salir del Sistema";
             iconbtnSalir.TextAlign = ContentAlignment.MiddleLeft;
@@ -96,10 +121,10 @@
             iconbtnEmpleado.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconbtnEmpleado.IconSize = 32;
             iconbtnEmpleado.ImageAlign = ContentAlignment.MiddleLeft;
-            iconbtnEmpleado.Location = new Point(0, 240);
+            iconbtnEmpleado.Location = new Point(0, 260);
             iconbtnEmpleado.Name = "iconbtnEmpleado";
             iconbtnEmpleado.Padding = new Padding(10, 0, 20, 0);
-            iconbtnEmpleado.Size = new Size(220, 100);
+            iconbtnEmpleado.Size = new Size(233, 120);
             iconbtnEmpleado.TabIndex = 1;
             iconbtnEmpleado.Text = "EMPLEADOS";
             iconbtnEmpleado.TextAlign = ContentAlignment.MiddleLeft;
@@ -122,7 +147,7 @@
             iconbtnReservas.Location = new Point(0, 140);
             iconbtnReservas.Name = "iconbtnReservas";
             iconbtnReservas.Padding = new Padding(10, 0, 20, 0);
-            iconbtnReservas.Size = new Size(220, 100);
+            iconbtnReservas.Size = new Size(233, 120);
             iconbtnReservas.TabIndex = 0;
             iconbtnReservas.Text = "RESERVAS";
             iconbtnReservas.TextAlign = ContentAlignment.MiddleLeft;
@@ -136,7 +161,7 @@
             panellogoesquina.Dock = DockStyle.Top;
             panellogoesquina.Location = new Point(0, 0);
             panellogoesquina.Name = "panellogoesquina";
-            panellogoesquina.Size = new Size(220, 140);
+            panellogoesquina.Size = new Size(233, 140);
             panellogoesquina.TabIndex = 0;
             // 
             // pbinicio
@@ -144,7 +169,7 @@
             pbinicio.Image = Properties.Resources.Black_and_Yellow_Flat_Illustrative_Sunset_Tour_Logo__3_;
             pbinicio.Location = new Point(-1, -1);
             pbinicio.Name = "pbinicio";
-            pbinicio.Size = new Size(221, 141);
+            pbinicio.Size = new Size(234, 141);
             pbinicio.SizeMode = PictureBoxSizeMode.Zoom;
             pbinicio.TabIndex = 0;
             pbinicio.TabStop = false;
@@ -156,9 +181,9 @@
             panelBarrasuperior.Controls.Add(lblHome);
             panelBarrasuperior.Controls.Add(iconBarra);
             panelBarrasuperior.Dock = DockStyle.Top;
-            panelBarrasuperior.Location = new Point(220, 0);
+            panelBarrasuperior.Location = new Point(233, 0);
             panelBarrasuperior.Name = "panelBarrasuperior";
-            panelBarrasuperior.Size = new Size(1249, 70);
+            panelBarrasuperior.Size = new Size(1236, 70);
             panelBarrasuperior.TabIndex = 26;
             panelBarrasuperior.Paint += panelBarrasuperior_Paint;
             // 
@@ -198,7 +223,7 @@
             iconlogocentro.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconlogocentro.IconSize = 438;
             iconlogocentro.InitialImage = null;
-            iconlogocentro.Location = new Point(373, 104);
+            iconlogocentro.Location = new Point(367, 104);
             iconlogocentro.Name = "iconlogocentro";
             iconlogocentro.Size = new Size(491, 438);
             iconlogocentro.SizeMode = PictureBoxSizeMode.Zoom;
@@ -210,9 +235,9 @@
             panelFORMULARIOS.BackColor = Color.Transparent;
             panelFORMULARIOS.Controls.Add(iconlogocentro);
             panelFORMULARIOS.Dock = DockStyle.Fill;
-            panelFORMULARIOS.Location = new Point(220, 70);
+            panelFORMULARIOS.Location = new Point(233, 70);
             panelFORMULARIOS.Name = "panelFORMULARIOS";
-            panelFORMULARIOS.Size = new Size(1249, 657);
+            panelFORMULARIOS.Size = new Size(1236, 657);
             panelFORMULARIOS.TabIndex = 28;
             // 
             // Form2
@@ -259,5 +284,6 @@
         private Panel panellogoesquina;
         private PictureBox pbinicio;
         private Panel panelFORMULARIOS;
+        private FontAwesome.Sharp.IconButton iconbtnConfirmaciones;
     }
 }

@@ -63,6 +63,36 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _15286108151663783213_128 {
+            get {
+                object obj = ResourceManager.GetObject("15286108151663783213-128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _4177409791543238955_128 {
+            get {
+                object obj = ResourceManager.GetObject("4177409791543238955-128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _6275201171582779176_128 {
+            get {
+                object obj = ResourceManager.GetObject("6275201171582779176-128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Black_and_Yellow_Flat_Illustrative_Sunset_Tour_Logo {
             get {
                 object obj = ResourceManager.GetObject("Black and Yellow Flat Illustrative Sunset Tour Logo", resourceCulture);
@@ -136,6 +166,36 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap piscina {
             get {
                 object obj = ResourceManager.GetObject("piscina", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap png_n7tga {
+            get {
+                object obj = ResourceManager.GetObject("png_n7tga", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap png_n7tga1 {
+            get {
+                object obj = ResourceManager.GetObject("png_n7tga1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap png_s803q {
+            get {
+                object obj = ResourceManager.GetObject("png_s803q", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

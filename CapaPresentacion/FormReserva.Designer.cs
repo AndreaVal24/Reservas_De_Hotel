@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            PictureBox pictureBox1;
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
@@ -54,15 +55,31 @@
             dtpHASTA = new DateTimePicker();
             btnMostrartodo = new Button();
             dtpDESDE = new DateTimePicker();
+            btnExportarReservas = new Button();
+            txtCorreo = new TextBox();
+            lblCorreo = new Label();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
             SuspendLayout();
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Dock = DockStyle.Fill;
+            pictureBox1.Image = Properties.Resources.piscina;
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(1694, 624);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 33;
+            pictureBox1.TabStop = false;
             // 
             // lblHotel
             // 
             lblHotel.AutoSize = true;
             lblHotel.BackColor = Color.Transparent;
             lblHotel.Font = new Font("Lucida Calligraphy", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblHotel.Location = new Point(54, 19);
+            lblHotel.Location = new Point(54, 35);
             lblHotel.Name = "lblHotel";
             lblHotel.Size = new Size(437, 41);
             lblHotel.TabIndex = 0;
@@ -73,7 +90,7 @@
             lblCliente.AutoSize = true;
             lblCliente.BackColor = Color.Transparent;
             lblCliente.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblCliente.Location = new Point(197, 90);
+            lblCliente.Location = new Point(198, 105);
             lblCliente.Name = "lblCliente";
             lblCliente.Size = new Size(85, 30);
             lblCliente.TabIndex = 2;
@@ -84,7 +101,7 @@
             lblHabitacion.AutoSize = true;
             lblHabitacion.BackColor = Color.Transparent;
             lblHabitacion.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblHabitacion.Location = new Point(157, 146);
+            lblHabitacion.Location = new Point(157, 162);
             lblHabitacion.Name = "lblHabitacion";
             lblHabitacion.Size = new Size(126, 30);
             lblHabitacion.TabIndex = 3;
@@ -95,7 +112,7 @@
             lblNumeroHabitacion.AutoSize = true;
             lblNumeroHabitacion.BackColor = Color.Transparent;
             lblNumeroHabitacion.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblNumeroHabitacion.Location = new Point(38, 202);
+            lblNumeroHabitacion.Location = new Point(34, 213);
             lblNumeroHabitacion.Name = "lblNumeroHabitacion";
             lblNumeroHabitacion.Size = new Size(248, 30);
             lblNumeroHabitacion.TabIndex = 4;
@@ -106,7 +123,7 @@
             lblDiasEstadia.AutoSize = true;
             lblDiasEstadia.BackColor = Color.Transparent;
             lblDiasEstadia.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblDiasEstadia.Location = new Point(143, 253);
+            lblDiasEstadia.Location = new Point(143, 269);
             lblDiasEstadia.Name = "lblDiasEstadia";
             lblDiasEstadia.Size = new Size(138, 30);
             lblDiasEstadia.TabIndex = 5;
@@ -118,7 +135,7 @@
             lblFecha.AutoSize = true;
             lblFecha.BackColor = Color.Transparent;
             lblFecha.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblFecha.Location = new Point(209, 312);
+            lblFecha.Location = new Point(209, 328);
             lblFecha.Name = "lblFecha";
             lblFecha.Size = new Size(72, 30);
             lblFecha.TabIndex = 6;
@@ -131,7 +148,7 @@
             btnReservar.FlatStyle = FlatStyle.Flat;
             btnReservar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnReservar.ForeColor = Color.White;
-            btnReservar.Location = new Point(100, 445);
+            btnReservar.Location = new Point(100, 516);
             btnReservar.Name = "btnReservar";
             btnReservar.Size = new Size(181, 40);
             btnReservar.TabIndex = 10;
@@ -146,7 +163,7 @@
             btnTotal.FlatStyle = FlatStyle.Flat;
             btnTotal.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnTotal.ForeColor = Color.White;
-            btnTotal.Location = new Point(100, 371);
+            btnTotal.Location = new Point(98, 447);
             btnTotal.Name = "btnTotal";
             btnTotal.Size = new Size(183, 40);
             btnTotal.TabIndex = 11;
@@ -156,7 +173,7 @@
             // 
             // txtCliente
             // 
-            txtCliente.Location = new Point(309, 88);
+            txtCliente.Location = new Point(309, 104);
             txtCliente.Name = "txtCliente";
             txtCliente.Size = new Size(182, 31);
             txtCliente.TabIndex = 13;
@@ -164,7 +181,7 @@
             // 
             // txtNumeroHabitacion
             // 
-            txtNumeroHabitacion.Location = new Point(309, 197);
+            txtNumeroHabitacion.Location = new Point(309, 213);
             txtNumeroHabitacion.Name = "txtNumeroHabitacion";
             txtNumeroHabitacion.Size = new Size(182, 31);
             txtNumeroHabitacion.TabIndex = 15;
@@ -172,7 +189,7 @@
             // 
             // txtDiasEstadia
             // 
-            txtDiasEstadia.Location = new Point(309, 248);
+            txtDiasEstadia.Location = new Point(309, 268);
             txtDiasEstadia.Name = "txtDiasEstadia";
             txtDiasEstadia.Size = new Size(182, 31);
             txtDiasEstadia.TabIndex = 16;
@@ -181,7 +198,8 @@
             // 
             // txtTotal
             // 
-            txtTotal.Location = new Point(309, 371);
+            txtTotal.BackColor = SystemColors.Window;
+            txtTotal.Location = new Point(309, 452);
             txtTotal.Name = "txtTotal";
             txtTotal.ReadOnly = true;
             txtTotal.Size = new Size(182, 31);
@@ -191,7 +209,7 @@
             // 
             cbHabitacion.DropDownStyle = ComboBoxStyle.DropDownList;
             cbHabitacion.FormattingEnabled = true;
-            cbHabitacion.Location = new Point(309, 144);
+            cbHabitacion.Location = new Point(309, 160);
             cbHabitacion.Name = "cbHabitacion";
             cbHabitacion.Size = new Size(182, 33);
             cbHabitacion.TabIndex = 19;
@@ -200,7 +218,7 @@
             // dtpFecha
             // 
             dtpFecha.Format = DateTimePickerFormat.Short;
-            dtpFecha.Location = new Point(309, 302);
+            dtpFecha.Location = new Point(309, 324);
             dtpFecha.Name = "dtpFecha";
             dtpFecha.Size = new Size(182, 31);
             dtpFecha.TabIndex = 21;
@@ -233,7 +251,7 @@
             dgv.DefaultCellStyle = dataGridViewCellStyle2;
             dgv.EnableHeadersVisualStyles = false;
             dgv.GridColor = Color.Black;
-            dgv.Location = new Point(525, 34);
+            dgv.Location = new Point(554, 34);
             dgv.Name = "dgv";
             dgv.ReadOnly = true;
             dgv.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -248,7 +266,7 @@
             dgv.RowHeadersWidth = 62;
             dataGridViewCellStyle4.BackColor = Color.Ivory;
             dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            dgv.Size = new Size(1034, 371);
+            dgv.Size = new Size(1026, 371);
             dgv.TabIndex = 22;
             // 
             // btnEliminar
@@ -258,7 +276,7 @@
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnEliminar.ForeColor = Color.White;
-            btnEliminar.Location = new Point(705, 417);
+            btnEliminar.Location = new Point(734, 417);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(149, 39);
             btnEliminar.TabIndex = 23;
@@ -273,7 +291,7 @@
             btnEditarRe.FlatStyle = FlatStyle.Flat;
             btnEditarRe.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnEditarRe.ForeColor = Color.White;
-            btnEditarRe.Location = new Point(879, 417);
+            btnEditarRe.Location = new Point(908, 417);
             btnEditarRe.Name = "btnEditarRe";
             btnEditarRe.Size = new Size(149, 41);
             btnEditarRe.TabIndex = 25;
@@ -288,7 +306,7 @@
             btnBuscarporfecha.FlatStyle = FlatStyle.Flat;
             btnBuscarporfecha.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnBuscarporfecha.ForeColor = Color.White;
-            btnBuscarporfecha.Location = new Point(1310, 500);
+            btnBuscarporfecha.Location = new Point(1243, 515);
             btnBuscarporfecha.Name = "btnBuscarporfecha";
             btnBuscarporfecha.Size = new Size(337, 40);
             btnBuscarporfecha.TabIndex = 28;
@@ -299,7 +317,7 @@
             // dtpHASTA
             // 
             dtpHASTA.Format = DateTimePickerFormat.Short;
-            dtpHASTA.Location = new Point(1479, 454);
+            dtpHASTA.Location = new Point(1412, 469);
             dtpHASTA.Name = "dtpHASTA";
             dtpHASTA.Size = new Size(168, 31);
             dtpHASTA.TabIndex = 30;
@@ -311,7 +329,7 @@
             btnMostrartodo.FlatStyle = FlatStyle.Flat;
             btnMostrartodo.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnMostrartodo.ForeColor = Color.White;
-            btnMostrartodo.Location = new Point(525, 417);
+            btnMostrartodo.Location = new Point(554, 417);
             btnMostrartodo.Name = "btnMostrartodo";
             btnMostrartodo.Size = new Size(152, 39);
             btnMostrartodo.TabIndex = 31;
@@ -322,19 +340,54 @@
             // dtpDESDE
             // 
             dtpDESDE.Format = DateTimePickerFormat.Short;
-            dtpDESDE.Location = new Point(1310, 454);
+            dtpDESDE.Location = new Point(1243, 469);
             dtpDESDE.Name = "dtpDESDE";
             dtpDESDE.Size = new Size(163, 31);
             dtpDESDE.TabIndex = 29;
+            // 
+            // btnExportarReservas
+            // 
+            btnExportarReservas.BackColor = Color.ForestGreen;
+            btnExportarReservas.FlatAppearance.BorderSize = 0;
+            btnExportarReservas.FlatStyle = FlatStyle.Flat;
+            btnExportarReservas.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExportarReservas.ForeColor = Color.White;
+            btnExportarReservas.Location = new Point(1243, 572);
+            btnExportarReservas.Name = "btnExportarReservas";
+            btnExportarReservas.Size = new Size(337, 40);
+            btnExportarReservas.TabIndex = 32;
+            btnExportarReservas.Text = "Exportar a Exel";
+            btnExportarReservas.UseVisualStyleBackColor = false;
+            btnExportarReservas.Click += btnExportarReservas_Click;
+            // 
+            // txtCorreo
+            // 
+            txtCorreo.Location = new Point(309, 387);
+            txtCorreo.Name = "txtCorreo";
+            txtCorreo.Size = new Size(182, 31);
+            txtCorreo.TabIndex = 35;
+            // 
+            // lblCorreo
+            // 
+            lblCorreo.AutoSize = true;
+            lblCorreo.BackColor = Color.Transparent;
+            lblCorreo.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblCorreo.Location = new Point(200, 388);
+            lblCorreo.Name = "lblCorreo";
+            lblCorreo.Size = new Size(83, 30);
+            lblCorreo.TabIndex = 36;
+            lblCorreo.Text = "Correo";
             // 
             // FormEmpleados
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Lavender;
-            BackgroundImage = Properties.Resources.piscina;
+            BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1694, 624);
+            Controls.Add(lblCorreo);
+            Controls.Add(txtCorreo);
+            Controls.Add(btnExportarReservas);
             Controls.Add(btnMostrartodo);
             Controls.Add(dtpHASTA);
             Controls.Add(dtpDESDE);
@@ -356,9 +409,11 @@
             Controls.Add(lblHabitacion);
             Controls.Add(lblCliente);
             Controls.Add(lblHotel);
+            Controls.Add(pictureBox1);
             Name = "FormEmpleados";
             WindowState = FormWindowState.Maximized;
             Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgv).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -388,5 +443,9 @@
         private DateTimePicker dtpHASTA;
         private Button btnMostrartodo;
         private DateTimePicker dtpDESDE;
+        private Button btnExportarReservas;
+        private Label label1;
+        private TextBox txtCorreo;
+        private Label lblCorreo;
     }
 }

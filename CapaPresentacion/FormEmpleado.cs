@@ -10,12 +10,15 @@ using System.Windows.Forms;
 using CapaDatos;
 using CapaNegocio;
 using Microsoft.Data.SqlClient;
+using ClosedXML.Excel;
+using System.Diagnostics;
+
 
 namespace CapaPresentacion
 {
-    public partial class Form1 : Form
+    public partial class FormGraficos : Form
     {
-        public Form1()
+        public FormGraficos()
         {
             InitializeComponent();
             ObtenerEmpleados();  // Carga los empleados al iniciar el formulario
@@ -24,6 +27,9 @@ namespace CapaPresentacion
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.DoubleBuffered = true;
+            this.AutoScaleMode = AutoScaleMode.None; // Evita redibujos innecesarios
+
             cbCargo.Items.Clear();
 
             cbCargo.Items.Add("Gerente");
@@ -343,14 +349,14 @@ namespace CapaPresentacion
                 MessageBox.Show("Ingrese una cédula para buscar.");
                 return;
             }
-            
+
             EmpleadoNegocio negocio = new EmpleadoNegocio(); // Instancia de la clase EmpleadoNegocio para acceder a
                                                              // los metodos de negocio
             DataTable resultado = negocio.BuscarEmpleadoPorCedula(cedula); // Llama al método BuscarEmpleadoPorCedula
                                                                            // para obtener los datos del empleado
                                                                            //es una variable tipo DataTable que
                                                                            //almacena el resultado de la búsqueda
-         
+
             // Verifica si se encontraron resultados
             if (resultado.Rows.Count > 0)
             {
@@ -383,5 +389,48 @@ namespace CapaPresentacion
                 e.Handled = true; // Ignora la tecla si no es número
             }
         }
+
+        private void btnExportarEmpleados_Click(object sender, EventArgs e)
+        {
+
+            if (dgvEmpleados.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay datos para exportar.");
+                return;
+            }
+
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Empleados");
+
+                // Encabezados
+                for (int i = 0; i < dgvEmpleados.Columns.Count; i++)
+                    worksheet.Cell(1, i + 1).Value = dgvEmpleados.Columns[i].HeaderText;
+
+                // Datos
+                for (int i = 0; i < dgvEmpleados.Rows.Count; i++)
+                    for (int j = 0; j < dgvEmpleados.Columns.Count; j++)
+                        worksheet.Cell(i + 2, j + 1).Value = dgvEmpleados.Rows[i].Cells[j].Value?.ToString();
+
+                worksheet.Columns().AdjustToContents();
+
+                var saveFileDialog = new SaveFileDialog
+                {
+                    Filter = "Excel Workbook|*.xlsx",
+                    Title = "Guardar archivo Excel"
+                };
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                { 
+                    workbook.SaveAs(saveFileDialog.FileName);
+                     MessageBox.Show("Datos exportados a Excel correctamente.");
+                 }
+            }
+
+        }
+
+
+
+
+
     }
 }

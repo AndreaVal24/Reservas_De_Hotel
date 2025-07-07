@@ -22,8 +22,8 @@ namespace CapaNegocio
             {
                 conn.Open();
 
-                string query = "INSERT INTO Reserva (Cliente, Habitacion, Numero_Habitacion, Fecha, Precio, DiasEstadia) " +
-                               "VALUES (@Cliente, @Habitacion, @Numero_Habitacion, @Fecha, @Precio, @DiasEstadia)";
+                string query = "INSERT INTO Reserva (Cliente, Habitacion, Numero_Habitacion, Fecha, Precio, DiasEstadia, Correo, CorreoEnviado) " +
+                               "VALUES (@Cliente, @Habitacion, @Numero_Habitacion, @Fecha, @Precio, @DiasEstadia, @Correo, @CorreoEnviado)";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -33,6 +33,8 @@ namespace CapaNegocio
                     cmd.Parameters.AddWithValue("@Fecha", reserva.Fecha);
                     cmd.Parameters.AddWithValue("@Precio", reserva.Precio);
                     cmd.Parameters.AddWithValue("@DiasEstadia", reserva.DiasEstadia);
+                    cmd.Parameters.AddWithValue("@Correo", reserva.Correo);
+                    cmd.Parameters.AddWithValue("@CorreoEnviado", reserva.CorreoEnviado);
 
                     return cmd.ExecuteNonQuery();
                 }
@@ -83,6 +85,10 @@ namespace CapaNegocio
                             reserva.Numero_Habitacion = (int)reader["Numero_Habitacion"];
                             reserva.Fecha = (DateTime)reader["Fecha"];
                             reserva.DiasEstadia = (int)reader["DiasEstadia"];
+                            reserva.Correo = reader["Correo"].ToString();
+                            reserva.CorreoEnviado = Convert.ToBoolean(reader["CorreoEnviado"]); 
+                            //to boolean se usa para convertir un valor de tipo bit a un valor booleano en C#
+
 
                             return reserva;
                         }
@@ -100,7 +106,8 @@ namespace CapaNegocio
             {
                 conn.Open();
                 string query = "UPDATE Reserva SET Cliente = @Cliente, Habitacion = @Habitacion, Numero_Habitacion = @Numero_Habitacion, " +
-                               "Fecha = @Fecha, Precio = @Precio, DiasEstadia = @DiasEstadia WHERE ID = @ID";
+                               "Fecha = @Fecha, Precio = @Precio, DiasEstadia = @DiasEstadia, Correo = @Correo, CorreoEnviado = @CorreoEnviado " +
+                               "WHERE ID = @ID";
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@ID", reserva.ID);
@@ -110,6 +117,8 @@ namespace CapaNegocio
                     cmd.Parameters.AddWithValue("@Fecha", reserva.Fecha);
                     cmd.Parameters.AddWithValue("@Precio", reserva.Precio);
                     cmd.Parameters.AddWithValue("@DiasEstadia", reserva.DiasEstadia);
+                    cmd.Parameters.AddWithValue("@Correo", reserva.Correo);
+                    cmd.Parameters.AddWithValue("@CorreoEnviado", reserva.CorreoEnviado);   
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -187,6 +196,47 @@ namespace CapaNegocio
                 }
             }
         }
+
+        //metodo para marcar el correo como enviado, cuando se envia el correo de confirmacion de reserva
+        public void MarcarCorreoComoEnviado(int idReserva)
+        {
+            using (SqlConnection conn = conexion.ObtenerConexion())
+            {
+                conn.Open();
+                string query = "UPDATE Reserva SET CorreoEnviado = 1 WHERE ID = @ID";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@ID", idReserva);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+        //metodo para obtener las reservas que no han sido confirmadas, es decir,
+        //las reservas que tienen el campo CorreoEnviado en 0
+        public DataTable ObtenerReservasNoConfirmadas()
+        {
+            using (SqlConnection conn = conexion.ObtenerConexion())
+            {
+                conn.Open();
+
+                string query = @"SELECT * FROM Reserva 
+                         WHERE Fecha >= @Hoy AND CorreoEnviado = 0";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Hoy", DateTime.Today);
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable tabla = new DataTable();
+                    da.Fill(tabla);
+                    return tabla;
+                }
+            }
+        }
+
+
+
 
     }
 }

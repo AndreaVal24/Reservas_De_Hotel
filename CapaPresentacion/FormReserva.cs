@@ -11,6 +11,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using ClosedXML.Excel;
+using System.Diagnostics; // Para abrir el archivo
+using System.Text.RegularExpressions; // Para validar el correo electrónico
+
 
 namespace CapaPresentacion
 {
@@ -30,6 +34,9 @@ namespace CapaPresentacion
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.DoubleBuffered = true;
+            this.AutoScaleMode = AutoScaleMode.None; // Evita redibujos innecesarios
+
             cbHabitacion.Items.Clear(); // Asegura que no se dupliquen
 
             cbHabitacion.Items.Add("Simple");
@@ -40,6 +47,7 @@ namespace CapaPresentacion
             txtCliente.MaxLength = 30; // Limita el número de caracteres del campo Cliente a 50
             txtNumeroHabitacion.MaxLength = 3; // Limita el número de caracteres del campo NumeroHabitacion a 4
             txtDiasEstadia.MaxLength = 3; // Limita el número de caracteres del campo DiasEstadia a 3
+            txtCorreo.MaxLength = 99; // Limita el número de caracteres del campo Correo a 99   
 
             cbHabitacion.DropDownStyle = ComboBoxStyle.DropDownList; // Evita que el usuario pueda escribir en el ComboBox
         }
@@ -51,6 +59,8 @@ namespace CapaPresentacion
             txtDiasEstadia.Text = "";
             dtpFecha.Value = DateTime.Today;
             txtTotal.Text = "";
+            txtCorreo.Text = "";
+
 
         }
         //BOTON CALCULAR TOTAL
@@ -95,6 +105,41 @@ namespace CapaPresentacion
                 return;
             }
 
+            //validacion de correo
+            string correo = txtCorreo.Text;
+
+            if (string.IsNullOrWhiteSpace(correo))
+            {
+                MessageBox.Show("Ingrese un correo electrónico.");
+                return;
+            }
+
+            if (!correo.Contains("@") || !correo.Contains("."))
+            {
+                MessageBox.Show("El correo debe contener '@' y al menos un punto.");
+                return;
+            }
+
+            if (correo.StartsWith("@") || correo.StartsWith(".") ||
+                correo.EndsWith("@") || correo.EndsWith("."))
+            {
+                MessageBox.Show("El correo no puede comenzar ni terminar con '@' o '.'.");
+                return;
+            }
+
+            if (correo.Contains(" ") || correo.Contains("..") || correo.Contains(";") || correo.Contains(","))
+            {
+                MessageBox.Show("El correo contiene caracteres no válidos.");
+                return;
+            }
+            if (!Regex.IsMatch(correo, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            {
+                MessageBox.Show("Ingrese un correo válido.");
+                return;
+            }
+
+
+
             // Validacion de numeros validos
             if (!int.TryParse(txtNumeroHabitacion.Text, out int numeroHabitacion))
             {
@@ -132,6 +177,8 @@ namespace CapaPresentacion
             reserva.Numero_Habitacion = numeroHabitacion;
             reserva.DiasEstadia = diasEstadia;
             reserva.Fecha = dtpFecha.Value;
+            reserva.Correo = txtCorreo.Text; // Asignar el correo electrónico a la reserva
+            reserva.CorreoEnviado = false; // Inicialmente, el correo no se ha enviado
 
             // Validar que el campo de total no esté vacío y sea un número válido
             if (decimal.TryParse(txtTotal.Text, out decimal total))
@@ -146,7 +193,7 @@ namespace CapaPresentacion
 
             ReservaNegocio negocio = new ReservaNegocio();
 
-            
+
             int idConsulta = (idReservaEditando != -1) ? idReservaEditando : -1; // Esto permite que el método de negocio
                                                                                  // pueda manejar tanto la creación como
                                                                                  // la edición de reservas.
@@ -198,8 +245,14 @@ namespace CapaPresentacion
                 adapt = new SqlDataAdapter("SELECT * FROM Reserva", conn);
                 adapt.Fill(dt);
                 dgv.DataSource = dt;
+                if (dgv.Columns.Contains("CorreoEnviado"))
+                {
+                    dgv.Columns["CorreoEnviado"].Visible = false;  // Oculta la columna CorreoEnviado en el DataGridView
+                }
                 conn.Close();
             }
+
+            
         }
 
 
@@ -298,6 +351,8 @@ namespace CapaPresentacion
             txtNumeroHabitacion.Text = fila.Cells["Numero_Habitacion"].Value.ToString();
             txtDiasEstadia.Text = fila.Cells["DiasEstadia"].Value.ToString();
             dtpFecha.Value = Convert.ToDateTime(fila.Cells["Fecha"].Value);
+            txtCorreo.Text = fila.Cells["Correo"].Value?.ToString(); // Asegura que el correo no sea nulo
+
 
             dtpFecha.MinDate = DateTimePicker.MinimumDateTime;
             dtpFecha.Value = Convert.ToDateTime(fila.Cells["Fecha"].Value);
@@ -363,6 +418,75 @@ namespace CapaPresentacion
         {
             txtTotal.Clear();
 
+        }
+
+        //boton para exportar reservas a un archivo Excel
+        private void btnExportarReservas_Click(object sender, EventArgs e)
+        {
+            ExportarReservasAExcel();
+        }
+
+        //metodo para exportar reservas a un archivo Excel
+        private void ExportarReservasAExcel()
+        {
+            if (dgv.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay datos para exportar.");
+                return;
+            }
+
+            SaveFileDialog guardar = new SaveFileDialog();
+            guardar.Filter = "Archivos Excel (*.xlsx)|*.xlsx";
+            guardar.FileName = $"Reservas_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
+
+            if (guardar.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    using (var wb = new XLWorkbook())
+                    {
+                        var ws = wb.Worksheets.Add("Reservas");
+
+                        // ====== ENCABEZADO PERSONALIZADO ======
+                        ws.Cell("A1").Value = "Lemon Resort";
+                        ws.Cell("A2").Value = $"Reporte de Reservas - Generado el {DateTime.Now:dd/MM/yyyy hh:mm tt}";
+                        ws.Range("A1:E1").Merge().Style.Font.SetBold().Font.FontSize = 16;
+                        ws.Range("A2:E2").Merge().Style.Font.SetItalic().Font.FontSize = 12;
+                        ws.Range("A1:E2").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+                        // ====== ENCABEZADOS DEL DGV ======
+                        for (int i = 0; i < dgv.Columns.Count; i++)
+                        {
+                            ws.Cell(4, i + 1).Value = dgv.Columns[i].HeaderText;
+                            ws.Cell(4, i + 1).Style.Font.Bold = true;
+                            ws.Cell(4, i + 1).Style.Fill.BackgroundColor = XLColor.LightGoldenrodYellow;
+                            ws.Cell(4, i + 1).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                        }
+
+                        // ====== DATOS DEL DGV ======
+                        for (int i = 0; i < dgv.Rows.Count; i++)
+                        {
+                            for (int j = 0; j < dgv.Columns.Count; j++)
+                            {
+                                ws.Cell(i + 5, j + 1).Value = dgv.Rows[i].Cells[j].Value?.ToString();
+                            }
+                        }
+
+                        ws.Columns().AdjustToContents(); // autoajustar
+
+                        // ====== GUARDAR ======
+                        wb.SaveAs(guardar.FileName);
+                        MessageBox.Show("Reservas exportadas exitosamente.");
+
+                        // ====== ABRIR EL ARCHIVO AUTOMÁTICAMENTE ======
+                        Process.Start(new ProcessStartInfo(guardar.FileName) { UseShellExecute = true });
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al exportar: " + ex.Message);
+                }
+            }
         }
     }
 }

@@ -25,27 +25,32 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             leftBorderBtn = new Panel();
-            leftBorderBtn.Size = new Size(7, 100); //tamaño del borde
+            leftBorderBtn.Size = new Size(7, 120); //tamaño del borde
             panelContenido.Controls.Add(leftBorderBtn); //agrega el borde al panel de contenido
 
-            
 
         }
 
         //no pude cambiar los nombres de los formularios, me daba error
-        //formEmpleados es el formulario de reservas y Form1 es el de empleados
+        //formEmpleados es el formulario de reservas y FormGraficos es el de empleados
         private void Form2_Load(object sender, EventArgs e)
         {
 
         }
 
-
+        //boton confirmaciones
+        private void iconbtnConfirmaciones_Click(object sender, EventArgs e)
+        {
+            BotonActivado(sender, RGBColors.color4); //activa el boton reservas con el color especificado
+            AbrirFormularioHijo(new FormCorreoReservas()); //este es el formulario de confirmaciones
+            lblHome.Text = "Confirmaciones"; // Cambia el texto arriba
+        }
 
         // boton reservas
         private void iconbtnReservas_Click(object sender, EventArgs e)
         {
             BotonActivado(sender, RGBColors.color1); //activa el boton reservas con el color especificado
-            AbrirFormularioHijo(new FormEmpleados()); // ← este es el formulario de reservas
+            AbrirFormularioHijo(new FormEmpleados()); //este es el formulario de reservas
             lblHome.Text = "Reservas"; // Cambia el texto arriba
 
         }
@@ -54,10 +59,13 @@ namespace CapaPresentacion
         private void iconbtnEmpleado_Click(object sender, EventArgs e)
         {
             BotonActivado(sender, RGBColors.color2); //activa el boton reservas con el color especificado       
-            AbrirFormularioHijo(new Form1()); // ← este es el formulario de empleados
+            AbrirFormularioHijo(new FormGraficos()); //este es el formulario de empleados
             lblHome.Text = "Empleados";
 
         }
+
+
+
 
         //boton salir
         private void iconbtnSalir_Click(object sender, EventArgs e)
@@ -152,6 +160,7 @@ namespace CapaPresentacion
             public static Color color1 = Color.FromArgb(160, 82, 45);
             public static Color color2 = Color.FromArgb(128, 128, 0);
             public static Color color3 = Color.FromArgb(0, 0, 128);
+            public static Color color4 = Color.FromArgb(139, 0, 139);
 
 
         }
@@ -169,16 +178,23 @@ namespace CapaPresentacion
             formHijo.TopLevel = false;
             formHijo.FormBorderStyle = FormBorderStyle.None;
             formHijo.Dock = DockStyle.Fill;
+
+            panelFORMULARIOS.SuspendLayout(); // DETIENE el redibujo
+
             panelFORMULARIOS.Controls.Add(formHijo);
             panelFORMULARIOS.Tag = formHijo;
 
             formHijo.BringToFront();
             formHijo.Show();
+
+            panelFORMULARIOS.ResumeLayout();
         }
 
         private void pblogoenmedio_Click(object sender, EventArgs e)
         {
 
         }
+
+       
     }
 }

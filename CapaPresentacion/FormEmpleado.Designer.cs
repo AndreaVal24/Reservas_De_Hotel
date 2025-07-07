@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class Form1
+    partial class FormGraficos
     {
         /// <summary>
         /// Required designer variable.
@@ -51,15 +51,18 @@
             btnBuscarporcedula = new Button();
             txtBuscarporcedula = new TextBox();
             btnMostrar = new Button();
+            btnExportarEmpleados = new Button();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgvEmpleados).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // lblEmpleados
             // 
             lblEmpleados.AutoSize = true;
-            lblEmpleados.BackColor = Color.Transparent;
+            lblEmpleados.BackColor = Color.White;
             lblEmpleados.Font = new Font("Lucida Calligraphy", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblEmpleados.Location = new Point(12, 32);
+            lblEmpleados.Location = new Point(59, 34);
             lblEmpleados.Name = "lblEmpleados";
             lblEmpleados.Size = new Size(467, 41);
             lblEmpleados.TabIndex = 0;
@@ -68,9 +71,9 @@
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.BackColor = Color.Transparent;
+            lblNombre.BackColor = Color.White;
             lblNombre.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblNombre.Location = new Point(59, 96);
+            lblNombre.Location = new Point(149, 99);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(98, 30);
             lblNombre.TabIndex = 1;
@@ -79,9 +82,9 @@
             // lblCedula
             // 
             lblCedula.AutoSize = true;
-            lblCedula.BackColor = Color.Transparent;
+            lblCedula.BackColor = Color.White;
             lblCedula.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblCedula.Location = new Point(59, 152);
+            lblCedula.Location = new Point(163, 152);
             lblCedula.Name = "lblCedula";
             lblCedula.Size = new Size(84, 30);
             lblCedula.TabIndex = 2;
@@ -90,9 +93,9 @@
             // lblCargo
             // 
             lblCargo.AutoSize = true;
-            lblCargo.BackColor = Color.Transparent;
+            lblCargo.BackColor = Color.White;
             lblCargo.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblCargo.Location = new Point(59, 210);
+            lblCargo.Location = new Point(173, 210);
             lblCargo.Name = "lblCargo";
             lblCargo.Size = new Size(75, 30);
             lblCargo.TabIndex = 3;
@@ -101,9 +104,9 @@
             // lblSueldo
             // 
             lblSueldo.AutoSize = true;
-            lblSueldo.BackColor = Color.Transparent;
+            lblSueldo.BackColor = Color.White;
             lblSueldo.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblSueldo.Location = new Point(59, 264);
+            lblSueldo.Location = new Point(164, 264);
             lblSueldo.Name = "lblSueldo";
             lblSueldo.Size = new Size(83, 30);
             lblSueldo.TabIndex = 4;
@@ -112,7 +115,7 @@
             // lblFechaIngreso
             // 
             lblFechaIngreso.AutoSize = true;
-            lblFechaIngreso.BackColor = Color.Transparent;
+            lblFechaIngreso.BackColor = Color.White;
             lblFechaIngreso.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             lblFechaIngreso.Location = new Point(59, 326);
             lblFechaIngreso.Name = "lblFechaIngreso";
@@ -142,7 +145,7 @@
             btnEliminarEmpleado.FlatStyle = FlatStyle.Flat;
             btnEliminarEmpleado.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic);
             btnEliminarEmpleado.ForeColor = Color.White;
-            btnEliminarEmpleado.Location = new Point(743, 381);
+            btnEliminarEmpleado.Location = new Point(811, 381);
             btnEliminarEmpleado.Name = "btnEliminarEmpleado";
             btnEliminarEmpleado.Size = new Size(205, 34);
             btnEliminarEmpleado.TabIndex = 7;
@@ -176,7 +179,7 @@
             dgvEmpleados.DefaultCellStyle = dataGridViewCellStyle2;
             dgvEmpleados.EnableHeadersVisualStyles = false;
             dgvEmpleados.GridColor = Color.Black;
-            dgvEmpleados.Location = new Point(506, 32);
+            dgvEmpleados.Location = new Point(573, 32);
             dgvEmpleados.Name = "dgvEmpleados";
             dgvEmpleados.ReadOnly = true;
             dgvEmpleados.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -197,7 +200,7 @@
             // 
             // txtNombreEm
             // 
-            txtNombreEm.Location = new Point(253, 98);
+            txtNombreEm.Location = new Point(281, 98);
             txtNombreEm.Name = "txtNombreEm";
             txtNombreEm.Size = new Size(223, 31);
             txtNombreEm.TabIndex = 9;
@@ -205,7 +208,7 @@
             // 
             // txtCedula
             // 
-            txtCedula.Location = new Point(253, 151);
+            txtCedula.Location = new Point(281, 151);
             txtCedula.Name = "txtCedula";
             txtCedula.Size = new Size(223, 31);
             txtCedula.TabIndex = 10;
@@ -214,7 +217,7 @@
             // txtSueldo
             // 
             txtSueldo.BackColor = Color.White;
-            txtSueldo.Location = new Point(253, 263);
+            txtSueldo.Location = new Point(281, 263);
             txtSueldo.Name = "txtSueldo";
             txtSueldo.ReadOnly = true;
             txtSueldo.Size = new Size(223, 31);
@@ -238,7 +241,7 @@
             // cbCargo
             // 
             cbCargo.FormattingEnabled = true;
-            cbCargo.Location = new Point(251, 207);
+            cbCargo.Location = new Point(279, 207);
             cbCargo.Name = "cbCargo";
             cbCargo.Size = new Size(225, 33);
             cbCargo.TabIndex = 14;
@@ -251,7 +254,7 @@
             btnEditarEm.FlatStyle = FlatStyle.Flat;
             btnEditarEm.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic);
             btnEditarEm.ForeColor = Color.White;
-            btnEditarEm.Location = new Point(980, 381);
+            btnEditarEm.Location = new Point(1048, 381);
             btnEditarEm.Name = "btnEditarEm";
             btnEditarEm.Size = new Size(205, 34);
             btnEditarEm.TabIndex = 16;
@@ -262,7 +265,7 @@
             // dtpFechasIngresoEm
             // 
             dtpFechasIngresoEm.Format = DateTimePickerFormat.Short;
-            dtpFechasIngresoEm.Location = new Point(253, 326);
+            dtpFechasIngresoEm.Location = new Point(281, 326);
             dtpFechasIngresoEm.Name = "dtpFechasIngresoEm";
             dtpFechasIngresoEm.Size = new Size(223, 31);
             dtpFechasIngresoEm.TabIndex = 17;
@@ -274,7 +277,7 @@
             btnBuscarporcedula.FlatStyle = FlatStyle.Flat;
             btnBuscarporcedula.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBuscarporcedula.ForeColor = Color.White;
-            btnBuscarporcedula.Location = new Point(1298, 491);
+            btnBuscarporcedula.Location = new Point(1316, 493);
             btnBuscarporcedula.Name = "btnBuscarporcedula";
             btnBuscarporcedula.Size = new Size(220, 41);
             btnBuscarporcedula.TabIndex = 23;
@@ -284,7 +287,7 @@
             // 
             // txtBuscarporcedula
             // 
-            txtBuscarporcedula.Location = new Point(1298, 452);
+            txtBuscarporcedula.Location = new Point(1316, 454);
             txtBuscarporcedula.Name = "txtBuscarporcedula";
             txtBuscarporcedula.Size = new Size(220, 31);
             txtBuscarporcedula.TabIndex = 24;
@@ -297,7 +300,7 @@
             btnMostrar.FlatStyle = FlatStyle.Flat;
             btnMostrar.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic);
             btnMostrar.ForeColor = Color.White;
-            btnMostrar.Location = new Point(506, 381);
+            btnMostrar.Location = new Point(574, 381);
             btnMostrar.Name = "btnMostrar";
             btnMostrar.Size = new Size(205, 34);
             btnMostrar.TabIndex = 25;
@@ -305,13 +308,39 @@
             btnMostrar.UseVisualStyleBackColor = false;
             btnMostrar.Click += btnMostrar_Click;
             // 
-            // Form1
+            // btnExportarEmpleados
+            // 
+            btnExportarEmpleados.BackColor = Color.ForestGreen;
+            btnExportarEmpleados.FlatAppearance.BorderSize = 0;
+            btnExportarEmpleados.FlatStyle = FlatStyle.Flat;
+            btnExportarEmpleados.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExportarEmpleados.ForeColor = Color.White;
+            btnExportarEmpleados.Location = new Point(1316, 556);
+            btnExportarEmpleados.Name = "btnExportarEmpleados";
+            btnExportarEmpleados.Size = new Size(220, 41);
+            btnExportarEmpleados.TabIndex = 26;
+            btnExportarEmpleados.Text = "Exportar a Excel";
+            btnExportarEmpleados.UseVisualStyleBackColor = false;
+            btnExportarEmpleados.Click += btnExportarEmpleados_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Dock = DockStyle.Fill;
+            pictureBox1.Image = Properties.Resources.piscina;
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(1647, 690);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 27;
+            pictureBox1.TabStop = false;
+            // 
+            // FormGraficos
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.piscina;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1647, 690);
+            Controls.Add(btnExportarEmpleados);
             Controls.Add(btnMostrar);
             Controls.Add(txtBuscarporcedula);
             Controls.Add(btnBuscarporcedula);
@@ -331,11 +360,13 @@
             Controls.Add(lblCedula);
             Controls.Add(lblNombre);
             Controls.Add(lblEmpleados);
-            Name = "Form1";
+            Controls.Add(pictureBox1);
+            Name = "FormGraficos";
             Text = "Form1";
             WindowState = FormWindowState.Maximized;
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dgvEmpleados).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -361,5 +392,7 @@
         private Button btnBuscarporcedula;
         private TextBox txtBuscarporcedula;
         private Button btnMostrar;
+        private Button btnExportarEmpleados;
+        private PictureBox pictureBox1;
     }
 }
