@@ -160,6 +160,7 @@
             Opacity = 0.9D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormLogin";
+            Load += FormLogin_Load;
             MouseDown += FormLogin_MouseDown;
             panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pbLogo).EndInit();

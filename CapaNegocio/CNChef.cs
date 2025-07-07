@@ -9,9 +9,9 @@ namespace CapaNegocio
     //no tiene que ser abstracta esta clase, pues no necesito mas metodos que hereden de esta clase para despues
     public class Chef : Empleado
     {
-        public Chef() : base("", 0, "Chef", DateTime.Today) { } //constructor vacio para el metodo calcular sueldo
+        public Chef() : base("", "", "Chef", DateTime.Today) { } //constructor vacio para el metodo calcular sueldo
 
-        public Chef(string nombre, int cedula, DateTime fechaIngreso)
+        public Chef(string nombre, string cedula, DateTime fechaIngreso)
         : base(nombre, cedula, "Chef", fechaIngreso)
         {
         }

@@ -209,6 +209,7 @@
             // txtCedula
             // 
             txtCedula.Location = new Point(281, 151);
+            txtCedula.MaxLength = 13;
             txtCedula.Name = "txtCedula";
             txtCedula.Size = new Size(223, 31);
             txtCedula.TabIndex = 10;

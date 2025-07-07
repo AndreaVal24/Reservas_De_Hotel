@@ -8,8 +8,8 @@ namespace CapaNegocio
 {
     public class Mantenimiento : Empleado  //clase que hereda de empleado
     {
-        public Mantenimiento() : base("", 0, "Personal de Mantenimiento", DateTime.Today) { } //constructor vacio para el metodo calcular sueldo
-        public Mantenimiento(string nombre, int cedula, DateTime fechaIngreso)
+        public Mantenimiento() : base("", "", "Personal de Mantenimiento", DateTime.Today) { } //constructor vacio para el metodo calcular sueldo
+        public Mantenimiento(string nombre, string cedula, DateTime fechaIngreso)
             : base(nombre, cedula, "Personal de Mantenimiento", fechaIngreso)
         {
         }

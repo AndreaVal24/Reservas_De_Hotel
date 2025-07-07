@@ -8,9 +8,9 @@ namespace CapaNegocio
 {
     public class Limpieza : Empleado  //clase que hereda de empleado
     {
-        public Limpieza() : base("", 0, "Personal de Limpieza", DateTime.Today) { } //constructor vacio para el metodo calcular sueldo
+        public Limpieza() : base("", "", "Personal de Limpieza", DateTime.Today) { } //constructor vacio para el metodo calcular sueldo
 
-        public Limpieza(string nombre, int cedula, DateTime fechaIngreso)
+        public Limpieza(string nombre, string cedula, DateTime fechaIngreso)
         : base(nombre, cedula, "Personal de Limpieza", fechaIngreso)
         {
         }

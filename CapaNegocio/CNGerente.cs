@@ -8,9 +8,9 @@ namespace CapaNegocio
 {
     public class Gerente : Empleado
     {
-        public Gerente() : base("", 0, "Gerente", DateTime.Today) { } //constructor vacio para el metodo calcular sueldo
+        public Gerente() : base("", "", "Gerente", DateTime.Today) { } //constructor vacio para el metodo calcular sueldo
 
-        public Gerente(string nombre, int cedula, DateTime fechaIngreso)   //constructor que heredamos de la base
+        public Gerente(string nombre, string cedula, DateTime fechaIngreso)   //constructor que heredamos de la base
             : base(nombre, cedula, "Gerente", fechaIngreso)
         {
         }

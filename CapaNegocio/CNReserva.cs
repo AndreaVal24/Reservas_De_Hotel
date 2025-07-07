@@ -21,6 +21,8 @@ namespace CapaNegocio
                                                 //use un bit para eso, y en C# se usa bool para representar valores booleanos
                                                 //bit es un tipo de dato que representa un valor booleano (solo puede ser 0 o 1).
 
+        //correoenviado no aparecera en el form reservas, solo en el form correo confirmacion
+
 
     }
 }

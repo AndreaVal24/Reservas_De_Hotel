@@ -174,20 +174,21 @@ namespace CapaPresentacion
             // Oculta el logo del centro
             iconlogocentro.Visible = false;
 
-            formularioActivo = formHijo;
-            formHijo.TopLevel = false;
-            formHijo.FormBorderStyle = FormBorderStyle.None;
-            formHijo.Dock = DockStyle.Fill;
+            formularioActivo = formHijo; // Asigna el formulario hijo a la variable de formulario activo
+            formHijo.TopLevel = false;  // Indica que el formulario hijo no es de nivel superior, es decir que no es una ventana independiente
+            formHijo.FormBorderStyle = FormBorderStyle.None;  // Elimina el borde del formulario hijo
+            formHijo.Dock = DockStyle.Fill;  // Hace que el formulario hijo ocupe todo el espacio disponible en el panel
 
             panelFORMULARIOS.SuspendLayout(); // DETIENE el redibujo
 
-            panelFORMULARIOS.Controls.Add(formHijo);
-            panelFORMULARIOS.Tag = formHijo;
+            panelFORMULARIOS.Controls.Add(formHijo);  // Agrega el formulario hijo al panel de formularios
+            panelFORMULARIOS.Tag = formHijo;   // Asigna el formulario hijo al tag del panel de formularios
 
-            formHijo.BringToFront();
-            formHijo.Show();
+            formHijo.BringToFront();  // Trae el formulario hijo al frente para que sea visible
+            formHijo.Show();   // Muestra el formulario hijo
 
-            panelFORMULARIOS.ResumeLayout();
+            panelFORMULARIOS.ResumeLayout();  // Reanuda el redibujo del panel de formularios, esto es necesario para que los cambios se
+                                              // reflejen correctamente en la interfaz de usuario
         }
 
         private void pblogoenmedio_Click(object sender, EventArgs e)

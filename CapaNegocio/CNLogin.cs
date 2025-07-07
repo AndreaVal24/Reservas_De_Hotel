@@ -24,15 +24,17 @@ namespace CapaNegocio
             using (SqlConnection conn = conexion.ObtenerConexion())
             {
                 conn.Open();
-                string query = "SELECT Rol FROM Usuarios WHERE Usuario = @Usuario AND Contrasena = @Contrasena";
+                string query = "SELECT Rol FROM Usuarios WHERE Usuario = @Usuario AND Contrasena = @Contrasena"; // Consulta SQL para verificar
+                                                                                                                 // el usuario y contraseña
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@Usuario", usuario);
-                    cmd.Parameters.AddWithValue("@Contrasena", contrasena);
+                    cmd.Parameters.AddWithValue("@Usuario", usuario);  // Agrega el parámetro de usuario a la consulta
+                    cmd.Parameters.AddWithValue("@Contrasena", contrasena); // Agrega el parámetro de contraseña a la consulta
 
-                    object resultado = cmd.ExecuteScalar();
-                    return resultado != null ? resultado.ToString() : null;
+                    object resultado = cmd.ExecuteScalar(); // Ejecuta la consulta y obtiene el resultado
+                    return resultado != null ? resultado.ToString() : null; // Si el resultado no es nulo, devuelve el rol del usuario,
+                                                                            // de lo contrario devuelve null
                 }
             }
         }

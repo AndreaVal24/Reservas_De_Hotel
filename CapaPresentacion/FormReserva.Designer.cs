@@ -356,7 +356,7 @@
             btnExportarReservas.Name = "btnExportarReservas";
             btnExportarReservas.Size = new Size(337, 40);
             btnExportarReservas.TabIndex = 32;
-            btnExportarReservas.Text = "Exportar a Exel";
+            btnExportarReservas.Text = "Exportar a Excel";
             btnExportarReservas.UseVisualStyleBackColor = false;
             btnExportarReservas.Click += btnExportarReservas_Click;
             // 

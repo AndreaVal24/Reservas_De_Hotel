@@ -8,6 +8,9 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClosedXML.Excel;
+using System.Diagnostics;
+
 
 namespace CapaNegocio
 {
@@ -197,44 +200,43 @@ namespace CapaNegocio
             }
         }
 
-        //metodo para marcar el correo como enviado, cuando se envia el correo de confirmacion de reserva
-        public void MarcarCorreoComoEnviado(int idReserva)
+
+        //metodo para exportar reservas a un archivo Excel
+        public void ExportarReservasAExcel(DataTable tabla, string rutaArchivo)
         {
-            using (SqlConnection conn = conexion.ObtenerConexion())
+            using (var wb = new XLWorkbook()) //variable wb es una instancia de XLWorkbook, que representa un libro de trabajo de Excel
             {
-                conn.Open();
-                string query = "UPDATE Reserva SET CorreoEnviado = 1 WHERE ID = @ID";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                var ws = wb.Worksheets.Add("Reservas"); //ws es una instancia de la hoja de trabajo de Excel,
+                                                        //que se agrega al libro de trabajo con el nombre "Reservas"
+
+                //la estructura de la hoja de trabajo se define aquí, incluyendo el título y la fecha del reporte
+                ws.Cell("A1").Value = "Lemon Resort";
+                ws.Cell("A2").Value = $"Reporte de Reservas - {DateTime.Now:dd/MM/yyyy hh:mm tt}";
+                ws.Range("A1:E1").Merge().Style.Font.SetBold().Font.FontSize = 16;
+                ws.Range("A2:E2").Merge().Style.Font.SetItalic().Font.FontSize = 12;
+                ws.Range("A1:E2").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+                
+                for (int i = 0; i < tabla.Columns.Count; i++) 
                 {
-                    cmd.Parameters.AddWithValue("@ID", idReserva);
-                    cmd.ExecuteNonQuery();
+                    ws.Cell(4, i + 1).Value = tabla.Columns[i].ColumnName;
+                    ws.Cell(4, i + 1).Style.Font.Bold = true;
+                    ws.Cell(4, i + 1).Style.Fill.BackgroundColor = XLColor.LightGoldenrodYellow;
                 }
+
+                for (int i = 0; i < tabla.Rows.Count; i++) 
+                {
+                    for (int j = 0; j < tabla.Columns.Count; j++)
+                    {
+                        ws.Cell(i + 5, j + 1).Value = tabla.Rows[i][j]?.ToString();
+                    }
+                }
+
+                ws.Columns().AdjustToContents(); // Ajusta el ancho de las columnas al contenido
+                wb.SaveAs(rutaArchivo); // Guarda el libro de trabajo en la ruta especificada
+                Process.Start(new ProcessStartInfo(rutaArchivo) { UseShellExecute = true }); // Abre el archivo Excel después de guardarlo
             }
         }
-
-
-        //metodo para obtener las reservas que no han sido confirmadas, es decir,
-        //las reservas que tienen el campo CorreoEnviado en 0
-        public DataTable ObtenerReservasNoConfirmadas()
-        {
-            using (SqlConnection conn = conexion.ObtenerConexion())
-            {
-                conn.Open();
-
-                string query = @"SELECT * FROM Reserva 
-                         WHERE Fecha >= @Hoy AND CorreoEnviado = 0";
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@Hoy", DateTime.Today);
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable tabla = new DataTable();
-                    da.Fill(tabla);
-                    return tabla;
-                }
-            }
-        }
-
 
 
 

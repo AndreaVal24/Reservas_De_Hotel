@@ -9,10 +9,10 @@ namespace CapaNegocio
     public class Recepcionista : Empleado
     {
 
-        public Recepcionista() : base("", 0, "Recepcionista", DateTime.Today) { } //constructor vacio para el metodo calcular sueldo
+        public Recepcionista() : base("", "", "Recepcionista", DateTime.Today) { } //constructor vacio para el metodo calcular sueldo
 
 
-        public Recepcionista(string nombre, int cedula, DateTime fechaIngreso)  //llamamos al constructor 
+        public Recepcionista(string nombre, string cedula, DateTime fechaIngreso)  //llamamos al constructor 
                                                                                 //de la clase base Empleado, para inicializar los atributos comunes
         : base(nombre, cedula, "Recepcionista", fechaIngreso)
         {

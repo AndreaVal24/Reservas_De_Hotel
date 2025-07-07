@@ -10,14 +10,14 @@ namespace CapaNegocio
     {
         public int ID { get; set; }
         public string Nombre { get; set; }
-        public int Cedula { get; set; }
+        public string Cedula { get; set; }
         public string Cargo { get; set; }
         public decimal Sueldo { get; set; }
         public DateTime Fecha_Ingreso { get; set; }
 
 
         //constructor que usare en el form
-        public Empleado(string nombre, int cedula, string cargo, DateTime fechaIngreso)
+        public Empleado(string nombre, string cedula, string cargo, DateTime fechaIngreso)
         {
             Nombre = nombre;
             Cedula = cedula;

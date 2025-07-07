@@ -60,7 +60,7 @@
             panelContenido.Dock = DockStyle.Left;
             panelContenido.Location = new Point(0, 0);
             panelContenido.Name = "panelContenido";
-            panelContenido.Size = new Size(233, 727);
+            panelContenido.Size = new Size(253, 727);
             panelContenido.TabIndex = 12;
             // 
             // iconbtnConfirmaciones
@@ -78,9 +78,9 @@
             iconbtnConfirmaciones.Location = new Point(0, 380);
             iconbtnConfirmaciones.Name = "iconbtnConfirmaciones";
             iconbtnConfirmaciones.Padding = new Padding(10, 0, 20, 0);
-            iconbtnConfirmaciones.Size = new Size(233, 120);
+            iconbtnConfirmaciones.Size = new Size(253, 120);
             iconbtnConfirmaciones.TabIndex = 3;
-            iconbtnConfirmaciones.Text = "Confirmaciones";
+            iconbtnConfirmaciones.Text = "CONFIRMACIONES";
             iconbtnConfirmaciones.TextAlign = ContentAlignment.MiddleLeft;
             iconbtnConfirmaciones.TextImageRelation = TextImageRelation.ImageBeforeText;
             iconbtnConfirmaciones.UseVisualStyleBackColor = true;
@@ -101,7 +101,7 @@
             iconbtnSalir.Location = new Point(0, 607);
             iconbtnSalir.Name = "iconbtnSalir";
             iconbtnSalir.Padding = new Padding(10, 0, 20, 0);
-            iconbtnSalir.Size = new Size(233, 120);
+            iconbtnSalir.Size = new Size(253, 120);
             iconbtnSalir.TabIndex = 2;
             iconbtnSalir.Text = "Salir del Sistema";
             iconbtnSalir.TextAlign = ContentAlignment.MiddleLeft;
@@ -124,7 +124,7 @@
             iconbtnEmpleado.Location = new Point(0, 260);
             iconbtnEmpleado.Name = "iconbtnEmpleado";
             iconbtnEmpleado.Padding = new Padding(10, 0, 20, 0);
-            iconbtnEmpleado.Size = new Size(233, 120);
+            iconbtnEmpleado.Size = new Size(253, 120);
             iconbtnEmpleado.TabIndex = 1;
             iconbtnEmpleado.Text = "EMPLEADOS";
             iconbtnEmpleado.TextAlign = ContentAlignment.MiddleLeft;
@@ -147,7 +147,7 @@
             iconbtnReservas.Location = new Point(0, 140);
             iconbtnReservas.Name = "iconbtnReservas";
             iconbtnReservas.Padding = new Padding(10, 0, 20, 0);
-            iconbtnReservas.Size = new Size(233, 120);
+            iconbtnReservas.Size = new Size(253, 120);
             iconbtnReservas.TabIndex = 0;
             iconbtnReservas.Text = "RESERVAS";
             iconbtnReservas.TextAlign = ContentAlignment.MiddleLeft;
@@ -161,7 +161,7 @@
             panellogoesquina.Dock = DockStyle.Top;
             panellogoesquina.Location = new Point(0, 0);
             panellogoesquina.Name = "panellogoesquina";
-            panellogoesquina.Size = new Size(233, 140);
+            panellogoesquina.Size = new Size(253, 140);
             panellogoesquina.TabIndex = 0;
             // 
             // pbinicio
@@ -169,7 +169,7 @@
             pbinicio.Image = Properties.Resources.Black_and_Yellow_Flat_Illustrative_Sunset_Tour_Logo__3_;
             pbinicio.Location = new Point(-1, -1);
             pbinicio.Name = "pbinicio";
-            pbinicio.Size = new Size(234, 141);
+            pbinicio.Size = new Size(254, 141);
             pbinicio.SizeMode = PictureBoxSizeMode.Zoom;
             pbinicio.TabIndex = 0;
             pbinicio.TabStop = false;
@@ -181,9 +181,9 @@
             panelBarrasuperior.Controls.Add(lblHome);
             panelBarrasuperior.Controls.Add(iconBarra);
             panelBarrasuperior.Dock = DockStyle.Top;
-            panelBarrasuperior.Location = new Point(233, 0);
+            panelBarrasuperior.Location = new Point(253, 0);
             panelBarrasuperior.Name = "panelBarrasuperior";
-            panelBarrasuperior.Size = new Size(1236, 70);
+            panelBarrasuperior.Size = new Size(1216, 70);
             panelBarrasuperior.TabIndex = 26;
             panelBarrasuperior.Paint += panelBarrasuperior_Paint;
             // 
@@ -223,7 +223,7 @@
             iconlogocentro.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconlogocentro.IconSize = 438;
             iconlogocentro.InitialImage = null;
-            iconlogocentro.Location = new Point(367, 104);
+            iconlogocentro.Location = new Point(357, 104);
             iconlogocentro.Name = "iconlogocentro";
             iconlogocentro.Size = new Size(491, 438);
             iconlogocentro.SizeMode = PictureBoxSizeMode.Zoom;
@@ -235,9 +235,9 @@
             panelFORMULARIOS.BackColor = Color.Transparent;
             panelFORMULARIOS.Controls.Add(iconlogocentro);
             panelFORMULARIOS.Dock = DockStyle.Fill;
-            panelFORMULARIOS.Location = new Point(233, 70);
+            panelFORMULARIOS.Location = new Point(253, 70);
             panelFORMULARIOS.Name = "panelFORMULARIOS";
-            panelFORMULARIOS.Size = new Size(1236, 657);
+            panelFORMULARIOS.Size = new Size(1216, 657);
             panelFORMULARIOS.TabIndex = 28;
             // 
             // Form2

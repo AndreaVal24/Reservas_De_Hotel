@@ -101,12 +101,13 @@
             // lblTituloConfirmaciones
             // 
             lblTituloConfirmaciones.AutoSize = true;
-            lblTituloConfirmaciones.Font = new Font("Segoe UI Black", 16F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblTituloConfirmaciones.Location = new Point(522, 42);
+            lblTituloConfirmaciones.Font = new Font("Lucida Calligraphy", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTituloConfirmaciones.Location = new Point(498, 42);
             lblTituloConfirmaciones.Name = "lblTituloConfirmaciones";
-            lblTituloConfirmaciones.Size = new Size(637, 45);
+            lblTituloConfirmaciones.Size = new Size(724, 41);
             lblTituloConfirmaciones.TabIndex = 23;
             lblTituloConfirmaciones.Text = "Confirmaciones de Reservas Pendientes";
+            lblTituloConfirmaciones.Click += lblTituloConfirmaciones_Click;
             // 
             // FormCorreoReservas
             // 

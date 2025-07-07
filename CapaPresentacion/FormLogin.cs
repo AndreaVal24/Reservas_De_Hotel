@@ -26,7 +26,7 @@ namespace CapaPresentacion
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
 
-        
+
         private void txtuser_Enter(object sender, EventArgs e) //evento para cuando el usuario entra al campo de texto
         {
             if (txtuser.Text == "USUARIO")
@@ -120,9 +120,10 @@ namespace CapaPresentacion
                 // Si el rol es diferente de null, significa que el usuario y la contraseña son correctos
                 if (rol != null)
                 {
-                    MessageBox.Show("Bienvenido " + rol + "!"); // Mensaje de bienvenida al usuario
+                    MessageBox.Show("¡Bienvenido, " + rol + "!"); // Mensaje de bienvenida al usuario
+                    
 
-                    Form2 menu = new Form2(); 
+                    Form2 menu = new Form2();
                     menu.Show();
                     this.Hide();
                 }
@@ -138,5 +139,11 @@ namespace CapaPresentacion
             }
         }
         //utilice un try-catch para manejar errores no controlados, como problemas de conexión a la base de datos
+
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

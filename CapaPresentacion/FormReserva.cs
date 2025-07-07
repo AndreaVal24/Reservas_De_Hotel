@@ -34,7 +34,7 @@ namespace CapaPresentacion
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.DoubleBuffered = true;
+            this.DoubleBuffered = true; // Mejora el rendimiento al reducir el parpadeo
             this.AutoScaleMode = AutoScaleMode.None; // Evita redibujos innecesarios
 
             cbHabitacion.Items.Clear(); // Asegura que no se dupliquen
@@ -45,8 +45,8 @@ namespace CapaPresentacion
 
 
             txtCliente.MaxLength = 30; // Limita el número de caracteres del campo Cliente a 50
-            txtNumeroHabitacion.MaxLength = 3; // Limita el número de caracteres del campo NumeroHabitacion a 4
-            txtDiasEstadia.MaxLength = 3; // Limita el número de caracteres del campo DiasEstadia a 3
+            txtNumeroHabitacion.MaxLength = 3; // Limita el número de caracteres del campo NumeroHabitacion 
+            txtDiasEstadia.MaxLength = 3; // Limita el número de caracteres del campo DiasEstadia
             txtCorreo.MaxLength = 99; // Limita el número de caracteres del campo Correo a 99   
 
             cbHabitacion.DropDownStyle = ComboBoxStyle.DropDownList; // Evita que el usuario pueda escribir en el ComboBox
@@ -73,16 +73,16 @@ namespace CapaPresentacion
             // Verifica el tipo de habitación y asigna el precio correspondiente
             if (tipo == "Simple")
             {
-                Simple simple = new Simple();
+                Simple simple = new Simple();  // Crea una instancia de la clase Simple
                 preciopornoche = simple.Precio1;
             }
             else if (tipo == "Con Desayuno")
             {
-                ConDesayuno condesayuno = new ConDesayuno();
+                ConDesayuno condesayuno = new ConDesayuno();  // Crea una instancia de la clase ConDesayuno
                 preciopornoche = condesayuno.Precio2;
             }
             int dias;
-            if (!int.TryParse(txtDiasEstadia.Text, out dias))
+            if (!int.TryParse(txtDiasEstadia.Text, out dias)) 
             {
 
                 MessageBox.Show("Ingrese una cantidad valida de dias");
@@ -197,6 +197,7 @@ namespace CapaPresentacion
             int idConsulta = (idReservaEditando != -1) ? idReservaEditando : -1; // Esto permite que el método de negocio
                                                                                  // pueda manejar tanto la creación como
                                                                                  // la edición de reservas.
+                                                                                 //el operador ? sirve para asignar el idReservaEditando
 
             if (negocio.ExisteConflictoReserva(reserva.Numero_Habitacion, reserva.Fecha, reserva.DiasEstadia, idConsulta)) // Verifica si ya existe una reserva para esa habitación en las mismas fechas
             {
@@ -308,9 +309,7 @@ namespace CapaPresentacion
 
         private void btnVolverReservas_Click(object sender, EventArgs e)  //boton para volver al menu principal
         {
-            Form2 menu = new Form2(); // Form2 es el formulario de menu principal
-            menu.Show();
-            this.Hide();
+            //ya no va
         }
 
 
@@ -400,6 +399,7 @@ namespace CapaPresentacion
                 MessageBox.Show("La fecha desde no puede ser mayor que la fecha hasta.");
                 return;
             }
+
             ReservaNegocio negocio = new ReservaNegocio();
             dgv.DataSource = negocio.BuscarReservaPorFecha(fechaDesde, fechaHasta);
             //limpiar los campos de búsqueda
@@ -407,27 +407,22 @@ namespace CapaPresentacion
             dtpHASTA.Value = DateTime.Today;
         }
 
+
         //agregue un boton para mostrar todas las reservas 
         private void btnMostrartodo_Click(object sender, EventArgs e)
         {
-            ReservaNegocio negocio = new ReservaNegocio();
+            ReservaNegocio negocio = new ReservaNegocio(); //instancia de la clase ReservaNegocio
             dgv.DataSource = negocio.ObtenerTodasLasReservas();
         }
 
         private void cbHabitacion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtTotal.Clear();
+            txtTotal.Clear();  // Limpia el campo de total al cambiar el tipo de habitación
 
         }
 
         //boton para exportar reservas a un archivo Excel
         private void btnExportarReservas_Click(object sender, EventArgs e)
-        {
-            ExportarReservasAExcel();
-        }
-
-        //metodo para exportar reservas a un archivo Excel
-        private void ExportarReservasAExcel()
         {
             if (dgv.Rows.Count == 0)
             {
@@ -435,58 +430,21 @@ namespace CapaPresentacion
                 return;
             }
 
-            SaveFileDialog guardar = new SaveFileDialog();
-            guardar.Filter = "Archivos Excel (*.xlsx)|*.xlsx";
-            guardar.FileName = $"Reservas_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
+            SaveFileDialog guardar = new SaveFileDialog
+            {
+                Filter = "Archivos Excel (*.xlsx)|*.xlsx",
+                FileName = $"Reservas_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx"
+            };
 
             if (guardar.ShowDialog() == DialogResult.OK)
             {
-                try
-                {
-                    using (var wb = new XLWorkbook())
-                    {
-                        var ws = wb.Worksheets.Add("Reservas");
-
-                        // ====== ENCABEZADO PERSONALIZADO ======
-                        ws.Cell("A1").Value = "Lemon Resort";
-                        ws.Cell("A2").Value = $"Reporte de Reservas - Generado el {DateTime.Now:dd/MM/yyyy hh:mm tt}";
-                        ws.Range("A1:E1").Merge().Style.Font.SetBold().Font.FontSize = 16;
-                        ws.Range("A2:E2").Merge().Style.Font.SetItalic().Font.FontSize = 12;
-                        ws.Range("A1:E2").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
-
-                        // ====== ENCABEZADOS DEL DGV ======
-                        for (int i = 0; i < dgv.Columns.Count; i++)
-                        {
-                            ws.Cell(4, i + 1).Value = dgv.Columns[i].HeaderText;
-                            ws.Cell(4, i + 1).Style.Font.Bold = true;
-                            ws.Cell(4, i + 1).Style.Fill.BackgroundColor = XLColor.LightGoldenrodYellow;
-                            ws.Cell(4, i + 1).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
-                        }
-
-                        // ====== DATOS DEL DGV ======
-                        for (int i = 0; i < dgv.Rows.Count; i++)
-                        {
-                            for (int j = 0; j < dgv.Columns.Count; j++)
-                            {
-                                ws.Cell(i + 5, j + 1).Value = dgv.Rows[i].Cells[j].Value?.ToString();
-                            }
-                        }
-
-                        ws.Columns().AdjustToContents(); // autoajustar
-
-                        // ====== GUARDAR ======
-                        wb.SaveAs(guardar.FileName);
-                        MessageBox.Show("Reservas exportadas exitosamente.");
-
-                        // ====== ABRIR EL ARCHIVO AUTOMÁTICAMENTE ======
-                        Process.Start(new ProcessStartInfo(guardar.FileName) { UseShellExecute = true });
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al exportar: " + ex.Message);
-                }
+                DataTable tabla = (DataTable)dgv.DataSource;
+                ReservaNegocio negocio = new ReservaNegocio();
+                negocio.ExportarReservasAExcel(tabla, guardar.FileName);
+                MessageBox.Show("Exportación completada.");
             }
         }
+
+
     }
 }

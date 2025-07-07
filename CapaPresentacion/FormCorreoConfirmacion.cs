@@ -30,8 +30,9 @@ namespace CapaPresentacion
         //Cargar reservas pendientes para enviar correos de confirmación en el dgv
         private void CargarReservasPendientes()
         {
-            ReservaNegocio negocio = new ReservaNegocio();
-            dgvConfirmaciones.DataSource = negocio.ObtenerReservasNoConfirmadas();
+            CNCorreo negocio = new CNCorreo(); // Instancia de la clase ReservaNegocio que maneja la lógica de negocio para las reservas
+            dgvConfirmaciones.DataSource = negocio.ObtenerReservasNoConfirmadas(); // Obtiene las reservas pendientes de confirmación
+                                                                                   // desde la base de datos
 
 
         }
@@ -40,12 +41,14 @@ namespace CapaPresentacion
         // boton para enviar correo
         private void btnEnviarCorreo_Click(object sender, EventArgs e)
         {
+            // Verifica si hay una fila seleccionada en el DataGridView
             if (dgvConfirmaciones.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Seleccione una reserva para enviar el correo.");
                 return;
             }
 
+            // Obtiene los datos de la fila seleccionada
             DataGridViewRow fila = dgvConfirmaciones.SelectedRows[0];
             int id = Convert.ToInt32(fila.Cells["ID"].Value);
             string correoDestino = fila.Cells["Correo"].Value.ToString();
@@ -55,6 +58,7 @@ namespace CapaPresentacion
             string dias = fila.Cells["DiasEstadia"].Value.ToString();
             string precio = Convert.ToDecimal(fila.Cells["Precio"].Value).ToString("F2");
 
+            // Construye el asunto y el cuerpo del correo
             string asunto = "Confirmación de Reserva - Lemon Resort";
             string cuerpo = $"Hola {cliente},\n\n" +
                             $"Tu reserva en Lemon Resort ha sido confirmada:\n" +
@@ -65,6 +69,7 @@ namespace CapaPresentacion
                             $"¡Gracias por elegirnos!\n\n" +
                             $"Atentamente,\nLemon Resort";
 
+            // Intenta enviar el correo
             try
             {
                 // Verifica si el correo de destino es válido antes de intentar enviar
@@ -74,39 +79,33 @@ namespace CapaPresentacion
                     return; // Detiene la ejecución si el correo no es válido
                 }
 
-                EnviarCorreo(correoDestino, asunto, cuerpo);
+                // Envía el correo
+                CNCorreo negocioCorreo = new CNCorreo(); // Instancia de la clase CNCorreo que maneja la lógica de negocio para el envío de correos
+                negocioCorreo.EnviarCorreo(correoDestino, asunto, cuerpo); // Llama al método para enviar el correo
+        
 
                 // Marca la reserva como correo enviado
-                ReservaNegocio negocio = new ReservaNegocio();
+                CNCorreo negocio = new CNCorreo();
                 negocio.MarcarCorreoComoEnviado(id);
 
                 MessageBox.Show("Correo enviado correctamente.");
                 CargarReservasPendientes(); // recarga el DGV para que la reserva desaparezca
             }
+            // Captura cualquier excepción al enviar el correo
             catch (Exception ex)
             {
                 MessageBox.Show("Error al enviar el correo: " + ex.Message);
             }
         }
 
-        // Método para enviar correo
-        private void EnviarCorreo(string destino, string asunto, string cuerpo)
+        
+        
+        private void dgvConfirmaciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            MailMessage mensaje = new MailMessage();
-            mensaje.From = new MailAddress("Lemonresort2025@gmail.com");
-            mensaje.To.Add(destino);
-            mensaje.Subject = asunto;
-            mensaje.Body = cuerpo;
 
-            // Configura SMTP
-            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-            smtp.EnableSsl = true;
-            smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new NetworkCredential("Lemonresort2025@gmail.com", "vvqf kdds agic rcwl");
-            smtp.Send(mensaje);
         }
 
-        private void dgvConfirmaciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void lblTituloConfirmaciones_Click(object sender, EventArgs e)
         {
 
         }

@@ -8,8 +8,8 @@ namespace CapaNegocio
 {
     public class Seguridad : Empleado  //clase que hereda de empleado
     {
-        public Seguridad() : base("", 0, "Personal de Seguridad", DateTime.Today) { } //constructor vacio para el metodo calcular sueldo
-        public Seguridad(string nombre, int cedula, DateTime fechaIngreso)
+        public Seguridad() : base("", "", "Personal de Seguridad", DateTime.Today) { } //constructor vacio para el metodo calcular sueldo
+        public Seguridad(string nombre, string cedula, DateTime fechaIngreso)
             : base(nombre, cedula, "Personal de Seguridad", fechaIngreso)
         {
         }

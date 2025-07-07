@@ -43,8 +43,9 @@ namespace CapaPresentacion
 
 
             txtNombreEm.MaxLength = 30; // Limita el nombre 
-            txtCedula.MaxLength = 12; // Limita la cédula 
-            txtBuscarporcedula.MaxLength = 12; // Limita la búsqueda de cédula a 11 caracteres
+            txtCedula.MaxLength = 13; // Limita la cédula a 13 caracteres
+            txtCedula.MaxLength = 13; // Limita la cédula 
+            txtBuscarporcedula.MaxLength = 13; // Limita la búsqueda de cédula
 
             cbCargo.DropDownStyle = ComboBoxStyle.DropDownList; // Evita que el usuario escriba en el ComboBox
         }
@@ -117,11 +118,6 @@ namespace CapaPresentacion
                 return;
             }
 
-            if (!int.TryParse(txtCedula.Text, out int cedula))
-            {
-                MessageBox.Show("Cédula inválida.");
-                return;
-            }
 
             if (string.IsNullOrWhiteSpace(txtSueldo.Text))
             {
@@ -130,6 +126,7 @@ namespace CapaPresentacion
             }
 
             // Creo el empleado segun el cargo seleccionado
+            string cedula = txtCedula.Text.Trim();
             string nombre = txtNombreEm.Text;
             string cargo = cbCargo.SelectedItem.ToString();
             DateTime fechaIngreso = dtpFechasIngresoEm.Value;
@@ -293,16 +290,10 @@ namespace CapaPresentacion
 
 
 
-
-
         private void btnVolverEmpleado_Click(object sender, EventArgs e)  //boton para volver al menu principal
         {
-            Form2 formMenu = new Form2();
-            formMenu.Show();
-            this.Hide();
+           
         }
-
-
 
 
         private void txtNombreEm_KeyPress(object sender, KeyPressEventArgs e)
@@ -352,6 +343,7 @@ namespace CapaPresentacion
 
             EmpleadoNegocio negocio = new EmpleadoNegocio(); // Instancia de la clase EmpleadoNegocio para acceder a
                                                              // los metodos de negocio
+
             DataTable resultado = negocio.BuscarEmpleadoPorCedula(cedula); // Llama al método BuscarEmpleadoPorCedula
                                                                            // para obtener los datos del empleado
                                                                            //es una variable tipo DataTable que
@@ -383,14 +375,14 @@ namespace CapaPresentacion
 
         private void txtBuscarporcedula_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //permitir solo numeros 
+           //solo acepte numeros 
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
-                e.Handled = true; // Ignora la tecla si no es número
+                e.Handled = true; // Si no es un número, ignora la entrada
             }
         }
 
-        private void btnExportarEmpleados_Click(object sender, EventArgs e)
+        private void btnExportarEmpleados_Click(object sender, EventArgs e) // Botón para exportar los datos del DataGridView a un archivo Excel
         {
 
             if (dgvEmpleados.Rows.Count == 0)
@@ -399,31 +391,18 @@ namespace CapaPresentacion
                 return;
             }
 
-            using (var workbook = new XLWorkbook())
+            SaveFileDialog guardar = new SaveFileDialog
             {
-                var worksheet = workbook.Worksheets.Add("Empleados");
+                Filter = "Archivos Excel (*.xlsx)|*.xlsx",
+                FileName = $"Empleados_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx"
+            };
 
-                // Encabezados
-                for (int i = 0; i < dgvEmpleados.Columns.Count; i++)
-                    worksheet.Cell(1, i + 1).Value = dgvEmpleados.Columns[i].HeaderText;
-
-                // Datos
-                for (int i = 0; i < dgvEmpleados.Rows.Count; i++)
-                    for (int j = 0; j < dgvEmpleados.Columns.Count; j++)
-                        worksheet.Cell(i + 2, j + 1).Value = dgvEmpleados.Rows[i].Cells[j].Value?.ToString();
-
-                worksheet.Columns().AdjustToContents();
-
-                var saveFileDialog = new SaveFileDialog
-                {
-                    Filter = "Excel Workbook|*.xlsx",
-                    Title = "Guardar archivo Excel"
-                };
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                { 
-                    workbook.SaveAs(saveFileDialog.FileName);
-                     MessageBox.Show("Datos exportados a Excel correctamente.");
-                 }
+            if (guardar.ShowDialog() == DialogResult.OK)
+            {
+                DataTable tabla = (DataTable)dgvEmpleados.DataSource;
+                EmpleadoNegocio negocio = new EmpleadoNegocio();
+                negocio.ExportarEmpleadosAExcel(tabla, guardar.FileName);
+                MessageBox.Show("Exportación completada.");
             }
 
         }
