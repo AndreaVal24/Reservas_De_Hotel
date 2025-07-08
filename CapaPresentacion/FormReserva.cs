@@ -156,16 +156,7 @@ namespace CapaPresentacion
                 return;
             }
 
-            // VALIDACIÓN DE FECHA: debe ser al menos con 24h de anticipación
-         //   if (idReservaEditando == -1)  // Solo se aplica si NO estamos editando
-      //      {
-                DateTime fechaSeleccionada = dtpFecha.Value.Date;
-                if (fechaSeleccionada <= DateTime.Today)
-                {
-                    MessageBox.Show("La fecha de la reserva debe hacerse con al menos 24 horas de anticipación.");
-                    return;
-                }
-      //      }
+         
 
 
             //insertar datos
