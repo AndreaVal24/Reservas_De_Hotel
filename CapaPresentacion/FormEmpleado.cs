@@ -29,6 +29,9 @@ namespace CapaPresentacion
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            dgvEmpleados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+
             this.DoubleBuffered = true;
             this.AutoScaleMode = AutoScaleMode.None; // Evita redibujos innecesarios
 

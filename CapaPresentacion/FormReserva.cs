@@ -34,6 +34,9 @@ namespace CapaPresentacion
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+
             this.DoubleBuffered = true; // Mejora el rendimiento al reducir el parpadeo
             this.AutoScaleMode = AutoScaleMode.None; // Evita redibujos innecesarios
 

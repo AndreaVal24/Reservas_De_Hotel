@@ -25,6 +25,8 @@ namespace CapaPresentacion
         private void FormEstadisticas_Load(object sender, EventArgs e)
         {
             CargarReservasPendientes();
+            dgvConfirmaciones.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
 
         }
 

@@ -51,7 +51,7 @@
             dataGridViewCellStyle1.BackColor = Color.DarkGoldenrod;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionBackColor = Color.DarkGoldenrod;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvConfirmaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
@@ -66,7 +66,8 @@
             dgvConfirmaciones.DefaultCellStyle = dataGridViewCellStyle2;
             dgvConfirmaciones.EnableHeadersVisualStyles = false;
             dgvConfirmaciones.GridColor = Color.Black;
-            dgvConfirmaciones.Location = new Point(211, 114);
+            dgvConfirmaciones.Location = new Point(217, 114);
+            dgvConfirmaciones.MultiSelect = false;
             dgvConfirmaciones.Name = "dgvConfirmaciones";
             dgvConfirmaciones.ReadOnly = true;
             dgvConfirmaciones.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -78,10 +79,11 @@
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dgvConfirmaciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dgvConfirmaciones.RowHeadersVisible = false;
             dgvConfirmaciones.RowHeadersWidth = 62;
             dataGridViewCellStyle4.BackColor = Color.Ivory;
             dgvConfirmaciones.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            dgvConfirmaciones.Size = new Size(1257, 441);
+            dgvConfirmaciones.Size = new Size(1238, 441);
             dgvConfirmaciones.TabIndex = 22;
             dgvConfirmaciones.CellContentClick += dgvConfirmaciones_CellContentClick;
             // 
@@ -91,7 +93,7 @@
             btnEnviarCorreo.FlatStyle = FlatStyle.Flat;
             btnEnviarCorreo.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEnviarCorreo.ForeColor = Color.White;
-            btnEnviarCorreo.Location = new Point(603, 592);
+            btnEnviarCorreo.Location = new Point(609, 592);
             btnEnviarCorreo.Name = "btnEnviarCorreo";
             btnEnviarCorreo.Size = new Size(422, 58);
             btnEnviarCorreo.TabIndex = 1;

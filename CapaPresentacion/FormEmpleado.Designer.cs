@@ -165,7 +165,7 @@
             dataGridViewCellStyle1.BackColor = Color.DarkGoldenrod;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionBackColor = Color.DarkGoldenrod;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
@@ -181,6 +181,7 @@
             dgvEmpleados.EnableHeadersVisualStyles = false;
             dgvEmpleados.GridColor = Color.Black;
             dgvEmpleados.Location = new Point(573, 32);
+            dgvEmpleados.MultiSelect = false;
             dgvEmpleados.Name = "dgvEmpleados";
             dgvEmpleados.ReadOnly = true;
             dgvEmpleados.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -192,10 +193,11 @@
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dgvEmpleados.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dgvEmpleados.RowHeadersVisible = false;
             dgvEmpleados.RowHeadersWidth = 62;
             dataGridViewCellStyle4.BackColor = Color.Ivory;
             dgvEmpleados.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            dgvEmpleados.Size = new Size(963, 376);
+            dgvEmpleados.Size = new Size(945, 376);
             dgvEmpleados.TabIndex = 22;
             dgvEmpleados.CellContentClick += dgvEmpleados_CellContentClick;
             // 

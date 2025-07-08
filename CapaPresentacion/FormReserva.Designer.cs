@@ -237,7 +237,7 @@
             dataGridViewCellStyle1.BackColor = Color.DarkGoldenrod;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionBackColor = Color.DarkGoldenrod;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
@@ -253,6 +253,7 @@
             dgv.EnableHeadersVisualStyles = false;
             dgv.GridColor = Color.Black;
             dgv.Location = new Point(554, 34);
+            dgv.MultiSelect = false;
             dgv.Name = "dgv";
             dgv.ReadOnly = true;
             dgv.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -264,6 +265,7 @@
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dgv.RowHeadersVisible = false;
             dgv.RowHeadersWidth = 62;
             dataGridViewCellStyle4.BackColor = Color.Ivory;
             dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
