@@ -1,16 +1,17 @@
-﻿using System;
+﻿using CapaDatos;
+using CapaNegocio;
+using DocumentFormat.OpenXml.Wordprocessing;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Net;
-using System.Net.Mail;
-using CapaNegocio;
-using CapaDatos;
 
 namespace CapaPresentacion
 {
@@ -33,7 +34,10 @@ namespace CapaPresentacion
             CNCorreo negocio = new CNCorreo(); // Instancia de la clase ReservaNegocio que maneja la lógica de negocio para las reservas
             dgvConfirmaciones.DataSource = negocio.ObtenerReservasNoConfirmadas(); // Obtiene las reservas pendientes de confirmación
                                                                                    // desde la base de datos
-
+            if (dgvConfirmaciones.Columns.Contains("CorreoEnviado"))
+            {
+                dgvConfirmaciones.Columns["CorreoEnviado"].Visible = false;  // Oculta la columna CorreoEnviado en el DataGridView
+            }
 
         }
 

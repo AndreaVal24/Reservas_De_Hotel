@@ -145,7 +145,7 @@
             btnEliminarEmpleado.FlatStyle = FlatStyle.Flat;
             btnEliminarEmpleado.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic);
             btnEliminarEmpleado.ForeColor = Color.White;
-            btnEliminarEmpleado.Location = new Point(811, 381);
+            btnEliminarEmpleado.Location = new Point(811, 414);
             btnEliminarEmpleado.Name = "btnEliminarEmpleado";
             btnEliminarEmpleado.Size = new Size(205, 34);
             btnEliminarEmpleado.TabIndex = 7;
@@ -195,7 +195,7 @@
             dgvEmpleados.RowHeadersWidth = 62;
             dataGridViewCellStyle4.BackColor = Color.Ivory;
             dgvEmpleados.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            dgvEmpleados.Size = new Size(963, 343);
+            dgvEmpleados.Size = new Size(963, 376);
             dgvEmpleados.TabIndex = 22;
             dgvEmpleados.CellContentClick += dgvEmpleados_CellContentClick;
             // 
@@ -256,7 +256,7 @@
             btnEditarEm.FlatStyle = FlatStyle.Flat;
             btnEditarEm.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic);
             btnEditarEm.ForeColor = Color.White;
-            btnEditarEm.Location = new Point(1048, 381);
+            btnEditarEm.Location = new Point(1048, 414);
             btnEditarEm.Name = "btnEditarEm";
             btnEditarEm.Size = new Size(205, 34);
             btnEditarEm.TabIndex = 16;
@@ -279,7 +279,7 @@
             btnBuscarporcedula.FlatStyle = FlatStyle.Flat;
             btnBuscarporcedula.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBuscarporcedula.ForeColor = Color.White;
-            btnBuscarporcedula.Location = new Point(1316, 493);
+            btnBuscarporcedula.Location = new Point(1316, 526);
             btnBuscarporcedula.Name = "btnBuscarporcedula";
             btnBuscarporcedula.Size = new Size(220, 41);
             btnBuscarporcedula.TabIndex = 23;
@@ -289,7 +289,7 @@
             // 
             // txtBuscarporcedula
             // 
-            txtBuscarporcedula.Location = new Point(1316, 454);
+            txtBuscarporcedula.Location = new Point(1316, 487);
             txtBuscarporcedula.Name = "txtBuscarporcedula";
             txtBuscarporcedula.Size = new Size(220, 31);
             txtBuscarporcedula.TabIndex = 24;
@@ -302,7 +302,7 @@
             btnMostrar.FlatStyle = FlatStyle.Flat;
             btnMostrar.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic);
             btnMostrar.ForeColor = Color.White;
-            btnMostrar.Location = new Point(574, 381);
+            btnMostrar.Location = new Point(574, 414);
             btnMostrar.Name = "btnMostrar";
             btnMostrar.Size = new Size(205, 34);
             btnMostrar.TabIndex = 25;
@@ -317,7 +317,7 @@
             btnExportarEmpleados.FlatStyle = FlatStyle.Flat;
             btnExportarEmpleados.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnExportarEmpleados.ForeColor = Color.White;
-            btnExportarEmpleados.Location = new Point(1316, 556);
+            btnExportarEmpleados.Location = new Point(1316, 589);
             btnExportarEmpleados.Name = "btnExportarEmpleados";
             btnExportarEmpleados.Size = new Size(220, 41);
             btnExportarEmpleados.TabIndex = 26;

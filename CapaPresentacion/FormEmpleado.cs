@@ -209,6 +209,8 @@ namespace CapaPresentacion
                 {
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
+                    dgvEmpleados.DataSource = dt;
+
                     adapter.Fill(dt);
                     
                 }

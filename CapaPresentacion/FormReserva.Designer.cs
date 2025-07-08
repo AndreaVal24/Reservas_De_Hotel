@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             PictureBox pictureBox1;
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             lblHotel = new Label();
             lblCliente = new Label();
             lblHabitacion = new Label();
@@ -233,41 +233,41 @@
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv.BackgroundColor = Color.Snow;
             dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.DarkGoldenrod;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.DarkGoldenrod;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Window;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dgv.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgv.DefaultCellStyle = dataGridViewCellStyle2;
             dgv.EnableHeadersVisualStyles = false;
             dgv.GridColor = Color.Black;
             dgv.Location = new Point(554, 34);
             dgv.Name = "dgv";
             dgv.ReadOnly = true;
             dgv.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = Color.LightYellow;
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = Color.LightYellow;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.LightYellow;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = Color.LightYellow;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgv.RowHeadersWidth = 62;
-            dataGridViewCellStyle8.BackColor = Color.Ivory;
-            dgv.RowsDefaultCellStyle = dataGridViewCellStyle8;
-            dgv.Size = new Size(1026, 371);
+            dataGridViewCellStyle4.BackColor = Color.Ivory;
+            dgv.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dgv.Size = new Size(1036, 406);
             dgv.TabIndex = 22;
             // 
             // btnEliminar
@@ -277,7 +277,7 @@
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnEliminar.ForeColor = Color.White;
-            btnEliminar.Location = new Point(734, 417);
+            btnEliminar.Location = new Point(734, 446);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(149, 39);
             btnEliminar.TabIndex = 23;
@@ -292,7 +292,7 @@
             btnEditarRe.FlatStyle = FlatStyle.Flat;
             btnEditarRe.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnEditarRe.ForeColor = Color.White;
-            btnEditarRe.Location = new Point(908, 417);
+            btnEditarRe.Location = new Point(908, 446);
             btnEditarRe.Name = "btnEditarRe";
             btnEditarRe.Size = new Size(149, 41);
             btnEditarRe.TabIndex = 25;
@@ -307,7 +307,7 @@
             btnBuscarporfecha.FlatStyle = FlatStyle.Flat;
             btnBuscarporfecha.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnBuscarporfecha.ForeColor = Color.White;
-            btnBuscarporfecha.Location = new Point(1243, 515);
+            btnBuscarporfecha.Location = new Point(1243, 544);
             btnBuscarporfecha.Name = "btnBuscarporfecha";
             btnBuscarporfecha.Size = new Size(337, 40);
             btnBuscarporfecha.TabIndex = 28;
@@ -318,7 +318,7 @@
             // dtpHASTA
             // 
             dtpHASTA.Format = DateTimePickerFormat.Short;
-            dtpHASTA.Location = new Point(1412, 469);
+            dtpHASTA.Location = new Point(1412, 498);
             dtpHASTA.Name = "dtpHASTA";
             dtpHASTA.Size = new Size(168, 31);
             dtpHASTA.TabIndex = 30;
@@ -330,7 +330,7 @@
             btnMostrartodo.FlatStyle = FlatStyle.Flat;
             btnMostrartodo.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             btnMostrartodo.ForeColor = Color.White;
-            btnMostrartodo.Location = new Point(554, 417);
+            btnMostrartodo.Location = new Point(554, 446);
             btnMostrartodo.Name = "btnMostrartodo";
             btnMostrartodo.Size = new Size(152, 39);
             btnMostrartodo.TabIndex = 31;
@@ -341,7 +341,7 @@
             // dtpDESDE
             // 
             dtpDESDE.Format = DateTimePickerFormat.Short;
-            dtpDESDE.Location = new Point(1243, 469);
+            dtpDESDE.Location = new Point(1243, 498);
             dtpDESDE.Name = "dtpDESDE";
             dtpDESDE.Size = new Size(163, 31);
             dtpDESDE.TabIndex = 29;
@@ -353,7 +353,7 @@
             btnExportarReservas.FlatStyle = FlatStyle.Flat;
             btnExportarReservas.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnExportarReservas.ForeColor = Color.White;
-            btnExportarReservas.Location = new Point(1243, 572);
+            btnExportarReservas.Location = new Point(1243, 601);
             btnExportarReservas.Name = "btnExportarReservas";
             btnExportarReservas.Size = new Size(337, 40);
             btnExportarReservas.TabIndex = 32;
