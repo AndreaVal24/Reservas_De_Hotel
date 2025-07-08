@@ -43,11 +43,13 @@ namespace CapaPresentacion
             cbHabitacion.Items.Add("Con Desayuno");
             cbHabitacion.SelectedIndex = 0; // Selecciona el primer elemento por defecto
 
+            dtpFecha.Value = DateTime.Today;
+
 
             txtCliente.MaxLength = 30; // Limita el número de caracteres del campo Cliente a 50
             txtNumeroHabitacion.MaxLength = 3; // Limita el número de caracteres del campo NumeroHabitacion 
             txtDiasEstadia.MaxLength = 3; // Limita el número de caracteres del campo DiasEstadia
-            txtCorreo.MaxLength = 99; // Limita el número de caracteres del campo Correo a 99   
+            txtCorreo.MaxLength = 30; // Limita el número de caracteres del campo Correo
 
             cbHabitacion.DropDownStyle = ComboBoxStyle.DropDownList; // Evita que el usuario pueda escribir en el ComboBox
         }
@@ -57,7 +59,8 @@ namespace CapaPresentacion
             cbHabitacion.SelectedIndex = 0;
             txtNumeroHabitacion.Text = "";
             txtDiasEstadia.Text = "";
-            dtpFecha.Value = DateTime.Today;
+            dtpFecha.MinDate = DateTime.Today.AddDays(1); // Restringe la fecha mínima a mañana
+            dtpFecha.Value = dtpFecha.MinDate; // Establece la fecha por defecto a mañana
             txtTotal.Text = "";
             txtCorreo.Text = "";
 
@@ -154,15 +157,15 @@ namespace CapaPresentacion
             }
 
             // VALIDACIÓN DE FECHA: debe ser al menos con 24h de anticipación
-            if (idReservaEditando == -1)  // Solo se aplica si NO estamos editando
-            {
+         //   if (idReservaEditando == -1)  // Solo se aplica si NO estamos editando
+      //      {
                 DateTime fechaSeleccionada = dtpFecha.Value.Date;
                 if (fechaSeleccionada <= DateTime.Today)
                 {
                     MessageBox.Show("La fecha de la reserva debe hacerse con al menos 24 horas de anticipación.");
                     return;
                 }
-            }
+      //      }
 
 
             //insertar datos
@@ -313,9 +316,11 @@ namespace CapaPresentacion
         }
 
 
+
+
         private int idReservaEditando = -1; // Variable para almacenar el ID de la reserva que se está editando
 
-        // Botón para editar una reserva
+        // Botón para EDITAR una reserva
         private void btnEditarRe_Click(object sender, EventArgs e)
         {
             if (dgv.SelectedRows.Count == 0)
@@ -325,7 +330,7 @@ namespace CapaPresentacion
             }
 
             DialogResult confirm = MessageBox.Show(
-                "¿Estás seguro de que deseas editar los datos del empleado seleccionado?",
+                "¿Estás seguro de que deseas editar los datos del cliente seleccionado?",
                 "Confirmar Edición",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
@@ -333,7 +338,7 @@ namespace CapaPresentacion
             if (confirm == DialogResult.No)
             {
                 return; // Si el usuario cancela, no hace nada, el return hace que se salga del metodo
-                //si el usuario presiona No, no se ejecuta el resto del código, si presiona Si, se continua con el resto del código
+                        //si el usuario presiona No, no se ejecuta el resto del código, si presiona Si, se continua con el resto del código
             }
 
             DataGridViewRow fila = dgv.SelectedRows[0]; //esto obtiene la fila seleccionada en el DataGridView
@@ -352,14 +357,12 @@ namespace CapaPresentacion
             dtpFecha.Value = Convert.ToDateTime(fila.Cells["Fecha"].Value);
             txtCorreo.Text = fila.Cells["Correo"].Value?.ToString(); // Asegura que el correo no sea nulo
 
-
-            dtpFecha.MinDate = DateTimePicker.MinimumDateTime;
-            dtpFecha.Value = Convert.ToDateTime(fila.Cells["Fecha"].Value);
+            // Restaurar restricción para que solo se puedan seleccionar fechas con al menos 24h de anticipación
+            dtpFecha.MinDate = DateTime.Today.AddDays(1);
 
             btnReservar.Text = "Guardar cambios"; // Cambia el texto del botón
             btnReservar.BackColor = Color.DarkOliveGreen;
             btnReservar.ForeColor = Color.White;
-
 
 
         }

@@ -43,6 +43,7 @@
             dgvConfirmaciones.AllowUserToAddRows = false;
             dgvConfirmaciones.AllowUserToDeleteRows = false;
             dgvConfirmaciones.AllowUserToResizeColumns = false;
+            dgvConfirmaciones.AllowUserToResizeRows = false;
             dgvConfirmaciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvConfirmaciones.BackgroundColor = Color.Snow;
             dgvConfirmaciones.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;

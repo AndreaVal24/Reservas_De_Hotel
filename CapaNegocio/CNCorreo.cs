@@ -26,7 +26,7 @@ namespace CapaNegocio
             {
                 conn.Open();
                 string query = "UPDATE Reserva SET CorreoEnviado = 1 WHERE ID = @ID";  // Actualiza el campo CorreoEnviado a 1 para la reserva especificada
-                                                                                       //quotandolas asi del dgv del form correo confirmacion
+                                                                                       //quitandolas asi del dgv del form correo confirmacion
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@ID", idReserva);

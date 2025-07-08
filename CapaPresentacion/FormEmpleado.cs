@@ -1,17 +1,19 @@
-﻿using System;
+﻿using CapaDatos;
+using CapaNegocio;
+using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Wordprocessing;
+using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CapaDatos;
-using CapaNegocio;
-using Microsoft.Data.SqlClient;
-using ClosedXML.Excel;
-using System.Diagnostics;
+
 
 
 namespace CapaPresentacion
@@ -40,14 +42,18 @@ namespace CapaPresentacion
             cbCargo.Items.Add("Personal de Seguridad");
 
             cbCargo.SelectedIndex = 0; // Selecciona el primer elemento por defecto
-
+            dtpFechasIngresoEm.Value = DateTime.Today; // Establece la fecha de ingreso al día actual
 
             txtNombreEm.MaxLength = 30; // Limita el nombre 
-            txtCedula.MaxLength = 13; // Limita la cédula a 13 caracteres
-            txtCedula.MaxLength = 13; // Limita la cédula 
+
+            //a la cedula no le agregue Masketextbox porque no quiero solo el formato de cedula dominicana
+            //quiero que el usuario pueda ingresar cualquier cedula, la mas larga es de 11 caracteres
+
+            txtCedula.MaxLength = 11; // Limita la cédula 
             txtBuscarporcedula.MaxLength = 13; // Limita la búsqueda de cédula
 
             cbCargo.DropDownStyle = ComboBoxStyle.DropDownList; // Evita que el usuario escriba en el ComboBox
+
         }
 
 
@@ -204,7 +210,7 @@ namespace CapaPresentacion
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
-                    dgvEmpleados.DataSource = dt;
+                    
                 }
             }
         }
@@ -253,7 +259,7 @@ namespace CapaPresentacion
 
         private int idEmpleadoEditado = -1; // Variable para almacenar el ID del empleado que se está editando
 
-        //boton para editar
+        //boton para EDITAR
         private void btnEditarEm_Click(object sender, EventArgs e)
         {
             if (dgvEmpleados.SelectedRows.Count == 0)
@@ -284,8 +290,8 @@ namespace CapaPresentacion
             dtpFechasIngresoEm.Value = Convert.ToDateTime(row.Cells["Fecha_Ingreso"].Value);
 
             btnAgregarEmpleado.Text = "Guardar Cambios"; // Cambia el texto del botón
-            btnAgregarEmpleado.BackColor = Color.LightBlue; // Cambia el color de fondo del botón
-            btnAgregarEmpleado.ForeColor = Color.Black; // Cambia el color del texto del botón
+            btnAgregarEmpleado.BackColor = System.Drawing.Color.DarkOliveGreen;
+            btnAgregarEmpleado.ForeColor = System.Drawing.Color.White;
         }
 
 
