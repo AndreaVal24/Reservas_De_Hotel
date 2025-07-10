@@ -128,7 +128,7 @@ namespace CapaPresentacion
 
         }
 
-        private void Reset()
+        private void Reset() 
         {
             BotonDesactivado();
             leftBorderBtn.Visible = false;

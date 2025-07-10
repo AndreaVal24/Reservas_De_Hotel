@@ -173,8 +173,8 @@ namespace CapaPresentacion
 
                 idEmpleadoEditado = -1;
                 btnAgregarEmpleado.Text = "Agregar Empleado";
-                btnAgregarEmpleado.BackColor = SystemColors.Control; // Cambia el color de fondo del botón a su valor por defecto
-                btnAgregarEmpleado.ForeColor = SystemColors.ControlText;
+                btnAgregarEmpleado.BackColor = System.Drawing.Color.DarkGoldenrod; // Cambia el color de fondo del botón a su valor por defecto
+                btnAgregarEmpleado.ForeColor = System.Drawing.Color.White;
             }
             else  // agregando un nuevo empleado
             {

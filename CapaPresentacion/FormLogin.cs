@@ -103,6 +103,8 @@ namespace CapaPresentacion
         // Evento para el botón de inicio de sesión
         private void btnLogin_Click(object sender, EventArgs e)
         {
+       
+
             try
             {
                 string usuario = txtuser.Text.Trim(); // Elimina espacios en blanco al inicio y al final
@@ -113,6 +115,19 @@ namespace CapaPresentacion
                     MessageBox.Show("Por favor, ingrese usuario y contraseña.");
                     return;
                 }
+
+                
+                string caracteresInvalidos = "'\";-- "; // Define los caracteres no permitidos en el usuario y la contraseña
+
+                foreach (char c in caracteresInvalidos) // Recorre cada carácter no permitido
+                {
+                    if (usuario.Contains(c) || contrasena.Contains(c))  // Verifica si el usuario o la contraseña contienen caracteres no permitidos
+                    {
+                        MessageBox.Show("El usuario o la contraseña contiene caracteres no permitidos (como comillas, punto y coma o espacios).");
+                        return;
+                    }
+                }
+
 
                 CNUsuario acceso = new CNUsuario(); // Instancia de la clase CNUsuario que maneja la lógica de negocio para el login
                 string rol = acceso.VerificarLogin(usuario, contrasena); // Llama al método para verificar el login
@@ -143,7 +158,8 @@ namespace CapaPresentacion
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-
+            txtuser.MaxLength = 20; // Establece el máximo de caracteres para el campo de usuario
+            txtpass.MaxLength = 20; // Establece el máximo de caracteres para el campo de contraseña
         }
     }
 }

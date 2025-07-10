@@ -46,7 +46,8 @@ namespace CapaPresentacion
             cbHabitacion.Items.Add("Con Desayuno");
             cbHabitacion.SelectedIndex = 0; // Selecciona el primer elemento por defecto
 
-            dtpFecha.Value = DateTime.Today;
+            dtpFecha.MinDate = DateTime.Today.AddDays(1); // Restringe la fecha mínima a mañana
+            dtpFecha.Value = dtpFecha.MinDate; // Establece la fecha por defecto a mañana
 
 
             txtCliente.MaxLength = 30; // Limita el número de caracteres del campo Cliente a 50
@@ -138,7 +139,8 @@ namespace CapaPresentacion
                 MessageBox.Show("El correo contiene caracteres no válidos.");
                 return;
             }
-            if (!Regex.IsMatch(correo, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            if(!Regex.IsMatch(correo, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")) //regex es una expresion regular que valida el formato del correo
+
             {
                 MessageBox.Show("Ingrese un correo válido.");
                 return;
@@ -194,7 +196,7 @@ namespace CapaPresentacion
             int idConsulta = (idReservaEditando != -1) ? idReservaEditando : -1; // Esto permite que el método de negocio
                                                                                  // pueda manejar tanto la creación como
                                                                                  // la edición de reservas.
-                                                                                 //el operador ? sirve para asignar el idReservaEditando
+                                                                                
 
             if (negocio.ExisteConflictoReserva(reserva.Numero_Habitacion, reserva.Fecha, reserva.DiasEstadia, idConsulta)) // Verifica si ya existe una reserva para esa habitación en las mismas fechas
             {
@@ -212,8 +214,8 @@ namespace CapaPresentacion
                 idReservaEditando = -1; // Reseteamos el ID de edición
 
                 btnReservar.Text = "Guardar reserva"; // Cambiamos el texto del botón de nuevo a "Guardar reserva"
-                btnReservar.BackColor = Color.White;
-                btnReservar.ForeColor = Color.DarkGoldenrod;
+                btnReservar.BackColor = Color.DarkGoldenrod;
+                btnReservar.ForeColor = Color.White;
 
             }
 
