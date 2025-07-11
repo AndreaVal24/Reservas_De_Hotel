@@ -239,6 +239,45 @@ namespace CapaNegocio
         }
 
 
+        // Lista de reservas temporal para uso en el formulario reservas
+        // me permite almacenar temporalmente los datos de las reservas en memoria, usando C# sin tener que
+        // volver a consultar la base de datos.
+        public List<Reserva> ObtenerReservasComoLista()
+        {
+            List<Reserva> lista = new List<Reserva>();
+
+            using (SqlConnection conn = new SqlConnection(conexion.CadenaConexion))
+            {
+                conn.Open();
+                string query = "SELECT * FROM Reserva";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read()) //este while recorre cada fila del resultado de la consulta
+                                      //para crear una lista de reservas
+                {
+                    Reserva r = new Reserva
+                    {
+                        ID = Convert.ToInt32(reader["ID"]),
+                        Cliente = reader["Cliente"].ToString(),
+                        Habitacion = reader["Habitacion"].ToString(),
+                        Numero_Habitacion = Convert.ToInt32(reader["Numero_Habitacion"]),
+                        Fecha = Convert.ToDateTime(reader["Fecha"]),
+                        DiasEstadia = Convert.ToInt32(reader["DiasEstadia"]),
+                        Precio = Convert.ToDecimal(reader["Precio"]),
+                        Correo = reader["Correo"].ToString(),
+                        CorreoEnviado = reader["CorreoEnviado"] != DBNull.Value && Convert.ToBoolean(reader["CorreoEnviado"])
+                    };
+                    lista.Add(r); // agrega la reserva a la lista
+                }
+
+                reader.Close();
+                conn.Close();
+            }
+
+            return lista;
+        }
+
 
     }
 }
