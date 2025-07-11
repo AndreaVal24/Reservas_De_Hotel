@@ -233,6 +233,12 @@ namespace CapaPresentacion
             ObtenerReservas(); // Actualiza el DataGridView para mostrar la nueva reserva
         }
 
+
+        private List<Reserva> listaTemporalReservas = new List<Reserva>();
+        // se usa solo de forma interna para almacenar temporalmente todas las reservas
+        // que se cargan desde la base de datos. Para cumplir con el requisito
+
+
         //DGV
         private void ObtenerReservas()
         {
@@ -245,6 +251,28 @@ namespace CapaPresentacion
                 adapt = new SqlDataAdapter("SELECT * FROM Reserva", conn);
                 adapt.Fill(dt);
                 dgv.DataSource = dt;
+
+                listaTemporalReservas.Clear(); // Limpia la lista para evitar duplicados
+
+                foreach (DataRow row in dt.Rows) // Recorre cada fila del DataTable
+                {
+                    Reserva r = new Reserva();
+                    r.ID = Convert.ToInt32(row["ID"]);
+                    r.Cliente = row["Cliente"].ToString();
+                    r.Habitacion = row["Habitacion"].ToString();
+                    r.Numero_Habitacion = Convert.ToInt32(row["Numero_Habitacion"]);
+                    r.Fecha = Convert.ToDateTime(row["Fecha"]);
+                    r.DiasEstadia = Convert.ToInt32(row["DiasEstadia"]);
+                    r.Precio = Convert.ToDecimal(row["Precio"]);
+                    r.Correo = row["Correo"]?.ToString();
+                    r.CorreoEnviado = row.Table.Columns.Contains("CorreoEnviado") && row["CorreoEnviado"] != DBNull.Value
+                        ? Convert.ToBoolean(row["CorreoEnviado"])
+                        : false;
+
+                    listaTemporalReservas.Add(r); // Esto agrega la reserva a la lista temporal
+                }
+
+
                 if (dgv.Columns.Contains("CorreoEnviado"))
                 {
                     dgv.Columns["CorreoEnviado"].Visible = false;  // Oculta la columna CorreoEnviado en el DataGridView
